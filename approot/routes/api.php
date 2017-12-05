@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\nequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------

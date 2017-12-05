@@ -1960,7 +1960,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Component\\nouting\\": ""
+                    "Symfony\\Component\\Routing\\": ""
                 },
                 "exclude-from-classmap": [
                     "/Tests/"
@@ -2679,7 +2679,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\neflection\\": [
+                    "phpDocumentor\\Reflection\\": [
                         "src"
                     ]
                 }
@@ -2738,7 +2738,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\neflection\\": [
+                    "phpDocumentor\\Reflection\\": [
                         "src/"
                     ]
                 }
@@ -2786,7 +2786,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\neflection\\": [
+                    "phpDocumentor\\Reflection\\": [
                         "src/"
                     ]
                 }
