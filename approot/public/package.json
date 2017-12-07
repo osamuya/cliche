@@ -1,15 +1,15 @@
 {
-  "name": "starter-kit",
-  "version": "1.0.0",
+  "name": "Shiiiiho-kit",
+  "version": "1.0.1",
   "main": "index.js",
-  "author": "",
-  "description": "",
+  "author": "shiiiiho",
+  "description": "postcss:: browser-sync:: It is very convenient to compile css, js and various others with node_module",
   "license": "ISC",
   "scripts": {
     "start": "npm-run-all -p postcss watchify server",
-    "server": "browser-sync start --server ./public/ --port 3000 --files \"./public/**/*.html,./public/**/*.php,./public/assets/css/style.css,./public/assets/js/bundle.js\"",
-    "postcss": "postcss --config config/postcss.json -o ./public/assets/css/style.css ./src/css/style.css -w",
-    "watchify": "watchify ./src/js/main.js -o ./public/assets/js/bundle.js -v wait;"
+    "server": "browser-sync start --proxy cliche.local --port 3000 --files \"./**/*.html,./**/*.php,./assets/css/style.css,./assets/js/bundle.js\"",
+    "postcss": "postcss --config config/postcss.json -o ./assets/css/style.css ./npmsrc/css/style.css -w",
+    "watchify": "watchify ./npmsrc/js/main.js -o ./assets/js/bundle.js -v wait;"
   },
   "browserify": {
     "transform": [
