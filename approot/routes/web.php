@@ -21,11 +21,13 @@ Route::get('/', function () {
  * 2017-12-06
  * by cliche
  */
-if (env("APP_ENV")=="local") {
+if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     /* Develop index */
     Route::get('/list', function () { return view('develop.list');});
 
     /* Bootstrap3 */
     Route::get('/bootstra3/index', function () { return view('bootstrap3.index');});
+	Route::get('/bootstra3/toppage', function () { return view('bootstrap3.toppage');});
+	Route::get('/bootstra3/template', function () { return view('bootstrap3.template');});
 }
 
