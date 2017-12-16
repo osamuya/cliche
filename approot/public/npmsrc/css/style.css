@@ -12,19 +12,7 @@
 /*bootstrap*/
 @import "foundation/bootstrap.min.css";
 
-h1{
-    font-size: 30px;
-    padding: 200px 2px 300px;
-    text-align: center;
-    @mixin sp{
-        font-size: 12px;
-    }
+
+body {
+    background: #0ff;
 }
-.wrapper{
-    width: 90%;
-    margin: 2% auto;
-}
-
-
-
-

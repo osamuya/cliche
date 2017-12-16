@@ -201,22 +201,6 @@ blockquote:before{
     background:#d4dcd6;
 }
 
-.pci{
-    display:inline
-}
-
-.spi{
-    display:none
-}
-
-.pc{
-    display:block
-}
-
-.sp{
-    display:none
-}
-
 @charset "utf-8";
 
 .cr{
@@ -2535,38 +2519,8 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 
 .visible-print-inline-block{display:none !important}
 
-h1{
-    font-size:30px;
-    padding:200px 2px 300px;
-    text-align:center
-}
-
-.wrapper{
-    width:90%;
-    margin:2% auto;
-}
-
-@media print, screen and (max-width: 640px){
-
-    .pci{
-        display:none;
-    }
-
-    .spi{
-        display:inline;
-    }
-
-    .pc{
-        display:none;
-    }
-
-    .sp{
-        display:block;
-    }
-
-    h1{
-        font-size:12px;
-    }
+body{
+    background:#0ff;
 }
 
 @media print{
@@ -3964,7 +3918,3 @@ h1{
         display:none !important;
     }
 }
-
-
-
-

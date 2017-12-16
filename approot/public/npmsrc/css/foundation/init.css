@@ -124,6 +124,7 @@ blockquote:before{
 ::-moz-selection {
     background: #d4dcd6; /* Firefox */
 }
+/*
 .pci{
     display:inline;
     @mixin sp{
@@ -148,3 +149,4 @@ blockquote:before{
         display:block;
     }
 }
+*/

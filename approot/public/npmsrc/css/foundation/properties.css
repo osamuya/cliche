@@ -3,9 +3,20 @@
  * 各scssファイルでよく使う値を変数定義
  */
 
-//ブレイクポイント
+// Normal break point
 $breakPoint: 640px;
 
+// Break posint for Bootstrap
+/*
+[xs] - 767px
+[sm] 768px - 991px
+[md] 992 - 1119px
+[lg] 1200px -
+*/
+$breakPoint_xs: 767px;
+$breakPoint_sm: 768px;
+$breakPoint_md: 991px;
+$breakPoint_lg: 1200px;
 
 //サイト全体のフォントカラー
 $color_txt: #464646;
