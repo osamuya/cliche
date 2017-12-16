@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+foobar
 {{ $parameter->hello }}
 @endsection
 

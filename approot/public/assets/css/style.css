@@ -2519,10 +2519,6 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 
 .visible-print-inline-block{display:none !important}
 
-body{
-    background:#0ff;
-}
-
 @media print{
 
     *, *:before, *:after{
@@ -3918,3 +3914,5 @@ body{
         display:none !important;
     }
 }
+
+
