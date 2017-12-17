@@ -250,6 +250,10 @@ header{
 
 }
 
+.footer .copyright{
+    text-align:center;
+}
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2017 Twitter, Inc.
@@ -2519,6 +2523,10 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 
 .visible-print-inline-block{display:none !important}
 
+.fa{
+    line-height:2px;
+}
+
 @media print{
 
     *, *:before, *:after{
@@ -3914,5 +3922,4 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
         display:none !important;
     }
 }
-
 

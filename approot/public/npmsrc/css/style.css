@@ -12,4 +12,8 @@
 /*bootstrap*/
 @import "foundation/bootstrap.min.css";
 
+/* awesome icon */
+.fa {
+    line-height: 2px;
+}
 

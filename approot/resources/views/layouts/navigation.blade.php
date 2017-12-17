@@ -1,3 +1,11 @@
+<?php
+/**
+Referer to:
+http://bootstrap3-guide.com/compornent/demo_navbar.html
+
+Menu parameter settiings on app/Http/Controllers/SetParameter.php
+*/
+?>
 <nav class="navbar-default navbar navbar-static-top">
 	<div class="container">
 		<div class="navbar-header">
