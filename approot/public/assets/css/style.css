@@ -2523,8 +2523,28 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 
 .visible-print-inline-block{display:none !important}
 
+body{
+    letter-spacing:1px;
+}
+
 .fa{
     line-height:2px;
+}
+
+.jumbotron{
+    margin-top:-68px;
+
+}
+
+.jumbotron .item{
+    position:relative;
+}
+
+.jumbotron .item .carousel-text{
+    position:absolute;
+    top:10%;
+    left:10%;
+    color:#fff;
 }
 
 @media print{
@@ -3922,4 +3942,3 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
         display:none !important;
     }
 }
-
