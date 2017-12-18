@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>{{ $parameter->app_name }}</title>
 	<meta name="description" content="">
-	<meta name="keywords" content="">
+	<meta name="keywords" content="{{ env("APP_NAME") }}">
 	<meta name="csrf-token" content="">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://example.com">
