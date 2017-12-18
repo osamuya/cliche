@@ -201,22 +201,6 @@ blockquote:before{
     background:#d4dcd6;
 }
 
-.pci{
-    display:inline
-}
-
-.spi{
-    display:none
-}
-
-.pc{
-    display:block
-}
-
-.sp{
-    display:none
-}
-
 @charset "utf-8";
 
 .cr{
@@ -264,6 +248,10 @@ header{
         -ms-flex-pack:justify;
             justify-content:space-between;
 
+}
+
+.footer .copyright{
+    text-align:center;
 }
 
 /*!
@@ -2535,38 +2523,28 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 
 .visible-print-inline-block{display:none !important}
 
-h1{
-    font-size:30px;
-    padding:200px 2px 300px;
-    text-align:center
+body{
+    letter-spacing:1px;
 }
 
-.wrapper{
-    width:90%;
-    margin:2% auto;
+.fa{
+    line-height:2px;
 }
 
-@media print, screen and (max-width: 640px){
+.jumbotron{
+    margin-top:-68px;
 
-    .pci{
-        display:none;
-    }
+}
 
-    .spi{
-        display:inline;
-    }
+.jumbotron .item{
+    position:relative;
+}
 
-    .pc{
-        display:none;
-    }
-
-    .sp{
-        display:block;
-    }
-
-    h1{
-        font-size:12px;
-    }
+.jumbotron .item .carousel-text{
+    position:absolute;
+    top:10%;
+    left:10%;
+    color:#fff;
 }
 
 @media print{
@@ -3964,7 +3942,3 @@ h1{
         display:none !important;
     }
 }
-
-
-
-

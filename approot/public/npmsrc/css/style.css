@@ -12,19 +12,28 @@
 /*bootstrap*/
 @import "foundation/bootstrap.min.css";
 
-h1{
-    font-size: 30px;
-    padding: 200px 2px 300px;
-    text-align: center;
-    @mixin sp{
-        font-size: 12px;
+
+/*  */
+body {
+    letter-spacing: 1px;
+}
+/* awesome icon */
+.fa {
+    line-height: 2px;
+}
+
+/* jumbotron slide for top page */
+.jumbotron {
+    margin-top: -68px;
+    
+    .item {
+        position: relative;
+        .carousel-text {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            color: #fff;
+        }
     }
+
 }
-.wrapper{
-    width: 90%;
-    margin: 2% auto;
-}
-
-
-
-

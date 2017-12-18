@@ -2,6 +2,9 @@
 @extends('layouts.app')
 
 @section('content')
+@include('block.jumbotron')
+
 {{ $parameter->hello }}
+
 @endsection
 

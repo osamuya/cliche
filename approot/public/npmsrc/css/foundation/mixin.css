@@ -2,6 +2,8 @@
 
 
 /*Media Queries*/
+/*
+// normal break point
 @define-mixin sp {
     @media print, screen and (max-width: $breakPoint) {
         @mixin-content;
@@ -9,6 +11,28 @@
 }
 @define-mixin pc {
     @media print, screen and (min-width: $breakPoint+1) {
+        @mixin-content;
+    }
+}
+*/
+// Bootstrap break point
+@define-mixin xs {
+    @media print, screen and (max-width: $breakPoint_xs) {
+        @mixin-content;
+    }
+}
+@define-mixin sm {
+    @media print, screen and (min-width: $breakPoint_sm) and (max-width: $breakPoint_md-1) {
+        @mixin-content;
+    }
+}
+@define-mixin md {
+    @media print, screen and (min-width: $breakPoint_md) and (max-width: $breakPoint_lg-1) {
+        @mixin-content;
+    }
+}
+@define-mixin lg {
+    @media print, screen and (min-width: $breakPoint_lg) {
         @mixin-content;
     }
 }
