@@ -49,6 +49,12 @@ class SetParameter extends Controller
                     "TARGET" => "_self",
                     "TITLE" => "menu sample",
                 ),
+                2 => array(
+                    "MENU_NAME" => "SUBMENU003",
+                    "LINK" => "/",
+                    "TARGET" => "_self",
+                    "TITLE" => "menu sample",
+                ),
             ),
         ),
         2 => array (

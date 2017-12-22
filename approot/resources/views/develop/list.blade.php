@@ -1,5 +1,6 @@
 <h1>cliche</h1>
 <ul>
+	<li><a href="/">Top</a></li>
     <li><a href="/list">List</a></li>
 </ul>
 

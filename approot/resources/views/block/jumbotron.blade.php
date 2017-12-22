@@ -1,3 +1,7 @@
+<!--
+[block.jumbotron]
+approot/resources/views/block/jumbotron.blade.php
+-->
 <div class="jumbotron mjumbotron">
 
     <div id="carousel-mainContents" class="slide carousel" data-ride="carousel" data-interval="5000">
@@ -14,46 +18,46 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item">
-                <img src="/assets/img/slide/001_1600.jpg" alt="hogehoge">
+                <img src="/assets/img/slide/slide001.jpg" alt="">
                 <div class="carousel-text">
-                    <h3>夏</h3>
-                    <p>太陽が燦々に降り注ぐ暑い季節</p>
-                    <button type="button" class="btn btn-default">春ページ詳細</button>
+                    <h3>Sample Title</h3>
+                    <p>Subtitle. Somewhat long text</p>
+<!--                    <button type="button" class="btn btn-default">春ページ詳細</button>-->
                 </div>
             </div>
             <div class="item active">
-                <img src="/assets/img/slide/002_1600.jpg" alt="hugahuga">
+                <img src="/assets/img/slide/slide002.jpg" alt="">
                 <div class="carousel-text">
-                    <h3>hugahuga</h3>
-                    <p>hugahuga</p>
+                    <h3>Sample Title</h3>
+                    <p>Subtitle. Somewhat long text</p>
                 </div>
             </div>
             <div class="item">
-                <img src="/assets/img/slide/003_1600.jpg" alt="hugahuga">
+                <img src="/assets/img/slide/slide003.jpg" alt="">
                 <div class="carousel-text">
-                    <h3>hugahuga</h3>
-                    <p>hugahuga</p>
+                    <h3>Sample Title</h3>
+                    <p>Subtitle. Somewhat long text</p>
                 </div>
             </div>
             <div class="item">
-                <img src="/assets/img/slide/004_1600.jpg" alt="hugahuga">
+                <img src="/assets/img/slide/slide004.jpg" alt="">
                 <div class="carousel-text">
-                    <h3>hugahuga</h3>
-                    <p>hugahuga</p>
+                    <h3>Sample Title</h3>
+                    <p>Subtitle. Somewhat long text</p>
                 </div>
             </div>
             <div class="item">
-                <img src="/assets/img/slide/005_1600.jpg" alt="hugahuga">
+                <img src="/assets/img/slide/slide005.jpg" alt="">
                 <div class="carousel-text">
-                    <h3>hugahuga</h3>
-                    <p>hugahuga</p>
+                    <h3>Sample Title</h3>
+                    <p>Subtitle. Somewhat long text</p>
                 </div>
             </div>
             <div class="item">
-                <img src="/assets/img/slide/006_1600.jpg" alt="hugahuga">
+                <img src="/assets/img/slide/slide006.jpg" alt="">
                 <div class="carousel-text">
-                    <h3>hugahuga</h3>
-                    <p>hugahuga</p>
+                    <h3>Sample Title</h3>
+                    <p>Subtitle. Somewhat long text</p>
                 </div>
             </div>
         </div><!--.carousel-inner-->
