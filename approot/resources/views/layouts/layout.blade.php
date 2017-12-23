@@ -1,4 +1,6 @@
+@inject('ContetsPatameter', 'App\Http\Controllers\SetParameter')
 <!DOCTYPE html>
+huga
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">

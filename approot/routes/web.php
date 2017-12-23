@@ -31,3 +31,7 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/bootstra3/template', function () { return view('bootstrap3.template');});
 }
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
