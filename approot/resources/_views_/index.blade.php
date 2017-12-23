@@ -1,9 +1,9 @@
 @inject('parameter', 'App\Http\Controllers\SetParameter')
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
+@include('block.jumbotron')
 
-foobar
 {{ $parameter->hello }}
 
 @endsection
