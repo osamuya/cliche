@@ -2533,18 +2533,12 @@ body{
 
 .jumbotron{
     margin-top:-68px;
+    background:#fff;
 
 }
 
-.jumbotron .item{
-    position:relative;
-}
-
-.jumbotron .item .carousel-text{
-    position:absolute;
-    top:10%;
-    left:10%;
-    color:#fff;
+.jumbotron .carousel .carousel-inner .item img{
+    width:100%;
 }
 
 @media print{

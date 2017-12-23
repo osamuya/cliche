@@ -35,3 +35,7 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

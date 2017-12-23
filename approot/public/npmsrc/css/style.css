@@ -25,14 +25,15 @@ body {
 /* jumbotron slide for top page */
 .jumbotron {
     margin-top: -68px;
-    
-    .item {
-        position: relative;
-        .carousel-text {
-            position: absolute;
-            top: 10%;
-            left: 10%;
-            color: #fff;
+    background: #fff;
+    .carousel {
+        .carousel-inner {
+            .item {
+                img {
+                    width: 100%;
+                }
+            }
+            
         }
     }
 
