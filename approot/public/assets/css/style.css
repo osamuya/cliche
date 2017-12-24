@@ -251,6 +251,7 @@ header{
 }
 
 .footer .copyright{
+    margin-top:20px;
     text-align:center;
 }
 
@@ -2534,11 +2535,26 @@ body{
 .jumbotron{
     margin-top:-68px;
     background:#fff;
-
 }
 
 .jumbotron .carousel .carousel-inner .item img{
     width:100%;
+}
+
+.navbar-header a:link, .navbar-header a:visited{
+    color:#333;
+}
+
+.navbar-header a:hover, .navbar-header a:active{
+    color:#000;
+}
+
+.nav li a:link, .nav li a:visited{
+    color:#333;
+}
+
+.nav li a:hover, .nav li a:active{
+    color:#000;
 }
 
 @media print{

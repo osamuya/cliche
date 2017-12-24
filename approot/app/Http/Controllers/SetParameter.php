@@ -147,6 +147,7 @@ class SetParameter extends Controller
             if (!empty($item["SUBMENU"])) {
                 echo "<ul class='dropdown-menu'>\n";
                 foreach ($item["SUBMENU"] as $subitem) {
+                    var_dump($subitem);
                     echo "<li>\n";
                     echo "<a href=''>\n";
                     echo $subitem["MENU_NAME"]."\n";

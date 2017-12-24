@@ -5,10 +5,15 @@
             <li data-target="#carousel" data-slide-to="0" class=""></li>
             <li data-target="#carousel" data-slide-to="1" class=""></li>
             <li data-target="#carousel" data-slide-to="2" class=""></li>
-            <li data-target="#carousel" data-slide-to="3" class="active"></li>
+            <li data-target="#carousel" data-slide-to="3" class=""></li>
+            <li data-target="#carousel" data-slide-to="4" class=""></li>
+            <li data-target="#carousel" data-slide-to="5" class="active"></li>
         </ol>
 
         <div class="carousel-inner">
+            <div class="item">
+                <img src="/assets/img/slide/000_1920x800.jpg" alt="">
+            </div>
             <div class="item">
                 <img src="/assets/img/slide/001_1920x800.jpg" alt="">
             </div>
@@ -18,8 +23,11 @@
             <div class="item">
                 <img src="/assets/img/slide/003_1920x800.jpg" alt="">
             </div>
-            <div class="item active">
+            <div class="item">
                 <img src="/assets/img/slide/004_1920x800.jpg" alt="">
+            </div>
+            <div class="item active">
+                <img src="/assets/img/slide/005_1920x800.jpg" alt="">
             </div>
         </div>
 

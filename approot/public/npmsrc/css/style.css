@@ -36,5 +36,24 @@ body {
             
         }
     }
+}
 
+/* nav */
+.navbar-header {
+    a:link, a:visited {
+        color: #333;
+    }
+    a:hover, a:active {
+        color: #000;
+    }
+}
+.nav {
+    li {
+        a:link, a:visited {
+            color: #333;
+        }
+        a:hover, a:active {
+            color: #000;
+        }
+    }
 }
