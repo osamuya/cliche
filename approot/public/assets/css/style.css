@@ -2541,6 +2541,10 @@ body{
     width:100%;
 }
 
+.navbar{
+    background:#fff;
+}
+
 .navbar-header a:link, .navbar-header a:visited{
     color:#333;
 }
@@ -2555,6 +2559,9 @@ body{
 
 .nav li a:hover, .nav li a:active{
     color:#000;
+}
+
+.nblog{
 }
 
 @media print{

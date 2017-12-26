@@ -39,7 +39,11 @@ body {
 }
 
 /* nav */
+.navbar {
+    background: #fff;
+}
 .navbar-header {
+    
     a:link, a:visited {
         color: #333;
     }
@@ -56,4 +60,11 @@ body {
             color: #000;
         }
     }
+}
+
+/* Blocl */
+
+/*nblog*/
+.nblog {
+/*    margin-bottom: 30px;*/
 }

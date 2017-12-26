@@ -82,7 +82,7 @@ class SetParameter extends Controller
             "SUBMENU" => array(
                 0 => array(
                     "MENU_NAME" => "Sign up",
-                    "LINK" => "/regist",
+                    "LINK" => "/register",
                     "TARGET" => "_blank",
                     "TITLE" => "new regist",
                 ),
@@ -147,9 +147,9 @@ class SetParameter extends Controller
             if (!empty($item["SUBMENU"])) {
                 echo "<ul class='dropdown-menu'>\n";
                 foreach ($item["SUBMENU"] as $subitem) {
-                    var_dump($subitem);
+//                    var_dump($subitem);
                     echo "<li>\n";
-                    echo "<a href=''>\n";
+                    echo "<a href='".$subitem["LINK"]."'>\n";
                     echo $subitem["MENU_NAME"]."\n";
                     echo "</a>\n";
                     echo "</li>\n";
