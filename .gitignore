@@ -1,2 +1,3 @@
-DOCMENT.md
 .DS_Store
+DOCMENT.md
+approot/public/node_modules
