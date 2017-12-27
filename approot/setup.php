@@ -36,6 +36,10 @@ if (is_dir("storage/logs")) {
     chmod("storage/logs", 0777);
     echo "chmod 777 storage/logs\n";
 }
+if (is_dir("storage/framework")) {
+    chmod("storage/framework", 0777);
+    echo "chmod 777 storage/framework\n";
+}
 if (is_dir("storage/framework/views")) {
     chmod("storage/framework/views", 0777);
     echo "chmod 777 storage/framework/views\n";

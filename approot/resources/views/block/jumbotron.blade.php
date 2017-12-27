@@ -19,7 +19,6 @@ approot/resources/views/block/jumbotron.blade.php
                 <div class="carousel-text">
                     <h3>Sample Title</h3>
                     <p>Subtitle. Somewhat long text</p>
-<!--                    <button type="button" class="btn btn-default">春ページ詳細</button>-->
                 </div>
             </div>
             <div class="item active">
