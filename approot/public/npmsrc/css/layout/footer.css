@@ -1,8 +1,18 @@
 .footer {
+    margin-top: 70px;
+    padding-top: 70px;
+/*    #232f3e*/
+/*    #131a22*/
+    background: #232f3e;
     .copyright {
         margin-top: 20px;
         text-align: center;
+        height: 50px;
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 2px;
     }
+    
 }
 
 

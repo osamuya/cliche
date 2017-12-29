@@ -6,7 +6,6 @@
 
 <h2></h2>
 <ul>
-    <li><a href="/bootstra3/index">Bootstrap3 defaut</a></li>
-    <li><a href=""></a></li>
-    <li><a href=""></a></li>
+    <li><a href="/blog/index">Blog index</a></li>
+    <li><a href="/blog/archives">Blog archives</a></li>
 </ul>

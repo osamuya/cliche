@@ -1,9 +1,13 @@
 @inject('parameter', 'App\Http\Controllers\SetParameter')
 @extends('layouts.applayout')
 
+
+
+
+
+
 @section('content')
-@include('block.jumbotron')
-{{ $parameter->hello }}
+@include('block.topbanner')
 <div class="container">
     <div class="row">
         <div class="col-sm-8">

@@ -1,14 +1,15 @@
-@extends('layouts.app')
+@inject('parameter', 'App\Http\Controllers\SetParameter')
+@extends('layouts.applayout')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+            <div class="panel panel-default panel-basic mt60">
+                <div class="panel-heading">Sign up</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}" novalidate>
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -19,7 +20,7 @@
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        {{ $errors->first('name') }}
                                     </span>
                                 @endif
                             </div>
@@ -33,7 +34,7 @@
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        {{ $errors->first('email') }}
                                     </span>
                                 @endif
                             </div>
@@ -47,7 +48,7 @@
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        {{ $errors->first('password') }}
                                     </span>
                                 @endif
                             </div>

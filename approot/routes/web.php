@@ -26,9 +26,8 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/list', function () { return view('develop.list');});
 
     /* Bootstrap3 */
-    Route::get('/bootstra3/index', function () { return view('bootstrap3.index');});
-    Route::get('/bootstra3/toppage', function () { return view('bootstrap3.toppage');});
-    Route::get('/bootstra3/template', function () { return view('bootstrap3.template');});
+    Route::get('/blog/index', function () { return view('blog.index');});
+    Route::get('/blog/archives', function () { return view('blog.archives');});
 }
 
 
