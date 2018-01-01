@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+/* Auth costomerized */
+/* /register */
+Route::match(['get', 'post'],'/regist_confirm', 'Login\SignupController@registConfirm');
+Route::post('/store', 'Login\SignupController@store');
+Route::get('/mail_authenticate_user/{accesshash}', 'Login\SignupController@mailAuthenticate');
+
 /**
  * Develop page
  *
@@ -28,6 +35,10 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     /* Bootstrap3 */
     Route::get('/blog/index', function () { return view('blog.index');});
     Route::get('/blog/archives', function () { return view('blog.archives');});
+    
+    /* Develop test */
+    Route::match(['get', 'post'],'/text/index', 'Test\TestController@index');
+    
 }
 
 
@@ -35,14 +46,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

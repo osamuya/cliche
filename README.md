@@ -6,3 +6,18 @@
 - ユニークバリデーションの際にdelflagを参照するなどのカスタムバリデーションの搭載
 - usersテーブルからIDで紐付いたjoinテーブルの作成とひな形（手順）
 - カスタマイズの手順書
+
+
+## Set up
+
+### Git clone
+````
+git clone git@github.com:osamuya/cliche.git
+````
+
+
+````
+cd approot
+bash optimazer.sh
+````
+

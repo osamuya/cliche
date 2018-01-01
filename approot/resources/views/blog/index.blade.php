@@ -1,11 +1,6 @@
 @inject('parameter', 'App\Http\Controllers\SetParameter')
 @extends('layouts.applayout')
 
-
-
-
-
-
 @section('content')
 @include('block.topbanner')
 <div class="container">

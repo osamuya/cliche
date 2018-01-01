@@ -2655,8 +2655,14 @@ body{
     box-shadow:0 1px 1px rgba(0,0,0,0.05);
 }
 
+.panel-basic p{
+    text-align:center;
+    margin:50px 10px 10px 10px;
+}
+
 .panel-basic .panel-heading{
     border-bottom:1px solid #bbb;
+    background:#fff;
 }
 
 .panel-basic .panel-body{
@@ -2667,6 +2673,12 @@ body{
 .panel-basic .panel-body input{
     border-radius:0px;
     border:1px solid #bbb;
+    background-color:#fff;
+}
+
+.panel-basic .panel-body input.form-control[readonly]{
+    border:0px;
+    box-shadow:inset 0 0 0 rgba(0,0,0,0.0);
 }
 
 .panel-basic .panel-body label{
@@ -2675,6 +2687,10 @@ body{
 
 .panel-basic .panel-body .help-block{
     font-weight:normal;
+}
+
+.panel-default>.panel-heading{
+    background:#fff;
 }
 
 .btn{

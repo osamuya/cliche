@@ -5,11 +5,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default panel-basic mt60">
+            <div class="panel panel-default panel-basic mt60 mb60">
                 <div class="panel-heading">Sign up</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}" novalidate>
+                    <form class="form-horizontal" method="POST" action="/regist_confirm" novalidate="novalidate">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
