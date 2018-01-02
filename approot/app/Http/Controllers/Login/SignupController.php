@@ -60,7 +60,7 @@ class SignupController extends Controller
         /* Validation */
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:base_users',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
@@ -156,7 +156,7 @@ class SignupController extends Controller
             "datetime" => $registedDate,
             "accessURL" => $makeURL,
         ];
-//        Mail::to($mailTo)->send(new BaseMail($options, $sndData));
+        Mail::to($mailTo)->send(new BaseMail($options, $sndData));
         $logLine = "[Send to mail new registed user] ".$request->input('name')." ".$request->input('email')." ".$gip;
 //        $this->custom_log->addInfo($logLine);
 
@@ -189,6 +189,47 @@ class SignupController extends Controller
         ]);
     }
     
+    
+    
+    public function mailAuthenticate($accesshash) {
+
+        // 現在時間から有効期限を算出
+        // 仮登録から24時間(1日間)有効
+        $dt = Carbon::now();
+        $expirationTime = $dt->subDay(1);
+
+        $userID = User::where('delflag', 0)
+            ->where('status', 1)
+            ->where('uniqehash', $accesshash)
+            ->where('created_at','>',$expirationTime)
+            ->value("id");
+
+        if (!empty($userID)) {
+//            var_dump($userID);
+
+            /* Get global IP address */
+            $gip = BaseClass::getGlobalip();
+
+            /* Update status */
+            User::where('id', $userID)
+                ->update([
+                    'status' => 2,
+                ]);
+            $logLine = "[Complete new real regist work flows] ".$accesshash." ".$dt." ".$gip;
+//            $this->custom_log->addInfo($logLine);
+
+            return view("auth.register_end");
+        }
+        /*  */
+        else
+        {
+            $logLine = "[Error] Either the user has already been registered or registration of mail authentication failed. ".$accesshash." ".$dt;
+//            $this->custom_log->addInfo($logLine);
+            abort(403);
+        }
+
+
+    }
 }
 
 

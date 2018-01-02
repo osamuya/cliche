@@ -1,9 +1,11 @@
-nowhite.site<br>
+@inject('parameter', 'App\Http\Controllers\SetParameter')
+
+{{$parameter->app_name}}<br>
 {{$name}}様<br>
 <br>
-****************************************<br>
-nowhite.site 会員仮登録完了のご連絡<br>
-****************************************<br>
+********************************************<br>
+{{$parameter->app_name}} 会員仮登録完了のご連絡<br>
+********************************************<br>
 仮登録日時: {{$datetime}}<br>
 <br>
 会員仮登録いただき誠にありがとうございます。<br>
