@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@inject('parameter', 'App\Http\Controllers\SetParameter')
+@extends('layouts.applayout')
 
 @section('content')
 <div class="container">

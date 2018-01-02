@@ -18,13 +18,60 @@ Menu parameter settiings on app/Http/Controllers/SetParameter.php
 		</div>
 		<div id="patern05" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
 			<ul class="nav navbar-nav navbar-right">
+                
             <?php
                 /* app/Http/Controllers/SetParameter */
                 $navigationArray = $parameter->navigation;
                 $menu = $parameter->makeMenu($navigationArray);
                 echo $menu;
             ?>
+                <!-- Auth -->
+                {{--
+                 Menu that separates users when logging in and logging out
+                --}}
+                @guest
+                    <li>
+                        <a href="{{ route('login') }}">
+                            <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
+                            Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}">
+                            <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>
+                            Register
+                        </a>
+                    </li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                            <i class="fa fa-heart fa-lg" aria-hidden="true"></i>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/home">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endguest
+                <!-- // Auth -->
 			</ul>
 		</div>
 	</div>
 </nav>
+
+
+
