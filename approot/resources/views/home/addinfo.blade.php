@@ -4,13 +4,11 @@
 @section('content')
 <div class="container">
     <div class="row">
-        
-        
         <div class="col-md-8">
             <h3>Dashboard</h3>
             You are logged in!
         </div>
-
+        
         <div class="col-sm-4">
             <h4>Index</h4>
             <div class="panel panel-default panel-basic">
@@ -22,7 +20,6 @@
                 </div>
             </div>
         </div>
-        
         
     </div>
 </div>

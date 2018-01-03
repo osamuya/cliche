@@ -44,9 +44,12 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/test/500', function(){ return abort('500');});
 }
 
-
+/**
+ * Members login on authentcations
+ *
+ *
+ */
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/home/add/information', 'HomeController@addinfo');
 

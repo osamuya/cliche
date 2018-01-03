@@ -99,7 +99,7 @@ class SignupController extends Controller
         $boundLetteredPassword = BaseClass::boundLettered("8ta8taDance",1);
 
         /* Hash create for mail authentication */
-        $uniqeid = strtoupper(uniqid("NWID_"));
+        $uniqeid = strtoupper(uniqid(env('SYSTEM_PREFIX')));
         $uniqehash = substr(hash('sha512',$request->input('password').env("HASH_SALT").date("Ymdist")),0,60);
 
         /* Password hash */

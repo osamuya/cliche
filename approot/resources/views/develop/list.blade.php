@@ -16,6 +16,14 @@
         <li><a href="/text/index">/text/index</a></li>
     </ul>
 
+<h2>Login</h2>
+    テストや実験、雛形のテストで必要なページ
+    <ul>
+        <li><a href="/register">Sign up</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/home">home</a></li>
+    </ul>
+
 <h2>Error</h2>
     テストや実験、雛形のテストで必要なページ
     <ul>

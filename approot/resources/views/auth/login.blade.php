@@ -57,7 +57,7 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                    パスワードを忘れた。
                                 </a>
                             </div>
                         </div>

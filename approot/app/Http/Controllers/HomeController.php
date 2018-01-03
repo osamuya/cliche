@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
+    public function addinfo()
+    {
+        $user = \Auth::user();
+        var_dump($user);
+        return view('home.addinfo');
+    }
 }
