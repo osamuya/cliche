@@ -22,7 +22,7 @@ class SetParameter extends Controller
 	 *
 	 */
     public $navigation=array(
-        0 => array (
+        "home" => array (
             "MENU_NAME" => "HOME",
             "LINK" => "/",
             "TARGET" => "_self",
@@ -30,7 +30,7 @@ class SetParameter extends Controller
             "ICON" => "<i class='fa fa-home fa-lg' aria-hidden='true'></i>",
             "SUBMENU" => array(),
         ),
-        1 => array (
+        "blog" => array (
             "MENU_NAME" => "BLOG",
             "LINK" => "#",
             "TARGET" => "",
@@ -51,54 +51,33 @@ class SetParameter extends Controller
                 ),
             ),
         ),
-        2 => array (
-            "MENU_NAME" => "USER",
+//        3 => array (
+//            "MENU_NAME" => "Archives",
+//            "LINK" => "#",
+//            "TARGET" => "_self",
+//            "TITLE" => "menu sample",
+//            "ICON" => "<i class='fa fa-archive fa-lg' aria-hidden='true'></i>",
+//            "SUBMENU" => array(
+//                0 => array(
+//                    "MENU_NAME" => "Sign up",
+//                    "LINK" => "/register",
+//                    "TARGET" => "_blank",
+//                    "TITLE" => "new regist",
+//                ),
+//                1 => array(
+//                    "MENU_NAME" => "Login",
+//                    "LINK" => "/login",
+//                    "TARGET" => "_self",
+//                    "TITLE" => "user login",
+//                ),
+//            ),
+//        ),
+        "archives" => array (
+            "MENU_NAME" => "Archives",
             "LINK" => "#",
             "TARGET" => "_self",
             "TITLE" => "menu sample",
-            "ICON" => "<i class='fa fa-sign-in fa-lg' aria-hidden='true'></i>",
-            "SUBMENU" => array(
-                0 => array(
-                    "MENU_NAME" => "Sign up",
-                    "LINK" => "/register",
-                    "TARGET" => "_blank",
-                    "TITLE" => "new regist",
-                ),
-                1 => array(
-                    "MENU_NAME" => "Login",
-                    "LINK" => "/login",
-                    "TARGET" => "_self",
-                    "TITLE" => "user login",
-                ),
-            ),
-        ),
-        3 => array (
-            "MENU_NAME" => "Memo",
-            "LINK" => "#",
-            "TARGET" => "_self",
-            "TITLE" => "menu sample",
-            "ICON" => "<i class='fa fa-list fa-lg' aria-hidden='true'></i>",
-            "SUBMENU" => array(
-                0 => array(
-                    "MENU_NAME" => "Sign up",
-                    "LINK" => "/register",
-                    "TARGET" => "_blank",
-                    "TITLE" => "new regist",
-                ),
-                1 => array(
-                    "MENU_NAME" => "Login",
-                    "LINK" => "/login",
-                    "TARGET" => "_self",
-                    "TITLE" => "user login",
-                ),
-            ),
-        ),
-        4 => array (
-            "MENU_NAME" => "Navi",
-            "LINK" => "#",
-            "TARGET" => "_self",
-            "TITLE" => "menu sample",
-            "ICON" => "<i class='fa fa-window-maximize fa-lg' aria-hidden='true'></i>",
+            "ICON" => "<i class='fa fa-archive fa-lg' aria-hidden='true'></i>",
             "SUBMENU" => array(
                 0 => array(
                     "MENU_NAME" => "Navigation sample 001",

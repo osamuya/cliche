@@ -16,7 +16,7 @@
 @import "foundation/bootstrap.min.css";
 
 
-/*  */
+/* common */
 
 body {
     letter-spacing: 1px;
@@ -31,12 +31,8 @@ body {
 
 
 
-/*------------------------------*/
 
 /* jumbotron slide for top page */
-
-/*------------------------------*/
-
 .jumbotron {
     margin-top: -68px;
     margin-bottom: 0;
@@ -67,12 +63,7 @@ body {
     }
 }
 
-/*-------------------*/
-
 /* Global Navigation */
-
-/*-------------------*/
-
 .navbar {
     background: #fff;
 }
@@ -102,12 +93,7 @@ body {
     }
 }
 
-/*------------*/
-
 /* Top Banner */
-
-/*------------*/
-
 .jumbotron {
     .topbanner {
         height: 100px;
@@ -127,7 +113,14 @@ body {
     }
 }
 
-
+.errorpage {
+    .error-status {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+}
 
 
 

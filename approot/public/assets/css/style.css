@@ -2612,6 +2612,14 @@ body{
     height:auto;
 }
 
+.errorpage .error-status{
+    text-align:center;
+}
+
+.errorpage p{
+    text-align:center;
+}
+
 .nblog{
 }
 

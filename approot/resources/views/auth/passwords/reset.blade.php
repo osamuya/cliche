@@ -1,7 +1,9 @@
-@extends('layouts.app')
+@inject('parameter', 'App\Http\Controllers\SetParameter')
+@extends('layouts.applayout')
 
 @section('content')
 <div class="container">
+    hogehoge
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

@@ -15,3 +15,11 @@
     <ul>
         <li><a href="/text/index">/text/index</a></li>
     </ul>
+
+<h2>Error</h2>
+    テストや実験、雛形のテストで必要なページ
+    <ul>
+        <li><a href="/test/403">403</a></li>
+        <li><a href="/test/404">404</a></li>
+        <li><a href="/test/500">500</a></li>
+    </ul>

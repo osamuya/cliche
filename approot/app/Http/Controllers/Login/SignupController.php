@@ -14,18 +14,18 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-// Monolog
+/* Monolog */
 use Illuminate\Support\Facades\Log;
 
 /* For custom monolog to the app */
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
-// Mail
+/* Mail */
 use Mail;
 use App\Mail\BaseMail;
 
-// Datetime package "Carbon" for laravel
+/* Datetime package "Carbon" for laravel */
 use Carbon\Carbon;
 
 class SignupController extends Controller
@@ -42,9 +42,10 @@ class SignupController extends Controller
     
     public function registConfirm(Request $request)
     {
-        var_dump($request->input('name'));
-        var_dump($request->input('email'));
-        var_dump($request->input('password'));
+//        var_dump($request->input('name'));
+//        var_dump($request->input('email'));
+//        var_dump($request->input('password'));
+        
         /* Request check */
         if (
             $request->has('name') &&
@@ -227,8 +228,6 @@ class SignupController extends Controller
 //            $this->custom_log->addInfo($logLine);
             abort(403);
         }
-
-
     }
 }
 
