@@ -53,6 +53,11 @@ class LoginController extends Controller
             ['status'=>'2'],
             ['delflag'=>'0']
         );
+        
+        // ここもログがあったほうがいいかも。
+//        var_dump($authConditionsCustom);
+//        die("auth");
+        
         return $authConditionsCustom;
     }
     

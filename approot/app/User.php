@@ -61,8 +61,8 @@ class User extends Authenticatable
     *
     * @var $token
     */
-//    public function sendPasswordResetNotification($token)
-//    {
-//        $this->notify(new JaPasswordReset($token));
-//    }
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new JaPasswordReset($token));
+    }
 }
