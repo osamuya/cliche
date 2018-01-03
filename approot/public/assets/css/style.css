@@ -2612,6 +2612,10 @@ body{
     height:auto;
 }
 
+.myinfo-update label{
+    font-weight:normal;
+}
+
 .errorpage .error-status{
     text-align:center;
 }
@@ -2703,6 +2707,43 @@ body{
 
 .btn{
     letter-spacing:2px;
+}
+
+.basicform{
+    line-height:30px;
+}
+
+.basicform input{
+    border-radius:0px;
+}
+
+.basicform input:-webkit-autofill{
+    -webkit-box-shadow:0 0 0px 1000px #fff inset;
+}
+
+.basicform input.zipcode3{
+    width:46px !important;
+    display:inline-block;
+}
+
+.basicform input.zipcode4{
+    width:56px !important;
+    display:inline-block;
+}
+
+.basicform input.birthday{
+    width:56px !important;
+    display:inline-block;
+}
+
+.basicform input.blood_type{
+    width:56px !important;
+    display:inline-block;
+}
+
+.basicform input[radio]{
+    width:auto !important;
+    display:inline-block;
 }
 
 h1{

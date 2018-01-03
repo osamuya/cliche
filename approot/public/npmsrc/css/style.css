@@ -113,6 +113,12 @@ body {
     }
 }
 
+.myinfo-update {
+    label {
+        font-weight: normal;
+    }
+}
+
 .errorpage {
     .error-status {
         text-align: center;
@@ -121,10 +127,6 @@ body {
         text-align: center;
     }
 }
-
-
-
-
 
 
 /*nblog*/
@@ -202,8 +204,36 @@ body {
 .btn {
     letter-spacing: 2px;
 }
+.basicform {
+    line-height: 30px;
+    input {
+        border-radius: 0px;
+    }
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    }
 
-
+    input.zipcode3 {
+        width: 46px !important;
+        display: inline-block;
+    }
+    input.zipcode4 {
+        width: 56px !important;
+        display: inline-block;
+    }
+    input.birthday {
+        width: 56px !important;
+        display: inline-block;
+    }
+    input.blood_type {
+        width: 56px !important;
+        display: inline-block;
+    }
+    input[radio] {
+        width: auto !important;
+        display: inline-block;
+    }
+}
 
 
 
