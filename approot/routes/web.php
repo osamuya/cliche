@@ -23,6 +23,17 @@ Route::post('/store', 'Login\SignupController@store');
 Route::get('/mail_authenticate_user/{accesshash}', 'Login\SignupController@mailAuthenticate');
 
 /**
+ * Admin Auth
+ * If the value of role is 99, you can control all pages and all database as root (admin).
+ * - Issuing authority
+ * - Deprivation
+ * - Mandatory modification, change / update
+ */
+Route::match(['get', 'post'],'/admin/index', 'Admin\LoginController@index');
+Route::match(['get', 'post'],'/admin/login', 'Admin\LoginController@login');
+
+
+/**
  * Develop page
  *
  * 2017-12-06

@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
-                            送信しました。<!--{{ session('status') }}-->
+                            パスワード再設定リンクを送信しました。<!--{{ session('status') }}-->
                         </div>
                     @endif
 
@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    パスワード再設定リンクを送信する
+                                    パスワードをリセットする
                                 </button>
                             </div>
                         </div>

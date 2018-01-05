@@ -68,6 +68,22 @@ Menu parameter settiings on app/Http/Controllers/SetParameter.php
                     </li>
                 @endguest
                 <!-- // Auth -->
+                
+                @if (env('APP_ENV') === 'local' || env('APP_ENV') === 'develop')
+                <!-- {{env('APP_ENV')}} -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                        <i class="fa fa-snowflake-o fa-lg" aria-hidden="true"></i>
+                        Develop<span class="caret"></span>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/list">Develop list</a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <!-- // Develop -->
+                @endif
 			</ul>
 		</div>
 	</div>
