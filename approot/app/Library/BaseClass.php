@@ -7,40 +7,23 @@ use Carbon\Carbon;
 // for custom monolog to the app
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Illuminate\Support\Facades\Log;
 
 class BaseClass
 {
-    // property
-    protected $custom_log;
+    /* Logger */
+    protected $app_log;
+    protected $login_log;
 
+    public function __construct() {
 
+    }
+    
+    
+    
     public static function hello() {
         return 'BaseClass test hello()!';
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Method correctSerialize & correctUnserialize
-    |--------------------------------------------------------------------------
-    | As serialize () and unserialize () may not serialize properly,
-    | I try to serialize nearly almost correctly with base64 in between.
-    | example: cc0f609b88b6d12f2d52d6a7873a5611228e610e
-    | * @access public
-    | * @param $array
-    | * @return $array
-    */
-//    public static function correctSerialize($array)
-//    {
-//        $data = serialize($array);
-//        return $data;
-//    }
-//    public static function correctUnserialize($array)
-//    {
-//        $data = base64_decode($array);
-//        $array = unserialize(html_entity_decode($data));
-//        return $array;
-//    }
-
 
     /*
     |--------------------------------------------------------------------------
@@ -170,5 +153,90 @@ class BaseClass
     }
 
 
+    
+    /**
+     * Logger
+     *
+     *
+     *
+     */
+    public static function appLogger($log="", $addinfo=array()) {
+        
+        $base = new BaseClass();
+        $base::setupLogger();
+        /**
+         * Get the log base information
+         * - @Class name being executed
+         * - @datetime
+         * - @Error code | Status code
+         * -
+         */
+        $app = new Logger(env('APP_NAME')."-app");
+        $app->pushHandler(new StreamHandler(env('APPLOG'), Logger::INFO));
+        
+        /* logging */
+        $line = "";
+        if (is_array($addinfo)) {
+            foreach ($addinfo as $key=>$value) {
+                $line .= "{$key}:{$value},";
+            }
+        }
+        $log = $log." ".$line." ".$base::getGlobalip();
+        $app->addInfo($log);
+        
+        return true;
+    }
+    
+    
 
+    public static function loginLogger($log="", $addinfo=array()) {
+        
+        $base = new BaseClass();
+        $base::setupLogger();
+        /**
+         * Get the log base information
+         * - @Class name being executed
+         * - @datetime
+         * - @Error code | Status code
+         * -
+         */
+        $login = new Logger(env('APP_NAME')."-login");
+        $login->pushHandler(new StreamHandler(env('LOGINLOG'), Logger::INFO));
+        
+        /* logging */
+        $line = "";
+        if (is_array($addinfo)) {
+            foreach ($addinfo as $key=>$value) {
+                $line .= "{$key}:{$value},";
+            }
+        }
+        $log = $log." ".$line." ".$base::getGlobalip();
+        $login->addInfo($log);
+        
+        return true;
+    }
+    
+    
+    public static function setupLogger() {
+        
+        if (file_exists(env('APPLOG'))) {
+            @chmod(env('APPLOG'), 0666);
+        } else {
+            @touch(env('APPLOG'));
+            @chmod(env('APPLOG'), 0666);
+            die(get_class()." The application log has not been set yet.");
+        }
+        if (file_exists(env('LOGINLOG'))) {
+            @chmod(env('LOGINLOG'), 0666);
+        } else {
+            @touch(env('LOGINLOG'));
+            @chmod(env('LOGINLOG'), 0666);
+            die(get_class()." The Login & authentications log has not been set yet.");
+        }
+        
+        return [
+            "app_log" => env('APPLOG'),
+            "login_log" => env('LOGINLOG'),
+        ];
+    }
 }

@@ -8,6 +8,7 @@ use Illuminate\Validation\ValidationException;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use BaseClass;
 
 class LoginController extends Controller
 {
@@ -38,18 +39,30 @@ class LoginController extends Controller
     public function index(Request $request)
     {
         /* Admin authentication */
-        if ($this->adminAuthentication() === false) {
-            return redirect('/');
-        /* If admin ... */
-        } else {
-            
-            
-            
-            echo "hoge";
-            
-            
-            
-        }
+        $this->adminAuthentication();
+        
+        /* Logging */
+        $user = Auth::user();
+        
+        /* app log */
+        $addinfo = array(
+            "userID" => $user["id"],
+            "className" => get_class($this),
+            "methodName" => __METHOD__,
+        );
+        BaseClass::appLogger("Application information.",$addinfo);
+        
+        /* login log */
+        $addinfo = array(
+            "userID" => $user["id"],
+            "userName" => $user["email"],
+            "className" => get_class($this),
+            "methodName" => __METHOD__,
+        );
+        BaseClass::loginLogger("Admin logined.",$addinfo);
+        
+        /* view */
+        return view('admin.index');
     }
     
     /**
@@ -68,7 +81,7 @@ class LoginController extends Controller
             /* give a admin session */
             return true;
         } else {
-            return false;
+            return abort('404');
         }
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Validation\ValidationException;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use BaseClass;
 
 class LoginController extends Controller
 {
@@ -54,11 +55,54 @@ class LoginController extends Controller
             ['delflag'=>'0']
         );
         
-        // ここもログがあったほうがいいかも。
-//        var_dump($authConditionsCustom);
-//        die("auth");
-        
         return $authConditionsCustom;
+    }
+    
+    /**
+     * ログイン時のイニシャライズとか最初の処理はここでやる
+     *
+     *
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        /* login log */
+        $user = Auth::user();
+        $addinfo = array(
+            "userID" => $user["id"],
+            "userName" => $user["email"],
+            "className" => get_class($this),
+            "methodName" => __METHOD__,
+        );
+        BaseClass::loginLogger("user logined.",$addinfo);
+    }
+    
+    
+    /**
+     * Logout時の処理
+     * vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php
+     * を継承して、ここでオーバーライドしている
+     *
+     */
+    public function logout(Request $request)
+    {
+
+        
+        /* Logging */
+        $user = Auth::user();
+        $addinfo = array(
+            "userID" => $user["id"],
+            "userName" => $user["email"],
+            "className" => get_class($this),
+            "methodName" => __METHOD__,
+        );
+        BaseClass::loginLogger("user logout.",$addinfo);
+        
+        /* logout */
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect('/');
     }
     
 }
