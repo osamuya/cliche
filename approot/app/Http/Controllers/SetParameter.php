@@ -9,6 +9,9 @@ class SetParameter extends Controller
 	/**
 	 * Set Main menu
 	 *
+     * - Global navigations menu (array)
+     * - functions output global navigations menu
+     * - Table normalized correspondence table
 	 */
     
     /* Hello test parameter */
@@ -20,6 +23,7 @@ class SetParameter extends Controller
 	/**
 	 * Global Navigations Parameter
 	 *
+     * @return (array)$navigation
 	 */
     public $navigation=array(
         "home" => array (
@@ -101,6 +105,13 @@ class SetParameter extends Controller
         ),
     );
     
+    
+    /**
+     * Global navigations output
+     *
+     * @para $navigation
+     * @return voide
+     */
     public function makeMenu($navigation)
     {
         foreach($navigation as $item) {
@@ -137,4 +148,52 @@ class SetParameter extends Controller
         }
         return "";
     }
+    
+    /**
+     * Table normalized correspondence table
+     * - base_users
+     *
+     * For login conditions, status is 2 and delflag is 0.
+     */
+    public $base_users = array(
+        /**
+         * ロール
+         * 0: ロールは無効でロール自体が存在しません。
+         * 1: 一般ユーザー (通常の利用ユーザー)
+         * 2: 管理ユーザー
+         */
+        "role" => array(
+            /* All other users are invalid */
+            0 => array( "ja" => "無効", "en" => "invalid"),
+            1 => array( "ja" => "ユーザー", "en" => "user"),
+            2 => array( "ja" => "管理ユーザー", "en" => "admin"),
+        ),
+        /**
+         * ステータス
+         * 0: 無効 (未登録に同じ)
+         * 1: 仮登録メール認証中 (一定期間を過ぎたら削除)
+         * 2: 登録中
+         */
+        "status" => array(
+            /* All other users are invalid */
+            0 => "無効",
+            1 => "仮登録メール認証中",
+            2 => "登録中",
+        ),
+        /**
+         * 削除フラグ
+         * 0: 未削除 (ユーザーとして有効)
+         * 1: 削除 (ユーザーとして無効)
+         */
+        "delflag" => array(
+            /* All other users are invalid */
+            0 => "未削除",
+            1 => "削除",
+        ),
+    
+    );
+    
+    
+    
+    
 }

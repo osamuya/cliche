@@ -9,6 +9,8 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use BaseClass;
+use App\Http\Controllers\SetParameter;
+
 
 class LoginController extends Controller
 {
@@ -65,14 +67,21 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
+        /* Get users role & set users role*/
+        $normalized_table = new SetParameter();
+        $num = $user["role"];
+        $request->session()->put("userRole", array("userRole" => $normalized_table->base_users["role"][$num]["en"]));
+        
         /* login log */
         $user = Auth::user();
         $addinfo = array(
             "userID" => $user["id"],
             "userName" => $user["email"],
+            "userRole" => $normalized_table->base_users["role"][$num]["en"],
             "className" => get_class($this),
             "methodName" => __METHOD__,
         );
+        
         BaseClass::loginLogger("user logined.",$addinfo);
     }
     
@@ -98,6 +107,8 @@ class LoginController extends Controller
         BaseClass::loginLogger("user logout.",$addinfo);
         
         /* logout */
+        $request->session()->forget("userRole");
+        
         $this->guard()->logout();
 
         $request->session()->invalidate();
