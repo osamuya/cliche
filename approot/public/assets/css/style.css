@@ -2746,6 +2746,110 @@ body{
     display:inline-block;
 }
 
+.contact form input:-webkit-autofill{
+    -webkit-box-shadow:0 0 0px 1000px #fff inset;
+}
+
+.contact form label{
+    font-weight:normal;
+    text-align:left;
+}
+
+.contact form .control-label{
+    text-align:left !important;
+}
+
+.contact form input[type="radio"]{
+    width:10%;
+    display:inline-block;
+    height:auto;
+}
+
+.contact form .errorMessage{
+    display:block;
+    margin-top:10px;
+}
+
+.contact form .errorMessage .validationsError{
+    margin:0;
+    color:#cc0000;
+}
+
+.contact form .surname{
+    display:inline-block;
+    width:25%;
+}
+
+.contact form .firstname{
+    display:inline-block;
+    width:25%;
+}
+
+.contact form .postNumber3{
+    display:inline-block;
+    width:15%;
+}
+
+.contact form .postNumber4{
+    display:inline-block;
+    width:20%;
+}
+
+.contact form .selectpicker{
+    height:37px;
+}
+
+.contact form .telphoneAreacode{
+    display:inline-block;
+    width:22%;
+}
+
+.contact form .telphoneCitycode{
+    display:inline-block;
+    width:22%;
+}
+
+.contact form .telphoneSubscriber{
+    display:inline-block;
+    width:22%;
+}
+
+.contact form .mobilephoneAreacode{
+    display:inline-block;
+    width:22%;
+}
+
+.contact form .mobilephoneCitycode{
+    display:inline-block;
+    width:22%;
+}
+
+.contact form .mobilephoneSubscriber{
+    display:inline-block;
+    width:22%;
+}
+
+.contact form textarea{
+    width:100% !important;
+    height:150px;
+}
+
+.confirm form{
+}
+
+.confirm form input:-webkit-autofill{
+    -webkit-box-shadow:0 0 0px 1000px #fff inset;
+}
+
+.confirm form input.readonly{
+    width:100% !important;
+    border:none;
+}
+
+.confirm form input.readonly:focus{
+    background:none;
+}
+
 h1{
     font-size:30px;
 }

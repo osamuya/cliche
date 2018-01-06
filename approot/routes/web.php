@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+/* contact */
+Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
+Route::post('/contact/confirm', 'Contact\ContactController@confirm');
+Route::post('/contact/sended', 'Contact\ContactController@send');
 
 /* Auth costomerized */
 /* /register */
