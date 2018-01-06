@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
 use BaseClass;
+use App\Contact;
+use Illuminate\Support\Facades\DB;
 
 
 /**
@@ -122,7 +124,7 @@ class ContactController extends Controller
         $request->session()->put('enquete05', $request->input('enquete05'));
         $request->session()->put('agreement', $request->input('agreement'));
         
-        $request->session()->put('sended', 'true)');
+        $request->session()->put('sended', 'true');
         
         /* view */
         return view("contact.confirm")->with([
@@ -157,6 +159,11 @@ class ContactController extends Controller
     
     public function send(Request $request)
     {
+        if ($request->session()->get('sended') == 'true') {
+            $request->session()->put('sended', 'false');
+        } else {
+            return view("contact.index");
+        }
         
         $saveString = $request->session()->get('category')."\t";
         $saveString .= $request->session()->get('surname')."\t";
@@ -203,8 +210,68 @@ class ContactController extends Controller
         }
         BaseClass::appLogger("Inquery sended: /contact/sended.",$addinfo);
         
+        /* save on database */
+        $contact = new Contact;
+        
+        $contact->category = $request->session()->get('category');
+        $contact->surname = $request->session()->get('surname');
+        $contact->firstname = $request->session()->get('firstname');
+        $contact->surnamekana = $request->session()->get('surnamekana');
+        $contact->firstnamekana = $request->session()->get('firstnamekana');
+        $contact->email = $request->session()->get('email');
+        $contact->postNumber =
+            $request->session()->get('postNumber3')."-".
+            $request->session()->get('postNumber4');
+        $contact->prefectures = $request->session()->get('prefectures');
+        $contact->municipality = $request->session()->get('municipality');
+        $contact->address = $request->session()->get('address');
+        $contact->telphone =
+            $request->session()->get('telphoneAreacode')."-".
+            $request->session()->get('telphoneCitycode')."-".
+            $request->session()->get('telphoneSubscriber');
+        $contact->mobilephone =
+            $request->session()->get('mobilephoneAreacode')."-".
+            $request->session()->get('mobilephoneCitycode')."-".
+            $request->session()->get('mobilephoneSubscriber');
+        $contact->sex = $request->session()->get('sex');
+        $contact->inquery = $request->session()->get('inquery');
+        $contact->agreement = $request->session()->get('agreement');
+        $contact->remark = "1. お問い合わせ受付（未回答）";
+        $contact->status = 1;
+        $contact->delflag = 0;
+        $contact->save();
+        
         /* send mail */
         //ここでメール送信
+        
+        /* session destory */
+//        $request->session()->forget('category');
+//        $request->session()->forget('surname');
+//        $request->session()->forget('firstname');
+//        $request->session()->forget('surnamekana');
+//        $request->session()->forget('firstnamekana');
+//        $request->session()->forget('email');
+//        $request->session()->forget('postNumber3');
+//        $request->session()->forget('postNumber4');
+//        $request->session()->forget('prefectures');
+//        $request->session()->forget('municipality');
+//        $request->session()->forget('address');
+//        $request->session()->forget('telphoneAreacode');
+//        $request->session()->forget('telphoneCitycode');
+//        $request->session()->forget('telphoneSubscriber');
+//        $request->session()->forget('mobilephoneAreacode');
+//        $request->session()->forget('mobilephoneCitycode');
+//        $request->session()->forget('mobilephoneSubscriber');
+//        $request->session()->forget('sex');
+//        $request->session()->forget('inquery');
+//        $request->session()->forget('enquete01');
+//        $request->session()->forget('enquete02');
+//        $request->session()->forget('enquete03');
+//        $request->session()->forget('enquete04');
+//        $request->session()->forget('enquete05');
+//        $request->session()->forget('agreement');
+        
+        
         
         return "send";
     }
