@@ -181,7 +181,7 @@ class BaseClass
                 $line .= "{$key}:{$value},";
             }
         }
-        $log = $log." ".$line." ".$base::getGlobalip();
+        $log = $log." ".$line." ".$base::getGlobalip()." ".$_SERVER['HTTP_USER_AGENT'];
         $app->addInfo($log);
         
         return true;
@@ -210,7 +210,7 @@ class BaseClass
                 $line .= "{$key}:{$value},";
             }
         }
-        $log = $log." ".$line." ".$base::getGlobalip();
+        $log = $log." ".$line." ".$base::getGlobalip()." ".$_SERVER['HTTP_USER_AGENT'];
         $login->addInfo($log);
         
         return true;

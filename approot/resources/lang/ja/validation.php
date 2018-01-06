@@ -96,13 +96,35 @@ return [
 
 ////    'attributes' => [],
     'attributes' => [
+        'category' => 'カテゴリー',
+        'surname' => '姓',
+        'firstname' => '名',
+        'surnamekana' => 'セイ',
+        'firstnamekana' => 'メイ',
+        'email' => 'Emailアドレス',
+        'retypeemail' => 'Email (確認)',
+        'postNumber3' => '郵便番号3桁',
+        'postNumber4' => '郵便番号4桁',
+        'prefectures' => '都道府県',
+        'municipality' => '市町村区',
+        'address' => '住所',
+        'telphoneAreacode' => '市外局番',
+        'telphoneCitycode' => '市内局番',
+        'telphoneSubscriber' => '加入者番号',
+        'mobilephoneAreacode' => '市外局番',
+        'mobilephoneCitycode' => '市内局番',
+        'mobilephoneSubscriber' => '加入者番号',
+        'inquery' => 'お問い合わせ',
+        'agreement' => '同意項目',
+        
 		'topic' => 'トピック',
-		'email' => 'Emailアドレス',
 		'password' => 'パスワード',
 		'name' => 'ユーザー名',
 		'sex' => '性別',
 		'deltekey' => '削除キー',
 		'dimensions' => '適切な画像の大きさにしてください。',
+        
+
 	],
 ];
 
