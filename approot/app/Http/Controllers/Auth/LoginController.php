@@ -44,6 +44,16 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
     
+    
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => [trans('認証に失敗しました。')],
+        ]);
+    }
+    
+    
+    
     /* ログイン条件の変更 */
     public function credentials(Request $request)
     {

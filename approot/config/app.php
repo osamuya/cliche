@@ -163,7 +163,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
@@ -176,6 +175,14 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        /*
+         * Custom validator 2018-01-07
+         * - app/Providers/ValidatorServiceProvider.php
+         * - app/Library/CustomValidator.php
+         */
+        App\Providers\ValidatorServiceProvider::class,
+        
 
     ],
 
@@ -228,6 +235,9 @@ return [
 
         /* originals */
         'BaseClass' => app\Library\BaseClass::class,
+        
+        'CustomValidator' => app\Library\CustomValidator::class,
+        
     ],
 
 ];
