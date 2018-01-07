@@ -4,7 +4,7 @@
 
 return [
 	
-    'accepted'             => ':attributeを承認してください。',
+    'accepted'             => ':attributeにチェックを入れて承認してください。',
     'active_url'           => ':attributeは正しいURLではありません。',
     'after'                => ':attributeは:date以降の日付にしてください。',
     'alpha'                => ':attributeは英字のみにしてください。',
@@ -26,7 +26,7 @@ return [
     'digits'               => ':attributeは:digits桁にしてください',
     'digits_between'       => ':attributeは:min〜:max桁にしてください。',
     'email'                => ':attributeを正しく入力してください。',
-    'filled'               => ':attributeは必須です。',
+    'filled'               => ':attributeを入力してください。',
     'exists'               => '選択された:attributeは正しくありません。',
     'image'                => ':attributeは画像にしてください。',
     'in'                   => '選択された:attributeは正しくありません。',
@@ -48,7 +48,7 @@ return [
     'not_in'               => '選択された:attributeは正しくありません。',
     'numeric'              => ':attributeは数字にしてください。',
     'regex'                => ':attributeの書式が正しくありません。',
-    'required'             => ':attributeは必須です。',
+    'required'             => ':attributeを入力してください。',
     'required_if'          => ':otherが:valueの時、:attributeは必須です。',
     'required_with'        => ':valuesが存在する時、:attributeは必須です。',
     'required_with_all'    => ':valuesが存在する時、:attributeは必須です。',
