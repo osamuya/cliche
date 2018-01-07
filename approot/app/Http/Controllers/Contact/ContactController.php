@@ -47,10 +47,10 @@ class ContactController extends Controller
     {
         $this->validate($request, [
             'category' => 'required',
-            'surname' => 'required|max:32',
+            'surname' => 'required|abesouri|odanobunaga|max:32',
             'firstname' => 'required|max:32',
-            'surnamekana' => 'required|max:32',
-            'firstnamekana' => 'required|max:32',
+            'surnamekana' => 'required|katakana|max:32',
+            'firstnamekana' => 'required|katakana|max:32',
             'email' => 'required|email',
             'retypeemail' => 'required|max:1200|same:email',
             'postNumber3' => 'required|digits:3|numeric',
@@ -67,6 +67,10 @@ class ContactController extends Controller
             'sex' => 'required',
             'inquery' => 'required|max:2000',
             'agreement' => 'accepted',
+        ],[
+            /* Custom validations */
+            'postNumber3.required' => '郵便番号を入力してください。',
+            'postNumber4.required' => '郵便番号を入力してください。',
         ]);
         
         /* debug */

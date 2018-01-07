@@ -65,7 +65,18 @@ return [
     'timezone'             => ':attributeは正しいタイムゾーンをしていしてください。',
     'unique'               => ':attributeは既に存在します。',
     'url'                  => ':attributeを正しい書式にしてください。',
-
+    
+    /**
+     * Custom validations for japanese or so.
+     *
+     * as app/Library/CustomValidator.php
+     * as app/Providers/ValidatorServiceProvider.php
+     */
+    'hiragana'                     => ':attributeをひらがなで入力してください。',
+    'katakana'             => ':attributeをカタカナで入力してください。',
+    'abesouri'             => ':attributeに「安倍総理」と入力されてますがあなたの頭は大丈夫ですか？',
+    'odanobunaga'          => '本能寺の変にご注意ください。',
+    
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
