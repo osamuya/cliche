@@ -12,7 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    /**
+     * SMAPON can be enjoyed only with smartphones.
+     * iPhone | iPad | Android | Windows Phone | BlackBerry
+     */
+    $ua = $_SERVER['HTTP_USER_AGENT'];
+    if (
+        (strpos($ua, 'iPhone') !== false) ||
+        (strpos($ua, 'iPad') !== false) ||
+        ((strpos($ua, 'Android') !== false) && (strpos($ua, 'Mobile') !== false)) ||
+        (strpos($ua, 'Windows Phone') !== false) ||
+        (strpos($ua, 'BlackBerry') !== false))
+    {
+        return view('index');
+    } else {
+        /* Information that a lottery can be done on smartphone */
+        return view('guide');
+    }
 });
 
 /* contact */
