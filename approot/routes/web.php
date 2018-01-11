@@ -31,6 +31,9 @@ Route::get('/', function () {
     }
 });
 
+Route::post('/lot', 'LotController@result');
+
+
 /* contact */
 Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
 Route::post('/contact/confirm', 'Contact\ContactController@confirm');

@@ -1,34 +1,47 @@
-<!doctype html>
-<!--[if IE 8]> <html class="ie8"> <![endif]-->
-<!--[if IE 9]> <html class="ie9"> <![endif]-->
-<!--[if gt IE 9]><!-->
-<html lang="{{ app()->getLocale() }}">
-<!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>{{ $parameter->app_name }}</title>
-	<meta name="description" content="">
-	<meta name="keywords" content="{{ env('APP_NAME') }}">
-	<meta name="csrf-token" content="">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="{{ env('APP_URL') }}">
-	<meta property="og:image" content="">
-	<meta property="og:title" content="{{ $parameter->app_name }}">
-	<meta property="og:description" content="">
-	<meta property="og:site_name" content="">
-	<link rel="shortcut icon" href=""/>
-	<!--Bootstrap-->
-	<script src="/assets/js/jquery-1.11.3.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
-    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
-	<!--css-->
-	<link rel="stylesheet" type="text/css" href="/assets/css/style.css" media="all">
-	<!--js-->
-	<script type="text/javascript" src="/assets/js/bundle.js"></script>
-	<!--[if lt IE 10]>
-	<script type="text/javascript" src="assets/js/html5shiv.min.js"></script>
-	<script type="text/javascript" src="assets/js/respond.min.js"></script>
-	<script type="text/javascript" src="assets/js/flexibility.js"></script>
-	<![endif]-->
-</head>
+@inject('parameter', 'App\Http\Controllers\SetParameter')
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <!--page info-->
+    <title>SMAPON</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--og-->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+    <!--favicon-->
+    <link rel="shortcut icon" href="">
+    <!--js-->
+    <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/easing.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.MyQRCode.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.captcha.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+    $(function(){
+    $("#captcha").setCaptcha({
+            width:320,
+            height:160,
+            color:"#666666",
+            size:50,
+            length:4,
+            hook:function(){
+                    alert("認証用画像と入力された値が一致しません");
+            },
+            form:".form",
+    });
+    });
+    $(".form img").addClass('captcha_img');
+    </script>
+    </head>

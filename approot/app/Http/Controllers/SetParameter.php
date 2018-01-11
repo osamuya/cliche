@@ -18,7 +18,7 @@ class SetParameter extends Controller
     public $hello="hello set parameter";
     
     /* App title */
-	public $app_name="cliche";
+	public $app_name="SMAPON";
     
 	/**
 	 * Global Navigations Parameter
@@ -55,27 +55,6 @@ class SetParameter extends Controller
                 ),
             ),
         ),
-//        3 => array (
-//            "MENU_NAME" => "Archives",
-//            "LINK" => "#",
-//            "TARGET" => "_self",
-//            "TITLE" => "menu sample",
-//            "ICON" => "<i class='fa fa-archive fa-lg' aria-hidden='true'></i>",
-//            "SUBMENU" => array(
-//                0 => array(
-//                    "MENU_NAME" => "Sign up",
-//                    "LINK" => "/register",
-//                    "TARGET" => "_blank",
-//                    "TITLE" => "new regist",
-//                ),
-//                1 => array(
-//                    "MENU_NAME" => "Login",
-//                    "LINK" => "/login",
-//                    "TARGET" => "_self",
-//                    "TITLE" => "user login",
-//                ),
-//            ),
-//        ),
         "archives" => array (
             "MENU_NAME" => "Archives",
             "LINK" => "#",
