@@ -332,10 +332,86 @@ body {
     }
 }
 
-
-
-
-
+/* Board */
+.board {
+    form {
+        .selectpicker {
+            height: 30px;
+            border-radius: 0px;
+        }
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+        }
+        label {
+            font-weight: normal;
+            text-align: left;
+        }
+        .control-label {
+            text-align: left !important;
+        }
+        input[type="radio"] {
+            width: 10%;
+            display: inline-block;
+            height: auto;
+        }
+        .errorMessage {
+            display: block;
+            margin-top: 10px;
+            .validationsError {
+                margin: 0;
+                color: #cc0000;
+            }
+        }
+        .surname{
+            display: inline-block;
+            width: 25%;
+        }
+        .firstname {
+            display: inline-block;
+            width: 25%;
+        }
+        .postNumber3 {
+            display: inline-block;
+            width: 15%;
+        }
+        .postNumber4 {
+            display: inline-block;
+            width: 20%;
+        }
+        .selectpicker {
+            height: 37px;
+        }
+        .telphoneAreacode {
+            display: inline-block;
+            width: 22%;
+        }
+        .telphoneCitycode {
+            display: inline-block;
+            width: 22%;
+        }
+        .telphoneSubscriber {
+            display: inline-block;
+            width: 22%;
+        }
+        .mobilephoneAreacode {
+            display: inline-block;
+            width: 22%;
+        }
+        .mobilephoneCitycode {
+            display: inline-block;
+            width: 22%;
+        }
+        .mobilephoneSubscriber {
+            display: inline-block;
+            width: 22%;
+        }
+        textarea {
+            width: 100% !important;
+            height: 150px;
+        }
+        
+    }
+}
 
 
 

@@ -112,6 +112,7 @@ return [
         'firstname' => '名',
         'surnamekana' => 'セイ',
         'firstnamekana' => 'メイ',
+        'nickname' => 'ニックネーム',
         'email' => 'Emailアドレス',
         'retypeemail' => 'Email (確認)',
         'postNumber3' => '郵便番号3桁',
@@ -126,8 +127,9 @@ return [
         'mobilephoneCitycode' => '市内局番',
         'mobilephoneSubscriber' => '加入者番号',
         'inquery' => 'お問い合わせ',
+        'inquery' => 'お問い合わせ',
         'agreement' => '同意項目',
-        
+        'submission' => '投稿内容',
 		'topic' => 'トピック',
 		'password' => 'パスワード',
 		'name' => 'ユーザー名',

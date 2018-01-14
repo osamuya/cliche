@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('index');
 });
 
+/* CRUD Board */
+Route::match(['get', 'post'],'/board/normal', 'Board\normalController@index');
+//Route::post('/board/normal/confirm', 'Board\normalController@confirm');
+Route::post('/board/normal/confirm', 'Board\normalController@confirm');
+Route::post('/board/normal/stored', 'Board\normalController@store');
+
 /* contact */
 Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
 Route::post('/contact/confirm', 'Contact\ContactController@confirm');
@@ -35,6 +41,8 @@ Route::get('/mail_authenticate_user/{accesshash}', 'Login\SignupController@mailA
  */
 Route::match(['get', 'post'],'/admin/index', 'Admin\LoginController@index');
 Route::match(['get', 'post'],'/admin/login', 'Admin\LoginController@login');
+
+
 
 
 /**
