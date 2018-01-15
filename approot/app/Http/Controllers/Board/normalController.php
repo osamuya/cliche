@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
 use BaseClass;
-use App\Contact;
+use App\BoardNormal;
 use Illuminate\Support\Facades\DB;
 
 
@@ -61,18 +61,18 @@ class normalController extends Controller
         ]);
 
         /* debug */
-        var_dump($request->input('category'));
-        var_dump($request->input('nickname'));
-        var_dump($request->input('email'));
-        var_dump($request->input('prefectures'));
-        var_dump($request->input('sex'));
-        var_dump($request->input('submission'));
-        var_dump($request->input('multipleSelectSum'));
-        var_dump($request->input('multipleSelect0'));
-        var_dump($request->input('multipleSelect1'));
-        var_dump($request->input('multipleSelect2'));
-        var_dump($request->input('multipleSelect3'));
-        var_dump($request->input('multipleSelect4'));
+//        var_dump($request->input('category'));
+//        var_dump($request->input('nickname'));
+//        var_dump($request->input('email'));
+//        var_dump($request->input('prefectures'));
+//        var_dump($request->input('sex'));
+//        var_dump($request->input('submission'));
+//        var_dump($request->input('multipleSelectSum'));
+//        var_dump($request->input('multipleSelect0'));
+//        var_dump($request->input('multipleSelect1'));
+//        var_dump($request->input('multipleSelect2'));
+//        var_dump($request->input('multipleSelect3'));
+//        var_dump($request->input('multipleSelect4'));
         
         /* Serialize for checkbox values */
         $multipleSelects = array();
@@ -88,7 +88,7 @@ class normalController extends Controller
         $request->session()->put('prefectures', $request->input('prefectures'));
         $request->session()->put('sex', $request->input('sex'));
         $request->session()->put('submission', $request->input('submission'));
-        $request->session()->put('multipleSelects', $multipleSelects);
+        $request->session()->put('multipleSelects', $serializedMultipleSelects);
         
         $request->session()->put('sended', 'true');
         
@@ -104,9 +104,56 @@ class normalController extends Controller
         ]);
     }
     
-    public function store() {
+    public function store(Request $request) {
         
+        if ($request->session()->get('sended') == 'true') {
+            $request->session()->put('sended', 'false');
+        } else {
+            return view("board.normal.index");
+        }
         
+        $saveString = $request->session()->get('category')."\t";
+        $saveString .= $request->session()->get('nickname')."\t";
+        $saveString .= $request->session()->get('email')."\t";
+        $saveString .= $request->session()->get('prefectures')."\t";
+        $saveString .= $request->session()->get('sex')."\t";
+        $saveString .= $request->session()->get('submission')."\t";
+        $saveString .= $request->session()->get('multipleSelects')."\t";
+
+        /* Logging */
+        $user = Auth::user();
+        if ($user !== NULL) {
+            $addinfo = array(
+                "userID" => $user["id"],
+                "userName" => $user["email"],
+                "className" => get_class($this),
+                "methodName" => __METHOD__,
+                "line" => $saveString,
+            );
+        } else {
+            $addinfo = array(
+                "className" => get_class($this),
+                "methodName" => __METHOD__,
+                "line" => $saveString,
+            );
+        }
+        BaseClass::appLogger("Normalboard stored: /board/normal/stored.",$addinfo);
+        
+        /* Data set */
+        $uniqeid = BaseClass::makeUniqeid("BNA");
+        
+//        App\BoardNormal
+        /* save on database */
+        $boardNormal = new BoardNormal();
+        $boardNormal->category = $request->session()->get('category');
+        $boardNormal->uniqeid = $uniqeid;
+        $boardNormal->nickname = $request->session()->get('nickname');
+        $boardNormal->email = $request->session()->get('email');
+        $boardNormal->prefectures = $request->session()->get('prefectures');
+        $boardNormal->sex = $request->session()->get('sex');
+        $boardNormal->submission = $request->session()->get('submission');
+        $boardNormal->multipleSelects = $request->session()->get('multipleSelects');
+        $boardNormal->save();
         
         return view("board.normal.store");
     }

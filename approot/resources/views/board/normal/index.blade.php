@@ -7,11 +7,11 @@
         <div class="col-sm-6">
             
             <div class="nblock form mt50">
-                <h2 class="h2 nblog__ttl">Board hoge</h2>
+                <h2 class="h2 nblog__ttl">Submit</h2>
                 
                 <div class="board">
                     
-                    <form class="form-horizontal" method="POST" action="/board/normal/confirm" novalidate="novalidate">
+                    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/board/normal/confirm" novalidate="novalidate">
                         {{ csrf_field() }}
 
                         {{-- カテゴリー --}}
@@ -108,6 +108,14 @@
                             </div>
                         </div>
                         
+                        {{-- 画像アップ --}}
+                        <div class="form-group">
+                            <input type="file" name="file1">
+                            <input type="file" name="file1">
+                        </div>
+                        
+                        
+                        
                         {{-- 複数選択 --}}
                         <div class="form-group">
                             <div class="col-md-4 control-label">アンケート</div>
@@ -149,7 +157,7 @@
         
         <div class="col-sm-6">
             <div class="nside nblock mt50">
-                <h2>Sidebar</h2>
+                <h2>Board</h2>
 
             </div>
             
