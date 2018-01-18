@@ -18,4 +18,14 @@ class TestController extends Controller
         var_dump(BaseClass::hello());
         return view("develop.text_index");
     }
+    
+    public function ajaxresponce() {
+        
+        
+        return "hoge";
+    }
+    
+    
+    
+    
 }

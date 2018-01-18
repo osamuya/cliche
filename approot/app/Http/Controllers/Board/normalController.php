@@ -74,6 +74,19 @@ class normalController extends Controller
 //        var_dump($request->input('multipleSelect3'));
 //        var_dump($request->input('multipleSelect4'));
         
+        /* Image file upload */
+        $originalPath = $request->file('file1')->store('public/pics');
+        
+        $changePath = BaseClass::FilenameUniqueSerialNumber($originalPath);
+//        $originalPath = storage_path($originalPath);
+//        $changePath = storage_path($path);
+        var_dump(storage_path($originalPath));
+        var_dump(storage_path($changePath ));
+        @rename (storage_path($originalPath), storage_path($changePath));
+        
+        
+
+        
         /* Serialize for checkbox values */
         $multipleSelects = array();
         for($i=0;$i<$request->input('multipleSelectSum');$i++) {
@@ -157,6 +170,7 @@ class normalController extends Controller
         
         return view("board.normal.store");
     }
+    
 }
 
 

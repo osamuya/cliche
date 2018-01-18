@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +64,10 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/test/403', function(){ return abort('403');});
     Route::get('/test/404', function(){ return abort('404');});
     Route::get('/test/500', function(){ return abort('500');});
+    
+    /* Ajax test */
+    Route::get('/ajaxtest', function(){ return view('develop.ajaxtest'); });
+    Route::get('/ajaxresponce', 'Admin\LoginController@login');
 }
 
 /**

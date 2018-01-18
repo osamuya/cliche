@@ -110,8 +110,8 @@
                         
                         {{-- 画像アップ --}}
                         <div class="form-group">
-                            <input type="file" name="file1">
-                            <input type="file" name="file1">
+                            <input type="file" name="file1" id="file1">
+                            <input type="file" name="file2" id="file2">
                         </div>
                         
                         
