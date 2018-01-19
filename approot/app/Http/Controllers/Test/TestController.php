@@ -25,7 +25,11 @@ class TestController extends Controller
         return "hoge";
     }
     
+    public function ajax_get_string() {
+
     
+        return "Ajax Get Response";
+    }
     
     
 }

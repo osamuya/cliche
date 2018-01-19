@@ -42,7 +42,23 @@ Route::match(['get', 'post'],'/admin/index', 'Admin\LoginController@index');
 Route::match(['get', 'post'],'/admin/login', 'Admin\LoginController@login');
 
 
+/* Ajax test get */
+Route::get('/ajax/get_string', function(){ return view('develop.ajax_get_string'); });
+Route::get('/ajax/get_xml', function(){ return view('develop.ajax_get_xml'); });
+Route::get('/ajax/post_string', function(){ return view('develop.post_string'); });
 
+Route::get('/api/ajax/get_string', 'Test\TestController@ajax_get_string');
+Route::get('/api/ajax/get_xml', 'Test\TestController@ajax_get_xml');
+Route::get('/api/ajax/post_string', 'Test\TestController@ajax_get_json');
+
+/* Ajax test post */
+Route::get('/ajax/get_string', function(){ return view('develop.ajax_get_string'); });
+Route::get('/ajax/get_xml', function(){ return view('develop.ajax_get_xml'); });
+Route::get('/ajax/post_string', function(){ return view('develop.post_string'); });
+
+Route::get('/api/ajax/get_string', 'Test\TestController@ajax_get_string');
+Route::get('/api/ajax/get_xml', 'Test\TestController@ajax_get_string');
+Route::get('/api/ajax/post_string', 'Test\TestController@ajax_get_string');
 
 /**
  * Develop page
@@ -65,9 +81,7 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/test/404', function(){ return abort('404');});
     Route::get('/test/500', function(){ return abort('500');});
     
-    /* Ajax test */
-    Route::get('/ajaxtest', function(){ return view('develop.ajaxtest'); });
-    Route::get('/ajaxresponce', 'Admin\LoginController@login');
+
 }
 
 /**
