@@ -19,17 +19,32 @@ class TestController extends Controller
         return view("develop.text_index");
     }
     
-    public function ajaxresponce() {
-        
-        
-        return "hoge";
-    }
-    
+    /**=====================================
+     * Ajax test
+     * - text: simple string response
+     * - json: return array (automatic chenged json format)
+     */
     public function ajax_get_string() {
-
-    
-        return "Ajax Get Response";
+    /* text */
+        return "Ajax Get text Response";
     }
+    public function ajax_get_json() {
+    /* json */
+        $dummyArray = array(
+            "title" => "jsonでデータを取得",
+            "foo" => "1234",
+            "bar" => "5678",
+        );
+        return $dummyArray;
+    }
+//    public function ajax_get_xml() {
+//        $dummyArray = array(
+//            "foo" => "1234",
+//            "bar" => "5678",
+//        );
+//        return $dummyArray;
+//    }
+    
     
     
 }

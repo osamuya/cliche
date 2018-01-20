@@ -33,17 +33,23 @@
         
         <script>
             $(function(){
+                console.log("kko");
                 $("#ajax").on('click',function(){
+                    console.log("asoko");
                     $.ajax({
-                      url: "/api/ajax/get_string",
-                      type: "get"
+                        url: "/api/ajax/get_xml",
+                        type: "get",
+                        dataType: 'json',
+                        timeout:1000,
                     }).done(function(data){
                         console.log(data);
                         $("#out").text(data);
                     });
+                    console.log("owari");
                 });
             });
         </script>
+        
     </head>
     <body>
         <a href="#" id="ajax">Get String</a>

@@ -45,19 +45,19 @@ Route::match(['get', 'post'],'/admin/login', 'Admin\LoginController@login');
 /* Ajax test get */
 Route::get('/ajax/get_string', function(){ return view('develop.ajax_get_string'); });
 Route::get('/ajax/get_xml', function(){ return view('develop.ajax_get_xml'); });
-Route::get('/ajax/post_string', function(){ return view('develop.post_string'); });
+Route::get('/ajax/get_json', function(){ return view('develop.ajax_get_json'); });
 
 Route::get('/api/ajax/get_string', 'Test\TestController@ajax_get_string');
 Route::get('/api/ajax/get_xml', 'Test\TestController@ajax_get_xml');
-Route::get('/api/ajax/post_string', 'Test\TestController@ajax_get_json');
+Route::get('/api/ajax/get_json', 'Test\TestController@ajax_get_json');
 
 /* Ajax test post */
-Route::get('/ajax/get_string', function(){ return view('develop.ajax_get_string'); });
-Route::get('/ajax/get_xml', function(){ return view('develop.ajax_get_xml'); });
+Route::get('/ajax/post_string', function(){ return view('develop.ajax_post_string'); });
+Route::get('/ajax/post_xml', function(){ return view('develop.ajax_post_xml'); });
 Route::get('/ajax/post_string', function(){ return view('develop.post_string'); });
 
-Route::get('/api/ajax/get_string', 'Test\TestController@ajax_get_string');
-Route::get('/api/ajax/get_xml', 'Test\TestController@ajax_get_string');
+Route::get('/api/ajax/post_string', 'Test\TestController@ajax_post_string');
+Route::get('/api/ajax/post_xml', 'Test\TestController@ajax_post_string');
 Route::get('/api/ajax/post_string', 'Test\TestController@ajax_get_string');
 
 /**
