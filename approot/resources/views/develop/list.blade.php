@@ -27,10 +27,10 @@
         <li><a href="/list">list</a></li>
         <li><a href="/text/index">/text/index</a></li>
         <li><a href="/ajax/get_string">/ajax/get_string</a></li>
-        <li><a href="/ajax/get_xml">/ajax/get_xml</a></li>
+<!--        <li><a href="/ajax/get_xml">/ajax/get_xml</a></li>-->
         <li><a href="/ajax/get_json">/ajax/get_json</a></li>
         <li><a href="/ajax/post_string">/ajax/post_string</a></li>
-        <li><a href="/ajax/post_xml">/ajax/post_xml</a></li>
+<!--        <li><a href="/ajax/post_xml">/ajax/post_xml</a></li>-->
         <li><a href="/ajax/post_json">/ajax/post_json</a></li>
     </ul>
 
