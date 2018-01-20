@@ -10,19 +10,16 @@ use BaseClass;
 use App\Contact;
 use Illuminate\Support\Facades\DB;
 
-
 /**
  * Contact
  * Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
  * Route::post('/contact/confirm', 'Contact\ContactController@confirm');
  * Route::post('/contact/sended', 'Contact\ContactController@send');
- *
  */
 class ContactController extends Controller
 {
     public function index(Request $request)
     {
-
         /* Logging */
         $user = Auth::user();
         if ($user !== NULL) {

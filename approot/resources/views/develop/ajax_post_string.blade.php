@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width">
         <!--page info-->
         <title>sample</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <!--og-->
@@ -34,10 +35,17 @@
         <script>
             $(function(){
                 $("#ajax").on('click',function(){
+                    $.ajaxSetup({
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+                    });
                     $.ajax({
-                        url: "/api/ajax/get_string",
-                        type: "get",
-                        dataType: 'text'
+                        url: "/api/ajax/post_string",
+                        type: 'post',
+                        dataType: 'text',
+                        data : {
+                            "id" : "9999",
+                            "name" : "osamuya"
+                        },
                     }).done(function(data){
                         console.log(data);
                         $("#out").text(data);
@@ -45,9 +53,10 @@
                 });
             });
         </script>
+        
     </head>
     <body>
-        <a href="#" id="ajax">Get String</a>
+        <a href="#" id="ajax">String with post</a><br>
         <span id="out"></span>
         
     </body>

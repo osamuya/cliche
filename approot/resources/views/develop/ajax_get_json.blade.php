@@ -55,7 +55,7 @@
         
     </head>
     <body>
-        <a href="#" id="ajax">Get String</a><br>
+        <a href="#" id="ajax">Get json data</a><br>
         <span id="out"></span>
         
     </body>
