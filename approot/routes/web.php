@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +13,12 @@
 Route::get('/', function () {
     return view('index');
 });
+
+/* CRUD Board */
+Route::match(['get', 'post'],'/board/normal', 'Board\normalController@index');
+//Route::post('/board/normal/confirm', 'Board\normalController@confirm');
+Route::post('/board/normal/confirm', 'Board\normalController@confirm');
+Route::post('/board/normal/stored', 'Board\normalController@store');
 
 /* contact */
 Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
@@ -37,6 +42,24 @@ Route::match(['get', 'post'],'/admin/index', 'Admin\LoginController@index');
 Route::match(['get', 'post'],'/admin/login', 'Admin\LoginController@login');
 
 
+/* Ajax test get */
+Route::get('/ajax/get_string', function(){ return view('develop.ajax_get_string'); });
+Route::get('/ajax/get_xml', function(){ return view('develop.ajax_get_xml'); });
+Route::get('/ajax/get_json', function(){ return view('develop.ajax_get_json'); });
+
+Route::get('/api/ajax/get_string', 'Test\TestController@ajax_get_string');
+Route::get('/api/ajax/get_xml', 'Test\TestController@ajax_get_xml');
+Route::get('/api/ajax/get_json', 'Test\TestController@ajax_get_json');
+
+/* Ajax test post */
+Route::get('/ajax/post_string', function(){ return view('develop.ajax_post_string'); });
+Route::get('/ajax/post_xml', function(){ return view('develop.ajax_post_xml'); });
+Route::get('/ajax/post_string', function(){ return view('develop.post_string'); });
+
+Route::get('/api/ajax/post_string', 'Test\TestController@ajax_post_string');
+Route::get('/api/ajax/post_xml', 'Test\TestController@ajax_post_string');
+Route::get('/api/ajax/post_string', 'Test\TestController@ajax_get_string');
+
 /**
  * Develop page
  *
@@ -57,6 +80,8 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/test/403', function(){ return abort('403');});
     Route::get('/test/404', function(){ return abort('404');});
     Route::get('/test/500', function(){ return abort('500');});
+    
+
 }
 
 /**

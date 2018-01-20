@@ -2850,6 +2850,99 @@ body{
     background:none;
 }
 
+.board form .selectpicker{
+    height:30px;
+    border-radius:0px;
+}
+
+.board form input:-webkit-autofill{
+    -webkit-box-shadow:0 0 0px 1000px #fff inset;
+}
+
+.board form label{
+    font-weight:normal;
+    text-align:left;
+}
+
+.board form .control-label{
+    text-align:left !important;
+}
+
+.board form input[type="radio"]{
+    width:10%;
+    display:inline-block;
+    height:auto;
+}
+
+.board form .errorMessage{
+    display:block;
+    margin-top:10px;
+}
+
+.board form .errorMessage .validationsError{
+    margin:0;
+    color:#cc0000;
+}
+
+.board form .surname{
+    display:inline-block;
+    width:25%;
+}
+
+.board form .firstname{
+    display:inline-block;
+    width:25%;
+}
+
+.board form .postNumber3{
+    display:inline-block;
+    width:15%;
+}
+
+.board form .postNumber4{
+    display:inline-block;
+    width:20%;
+}
+
+.board form .selectpicker{
+    height:37px;
+}
+
+.board form .telphoneAreacode{
+    display:inline-block;
+    width:22%;
+}
+
+.board form .telphoneCitycode{
+    display:inline-block;
+    width:22%;
+}
+
+.board form .telphoneSubscriber{
+    display:inline-block;
+    width:22%;
+}
+
+.board form .mobilephoneAreacode{
+    display:inline-block;
+    width:22%;
+}
+
+.board form .mobilephoneCitycode{
+    display:inline-block;
+    width:22%;
+}
+
+.board form .mobilephoneSubscriber{
+    display:inline-block;
+    width:22%;
+}
+
+.board form textarea{
+    width:100% !important;
+    height:150px;
+}
+
 h1{
     font-size:30px;
 }

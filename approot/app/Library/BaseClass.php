@@ -25,6 +25,25 @@ class BaseClass
         return 'BaseClass test hello()!';
     }
 
+    /* ファイル名をユニーク連番にする
+     *
+     * $strings @para filepath
+     * $strings @return filepath
+     *
+     */
+    public static function FilenameUniqueSerialNumber($path="") {
+        // public/pics/pAm5KBNVLohRTzjXR5wAU04rCUzKrY6tijFQ6hDX.jpeg
+        $pathParts = pathinfo($path);
+        if ($pathParts["extension"] == "jpeg") {
+            $extention = "jpg";
+        } else {
+            $extention = $pathParts["extension"];
+        }
+        $fileName = BaseClass::makeUniqeid("PIC");
+        $changePath = $pathParts["dirname"]."/".$fileName.".".$extention;
+        return $changePath;
+    }
+    
     /*
     |--------------------------------------------------------------------------
     | Method makeAccessHash

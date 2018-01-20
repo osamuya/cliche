@@ -84,10 +84,10 @@ class SetParameter extends Controller
             "ICON" => "<i class='fa fa-archive fa-lg' aria-hidden='true'></i>",
             "SUBMENU" => array(
                 0 => array(
-                    "MENU_NAME" => "Navigation sample 001",
-                    "LINK" => "/",
+                    "MENU_NAME" => "Normal Board",
+                    "LINK" => "/board/normal",
                     "TARGET" => "_self",
-                    "TITLE" => "Navigation sample",
+                    "TITLE" => "Normal Board",
                 ),
                 1 => array(
                     "MENU_NAME" => "Navigation sample 002",
