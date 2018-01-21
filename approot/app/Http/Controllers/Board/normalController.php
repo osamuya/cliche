@@ -74,15 +74,62 @@ class normalController extends Controller
 //        var_dump($request->input('multipleSelect3'));
 //        var_dump($request->input('multipleSelect4'));
         
-        /* Image file upload */
-        $originalPath = $request->file('file1')->store('public/pics');
+        /**====================================================
+         * Image file upload
+         * Temporarily save and use only for thumbnail display
+         *
+         * $changePath: app/public/pics/TMPPIC-20180121-5-a63f-81f2-e3ca.jpg
+         * $publishedPath: http://cliche.local/storage/pics/TMPPIC-20180121-5-a63f-81f2-e3ca.jpg
+         */
+        $originalPath = "app/".$request->file('file1')->store('public/pics');
+        $changePath = BaseClass::FilenameUniqueSerialNumber($originalPath, "TMPPIC");
         
-        $changePath = BaseClass::FilenameUniqueSerialNumber($originalPath);
-//        $originalPath = storage_path($originalPath);
-//        $changePath = storage_path($path);
-        var_dump(storage_path($originalPath));
-        var_dump(storage_path($changePath ));
-        @rename (storage_path($originalPath), storage_path($changePath));
+        /* rename */
+//        var_dump(storage_path($originalPath));
+//        var_dump(storage_path($changePath ));
+        $rename = @rename (storage_path($originalPath), storage_path($changePath));
+        if ($rename == false) {
+            $addinfo = array(
+                "origiranFilePath" => storage_path($originalPath),
+                "changeFilePath" => storage_path($changePath),
+                "className" => get_class($this),
+                "methodName" => __METHOD__,
+                "line" => "It received a status of false when uploading images.",
+            );
+            BaseClass::appLogger("Normalboard image temporary stored: /board/normal/confirm.",$addinfo);
+            
+        } else if ($rename == true) {
+            $saveString = "It received a status of false when uploading images.";
+            $addinfo = array(
+                "origiranFilePath" => storage_path($originalPath),
+                "changeFilePath" => storage_path($changePath),
+                "className" => get_class($this),
+                "methodName" => __METHOD__,
+                "line" => $saveString,
+            );
+            BaseClass::appLogger("Normalboard image temporary stored: /board/normal/confirm.",$addinfo);
+        } else {
+            $addinfo = array(
+                "className" => get_class($this),
+                "methodName" => __METHOD__,
+                "line" => "Exceptions: An unexpected event occurred.",
+            );
+            BaseClass::appLogger("Normalboard image temporary stored: /board/normal/confirm.",$addinfo);
+        }
+        
+        
+        /* Process path for publication*/
+        $pathinfo = array();
+        $pathinfo = pathinfo($changePath);
+//        echo $pathinfo['dirname']."<br>";
+//        echo $pathinfo['basename']."<br>";
+//        echo $pathinfo['extension']."<br>";
+//        echo $pathinfo['filename']."<br>";
+        
+        $picBasePath = "storage/pics/";
+        $publishedPath = $picBasePath.$pathinfo['filename'].'.'.$pathinfo['extension'];
+        var_dump($publishedPath);
+//        $httpPath = BaseClass::FullpathtoAbsolutepath(storage_path($changePath));
         
         
 
@@ -155,6 +202,10 @@ class normalController extends Controller
         /* Data set */
         $uniqeid = BaseClass::makeUniqeid("BNA");
         
+        
+        
+        
+        
 //        App\BoardNormal
         /* save on database */
         $boardNormal = new BoardNormal();
@@ -169,6 +220,19 @@ class normalController extends Controller
         $boardNormal->save();
         
         return view("board.normal.store");
+    }
+    
+    
+    /** Image uploader Utility
+     *
+     *
+     *
+     *
+     *
+     *
+     */
+    public function xxxxx() {
+        
     }
     
 }

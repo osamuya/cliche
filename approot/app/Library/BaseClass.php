@@ -31,7 +31,7 @@ class BaseClass
      * $strings @return filepath
      *
      */
-    public static function FilenameUniqueSerialNumber($path="") {
+    public static function FilenameUniqueSerialNumber($path="",$prefix) {
         // public/pics/pAm5KBNVLohRTzjXR5wAU04rCUzKrY6tijFQ6hDX.jpeg
         $pathParts = pathinfo($path);
         if ($pathParts["extension"] == "jpeg") {
@@ -39,10 +39,22 @@ class BaseClass
         } else {
             $extention = $pathParts["extension"];
         }
-        $fileName = BaseClass::makeUniqeid("PIC");
+        $datetime = Carbon::now()->format('Ymd');
+        $fileName = BaseClass::makeUniqeid($prefix."-".$datetime);
         $changePath = $pathParts["dirname"]."/".$fileName.".".$extention;
+        
         return $changePath;
     }
+    
+//    public static function FullpathtoAbsolutepath($fullpath) {
+//        var_dump($fullpath);
+//        $documentRoot = public_path();
+//        $escapedDcumentRoot = preg_replace("/[\\/]/",'',$documentRoot);
+//        var_dump($escapedDcumentRoot);
+//        $httpPath = preg_replace("/$escapedDcumentRoot/","",$fullpath);
+//        
+//        die($httpPath);
+//    }
     
     /*
     |--------------------------------------------------------------------------

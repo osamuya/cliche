@@ -33,7 +33,6 @@
         
         <script>
             $(function(){
-                console.log("kko");
                 $("#ajax").on('click',function(){
                     $.ajax({
                         url: "/api/ajax/get_json",
@@ -44,7 +43,6 @@
                         
                         /* 取得したjsonデータのパース */
                         $.each(data, function(k,v){
-                            console.log(k,v);
                             $("#out").append(k+": ");
                             $("#out").append(v+"<br>");
                         });
