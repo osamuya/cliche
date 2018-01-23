@@ -43,13 +43,8 @@ Route::match(['get', 'post'],'/admin/login', 'Admin\LoginController@login');
 
 /* Ajax test get */
 Route::get('/ajax/get_string', function(){ return view('develop.ajax_get_string'); });
-<<<<<<< HEAD
-Route::get('/ajax/get_xml', function(){ return view('develop.ajax_get_xml'); });
-Route::get('/ajax/post_string', function(){ return view('develop.ajax_post_string'); });
-=======
 //Route::get('/ajax/get_xml', function(){ return view('develop.ajax_get_xml'); });
 Route::get('/ajax/get_json', function(){ return view('develop.ajax_get_json'); });
->>>>>>> 26813ffae90e453c962510d579f30a2459136175
 
 Route::get('/api/ajax/get_string', 'Test\TestController@ajax_get_string');
 //Route::get('/api/ajax/get_xml', 'Test\TestController@ajax_get_xml');
@@ -57,19 +52,11 @@ Route::get('/api/ajax/get_json', 'Test\TestController@ajax_get_json');
 
 /* Ajax test post */
 Route::get('/ajax/post_string', function(){ return view('develop.ajax_post_string'); });
-<<<<<<< HEAD
-Route::get('/ajax/post_xml', function(){ return view('develop.ajax_post_xml'); });
-Route::get('/ajax/post_json', function(){ return view('develop.ajax_post_json'); });
-
-Route::post('/api/ajax/post_string', 'Test\TestController@ajax_post_string');
-Route::post('/api/ajax/post_xml', 'Test\TestController@ajax_post_string');
-=======
 //Route::get('/ajax/post_xml', function(){ return view('develop.ajax_post_xml'); });
 Route::get('/ajax/post_json', function(){ return view('develop.ajax_post_json'); });
 
 Route::post('/api/ajax/post_string', 'Test\TestController@ajax_post_string');
 //Route::get('/api/ajax/post_xml', 'Test\TestController@ajax_post_xml');
->>>>>>> 26813ffae90e453c962510d579f30a2459136175
 Route::post('/api/ajax/post_json', 'Test\TestController@ajax_post_json');
 
 /**
@@ -93,8 +80,6 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/test/404', function(){ return abort('404');});
     Route::get('/test/500', function(){ return abort('500');});
     Route::get('/test/503', function(){ return abort('503');});
-    
-
 }
 
 /**
