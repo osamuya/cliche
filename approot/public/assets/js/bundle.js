@@ -11134,6 +11134,25 @@ new function () {
 		checkFontSize(footerFixed);
 	});
 	addEvent(window, "resize", footerFixed);
+
+	// ファイルアップローダーの補助
+	(0, _jquery2.default)(function () {
+		(0, _jquery2.default)("#xxxx").on('click', function () {
+			alert("uploader");
+		});
+		(0, _jquery2.default)('#BSbtndanger').filestyle({
+			buttonName: 'btn-danger',
+			buttonText: ' File selection'
+		});
+		(0, _jquery2.default)('#BSbtnsuccess').filestyle({
+			buttonName: 'btn-success',
+			buttonText: ' Open'
+		});
+		(0, _jquery2.default)('#BSbtninfo').filestyle({
+			buttonName: 'btn-info',
+			buttonText: ' Select a File'
+		});
+	});
 }();
 
 },{"./lib/sample":3,"jquery":2}]},{},[4]);

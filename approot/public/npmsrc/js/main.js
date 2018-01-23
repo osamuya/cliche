@@ -83,16 +83,28 @@ new function(){
 	});
 	addEvent(window,"resize",footerFixed);
 	
-    
+    // ファイルアップローダーの補助
+    $(function(){
+        $("#xxxx").on('click', function(){
+            alert("uploader");
+        });
+			$('#BSbtndanger').filestyle({
+				buttonName : 'btn-danger',
+                buttonText : ' File selection'
+			});
+			$('#BSbtnsuccess').filestyle({
+				buttonName : 'btn-success',
+                buttonText : ' Open'
+			});
+			$('#BSbtninfo').filestyle({
+				buttonName : 'btn-info',
+                buttonText : ' Select a File'
+			});
+    });
 }
 
 
 
 
 
-$(document).on('change', ':file', function() {
-    var input = $(this),
-    numFiles = input.get(0).files ? input.get(0).files.length : 1,
-    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    input.parent().parent().next(':text').val(label);
-});
+

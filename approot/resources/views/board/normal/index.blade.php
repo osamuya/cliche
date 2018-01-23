@@ -110,16 +110,25 @@
                         
                         {{-- 画像アップ --}}
                         
+
+<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+      
+
+
+                        
+<!--                        <p id="xxxx">xxxx</p>-->
+                        
+<!--
 <div class="form-group">
-<div class="input-group">
-    <label class="input-group-btn">
-        <span class="btn btn-primary">
-            Uploadファイルを選択
-            <input type="file" name="file1" id="file1" value="{{old('file1')}}" style="display:none">
-        </span>
-    </label>
-    <input type="text" class="form-control" readonly="">
-</div>
+    <div class="input-group">
+        <label class="input-group-btn">
+            <span class="btn btn-primary" id="file1">
+                Uploadファイルを選択
+                <input type="file" name="file1" value="{{old('file1')}}" style="display:none">
+            </span>
+        </label>
+        <input type="text" class="form-control" readonly="">
+    </div>
 </div>
                         
                         
@@ -130,9 +139,12 @@
         
     </span>
 </label>
+-->
+<!--
                             
                             <input type="file" name="file2" id="file2" value="{{old('file2')}}">
                         </div>
+-->
 <!--
                         <div class="col-md-4 control-label">ファイルアップロード</div>
                         <div class="form-group">

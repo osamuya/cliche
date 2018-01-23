@@ -130,7 +130,7 @@ class normalController extends Controller
         $publishedPath = $picBasePath.$pathinfo['filename'].'.'.$pathinfo['extension'];
         var_dump($publishedPath);
 //        $httpPath = BaseClass::FullpathtoAbsolutepath(storage_path($changePath));
-        
+        $request->session()->put('file1', $publishedPath);
         
 
         

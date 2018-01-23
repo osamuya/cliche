@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Log;
 
 class CustomValidator extends \Illuminate\Validation\Validator
 {
-    
     /**
      * Hiragana
      * $this->validate($request, [
