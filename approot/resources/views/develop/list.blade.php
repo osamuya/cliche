@@ -52,6 +52,7 @@
         <li><a href="/test/403">403</a></li>
         <li><a href="/test/404">404</a></li>
         <li><a href="/test/500">500</a></li>
+        <li><a href="/test/503">503 メンテナンス中</a></li>
     </ul>
 </div>{{--col-sm-8--}}
         

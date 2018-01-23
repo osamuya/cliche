@@ -80,6 +80,7 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/test/403', function(){ return abort('403');});
     Route::get('/test/404', function(){ return abort('404');});
     Route::get('/test/500', function(){ return abort('500');});
+    Route::get('/test/503', function(){ return abort('503');});
     
 
 }
