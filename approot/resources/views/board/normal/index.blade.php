@@ -109,11 +109,61 @@
                         </div>
                         
                         {{-- 画像アップ --}}
-                        <div class="form-group">
-                            <input type="file" name="file1" id="file1">
-                            <input type="file" name="file2" id="file2">
-                        </div>
                         
+
+<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+      
+
+
+                        
+<!--                        <p id="xxxx">xxxx</p>-->
+                        
+<!--
+<div class="form-group">
+    <div class="input-group">
+        <label class="input-group-btn">
+            <span class="btn btn-primary" id="file1">
+                Uploadファイルを選択
+                <input type="file" name="file1" value="{{old('file1')}}" style="display:none">
+            </span>
+        </label>
+        <input type="text" class="form-control" readonly="">
+    </div>
+</div>
+                        
+                        
+                        <div class="form-group">
+<label>
+    <span class="btn btn-primary">
+        Choose File
+        
+    </span>
+</label>
+-->
+<!--
+                            
+                            <input type="file" name="file2" id="file2" value="{{old('file2')}}">
+                        </div>
+-->
+<!--
+                        <div class="col-md-4 control-label">ファイルアップロード</div>
+                        <div class="form-group">
+                            <input type="file" id="file-input" name="file1" style="display: none;">
+                            <div class="input-prepend">
+                                <a class="btn" onclick="$('#file-input').click()">
+                                    <i class="fa fa-file-image-o fa-lg"></i>
+                                </a>
+                            <span id="cover" class="input-xlarge uneditable-input">ファイルを選択</span>
+                            </div>
+                        </div>
+
+                        <script>
+                            $('#file-input').change(function() {
+                              $('#cover').html($(this).val());
+                            });
+                        </script>
+-->
+
                         
                         
                         {{-- 複数選択 --}}
@@ -164,5 +214,8 @@
         </div>{{--col-sm-4--}}
     </div>
 </div>
+<script>
+
+</script>
 <!--cliche/approot/resources/views/index.blade.php-->
 @endsection

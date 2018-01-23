@@ -83,4 +83,28 @@ new function(){
 	});
 	addEvent(window,"resize",footerFixed);
 	
+    // ファイルアップローダーの補助
+    $(function(){
+        $("#xxxx").on('click', function(){
+            alert("uploader");
+        });
+			$('#BSbtndanger').filestyle({
+				buttonName : 'btn-danger',
+                buttonText : ' File selection'
+			});
+			$('#BSbtnsuccess').filestyle({
+				buttonName : 'btn-success',
+                buttonText : ' Open'
+			});
+			$('#BSbtninfo').filestyle({
+				buttonName : 'btn-info',
+                buttonText : ' Select a File'
+			});
+    });
 }
+
+
+
+
+
+

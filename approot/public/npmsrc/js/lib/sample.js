@@ -3,3 +3,9 @@ export default class Sample {
         this.name = opts.name;
     }
 };
+
+
+
+
+
+

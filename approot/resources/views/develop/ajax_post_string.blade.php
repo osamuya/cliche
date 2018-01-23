@@ -11,7 +11,10 @@
         <meta name="viewport" content="width=device-width">
         <!--page info-->
         <title>sample</title>
+<<<<<<< HEAD
         <!--AjaxもPOSTなのでCSRFトークン入れないと駄目です-->
+=======
+>>>>>>> 26813ffae90e453c962510d579f30a2459136175
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -33,6 +36,7 @@
         <script type="text/javascript" src="/assets/js/plugin/respond.min.js"></script>
         <![endif]-->
         
+<<<<<<< HEAD
         
         <script>
             $(function(){
@@ -52,6 +56,22 @@
                             user: 'bar'
                         },
                         dataType: 'text'
+=======
+        <script>
+            $(function(){
+                $("#ajax").on('click',function(){
+                    $.ajaxSetup({
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+                    });
+                    $.ajax({
+                        url: "/api/ajax/post_string",
+                        type: 'post',
+                        dataType: 'text',
+                        data : {
+                            "id" : "9999",
+                            "name" : "osamuya"
+                        },
+>>>>>>> 26813ffae90e453c962510d579f30a2459136175
                     }).done(function(data){
                         console.log(data);
                         $("#out").text(data);
@@ -59,9 +79,18 @@
                 });
             });
         </script>
+<<<<<<< HEAD
     </head>
     <body>
         <a href="#" id="ajax">Get String</a>
         <span id="out"></span>
+=======
+        
+    </head>
+    <body>
+        <a href="#" id="ajax">String with post</a><br>
+        <span id="out"></span>
+        
+>>>>>>> 26813ffae90e453c962510d579f30a2459136175
     </body>
 </html>
