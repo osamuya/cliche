@@ -16,6 +16,10 @@ class TestController extends Controller
     public function index()
     {
         var_dump(BaseClass::hello());
+        
+        
+        
+        
         return view("develop.text_index");
     }
     
@@ -26,10 +30,20 @@ class TestController extends Controller
     }
     
     public function ajax_get_string() {
-
-    
-        return "Ajax Get Response";
+        
+        
+        
+        $sum = mt_rand(1111,9999);
+        
+        
+        return $sum;
     }
     
-    
+    public function ajax_post_string(Request $request) {
+        
+        $id = $request->input('id');
+        $user = $request->input('user');
+        
+        return "Ajax Post Response ID:".$id." USER:".$user;
+    }
 }
