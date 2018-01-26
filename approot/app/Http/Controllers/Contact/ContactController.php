@@ -245,15 +245,21 @@ class ContactController extends Controller
         $contact->delflag = 0;
         $contact->save();
         
+        /* Preparing parameters to send e-mail */
+//        var_dump(env("MAIL_FROM_NAME"));
+        $adminEmailAddress = array();
+        $adminEmailAddress = explode(",",env("ADMIN_MAIL_ADDRESS"));
+//        var_dump($adminEmailAddress);
+//        die();
         /* Swift send mail */
         $mail_to = $request->session()->get('email');
         $options = [
             'from' => 'from@example.com',
             'from_jp' => 'from cliche',
             'to' => $mail_to,
-            'subject' => 'お問い合わせを受付けました。',
+            'subject' => 'cliche お問い合わせを受付けました。',
             'template' => 'mails.welcome',
-            "bcc" => "aonuma.mori@gmail.com",
+            "bcc" => $adminEmailAddress,
         ];
 
         $emaildata = [
@@ -261,7 +267,7 @@ class ContactController extends Controller
                     'text' => 'foobar',
         ];
         Mail::to($mail_to)->send(new BaseMail($options, $emaildata));
-        
+        die();
         /* session destory */
 //        $request->session()->forget('category');
 //        $request->session()->forget('surname');
