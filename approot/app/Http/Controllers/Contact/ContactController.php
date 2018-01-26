@@ -246,11 +246,9 @@ class ContactController extends Controller
         $contact->save();
         
         /* Preparing parameters to send e-mail */
-//        var_dump(env("MAIL_FROM_NAME"));
         $adminEmailAddress = array();
         $adminEmailAddress = explode(",",env("ADMIN_MAIL_ADDRESS"));
-//        var_dump($adminEmailAddress);
-//        die();
+        
         /* Swift send mail */
         $mail_to = $request->session()->get('email');
         $options = [
@@ -258,16 +256,35 @@ class ContactController extends Controller
             'from_jp' => 'from cliche',
             'to' => $mail_to,
             'subject' => 'cliche お問い合わせを受付けました。',
-            'template' => 'mails.welcome',
+            'template' => 'mails.contact',
             "bcc" => $adminEmailAddress,
         ];
 
         $emaildata = [
             'mail_to' => $mail_to,
-                    'text' => 'foobar',
+            'category' => $request->session()->get('category'),
+            'surname' => $request->session()->get('surname'),
+            'firstname' => $request->session()->get('firstname'),
+            'surnamekana' => $request->session()->get('surnamekana'),
+            'firstnamekana' => $request->session()->get('firstnamekana'),
+            'email' => $request->session()->get('email'),
+            'postNumber' => $request->session()->get('postNumber3').'-'.$request->session()->get('postNumber4'),
+            'prefectures' => $request->session()->get('prefectures'),
+            'municipality' => $request->session()->get('municipality'),
+            'address' => $request->session()->get('address'),
+            'telphone' => 
+                $request->session()->get('telphoneAreacode')."-".
+                $request->session()->get('telphoneCitycode')."-".
+                $request->session()->get('telphoneSubscriber'),
+            'mobilephone' => 
+                $request->session()->get('mobilephoneAreacode')."-".
+                $request->session()->get('mobilephoneCitycode')."-".
+                $request->session()->get('mobilephoneSubscriber'),
+            'sex' => $request->session()->get('sex'),
+            'inquery' => $request->session()->get('inquery'),
         ];
         Mail::to($mail_to)->send(new BaseMail($options, $emaildata));
-        die();
+
         /* session destory */
 //        $request->session()->forget('category');
 //        $request->session()->forget('surname');
