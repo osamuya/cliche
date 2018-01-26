@@ -4,7 +4,7 @@
  */
 
 html {
-    font-family: $font-family-yugo;
+    font-family: $font-family-noto;
     color: $color_txt;
     word-wrap: break-word;
     font-size: $base_fs * 1px;
