@@ -93,8 +93,11 @@
                                 <label for="postNumber4"> - </label>
                                 <input id="postNumber4" type="text" class="form-control postNumber4" name="postNumber4" value="{{old('postNumber4')}}">
                                 <div class="errorMessage">
-                                    <p class="validationsError">{{$errors->first('postNumber3')}}</p>
-                                    <p class="validationsError">{{$errors->first('postNumber4')}}</p>
+                                    @if($errors->has('postNumber3'))
+                                        <p class="validationsError">{{ $errors->first('postNumber3') }}</p>
+                                    @elseif($errors->has('postNumber4'))
+                                        <p class="validationsError">{{ $errors->first('postNumber4') }}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -157,9 +160,19 @@
                                 <label for="telphoneSubscriber"> - </label>
                                 <input id="telphoneSubscriber" type="text" class="form-control telphoneSubscriber" name="telphoneSubscriber" value="{{old('telphoneSubscriber')}}">
                                 <div class="errorMessage">
+<!--
                                     <p class="validationsError">{{$errors->first('telphoneAreacode')}}</p>
                                     <p class="validationsError">{{$errors->first('telphoneCitycode')}}</p>
                                     <p class="validationsError">{{$errors->first('telphoneSubscriber')}}</p>
+-->
+                                    
+@if($errors->has('telphoneAreacode'))
+    <p class="validationsError">{{ $errors->first('telphoneAreacode') }}</p>
+@elseif($errors->has('telphoneCitycode'))
+    <p class="validationsError">{{ $errors->first('telphoneCitycode') }}</p>
+@elseif($errors->has('telphoneSubscriber'))
+    <p class="validationsError">{{ $errors->first('telphoneSubscriber') }}</p>
+@endif
                                 </div>
                             </div>
                         </div>

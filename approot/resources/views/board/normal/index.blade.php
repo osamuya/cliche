@@ -109,10 +109,12 @@
                         </div>
                         
                         {{-- 画像アップ --}}
-                        
-
-<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-      
+                        <input type="file" name="file1" class="form-control-file" value="{{old('file1')}}">
+                        <input type="file" name="file2" class="form-control-file">
+                        <input type="file" name="file3" class="form-control-file">
+                        <div class="errorMessage">
+                            <p class="validationsError">{{$errors->first('file1')}}</p>
+                        </div>
 
 
                         

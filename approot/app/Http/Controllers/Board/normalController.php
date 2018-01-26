@@ -55,6 +55,7 @@ class normalController extends Controller
             'prefectures' => 'required|max:16',
             'sex' => 'required',
             'submission' => 'required|max:3000',
+            'file1' => 'required|file|image|mimes:jpeg,bmp,png|dimensions:min_width=100,min_height=100,max_width=3600,max_height=3600',
             'multipleSelect0' => 'required_without_all:,multipleSelect1,multipleSelect2,multipleSelect3,multipleSelect4'
         ],[
             'multipleSelect0.required_without_all' => 'どれか一つ以上を選択してください。',
@@ -78,61 +79,15 @@ class normalController extends Controller
          * Image file upload
          * Temporarily save and use only for thumbnail display
          *
+         * Simple example...
          * $changePath: app/public/pics/TMPPIC-20180121-5-a63f-81f2-e3ca.jpg
-         * $publishedPath: http://cliche.local/storage/pics/TMPPIC-20180121-5-a63f-81f2-e3ca.jpg
+         * $publishedPath: /storage/pics/TMPPIC-20180121-5-a63f-81f2-e3ca.jpg
          */
-        $originalPath = "app/".$request->file('file1')->store('public/pics');
-        $changePath = BaseClass::FilenameUniqueSerialNumber($originalPath, "TMPPIC");
         
-        /* rename */
-//        var_dump(storage_path($originalPath));
-//        var_dump(storage_path($changePath ));
-        $rename = @rename (storage_path($originalPath), storage_path($changePath));
-        if ($rename == false) {
-            $addinfo = array(
-                "origiranFilePath" => storage_path($originalPath),
-                "changeFilePath" => storage_path($changePath),
-                "className" => get_class($this),
-                "methodName" => __METHOD__,
-                "line" => "It received a status of false when uploading images.",
-            );
-            BaseClass::appLogger("Normalboard image temporary stored: /board/normal/confirm.",$addinfo);
-            
-        } else if ($rename == true) {
-            $saveString = "It received a status of false when uploading images.";
-            $addinfo = array(
-                "origiranFilePath" => storage_path($originalPath),
-                "changeFilePath" => storage_path($changePath),
-                "className" => get_class($this),
-                "methodName" => __METHOD__,
-                "line" => $saveString,
-            );
-            BaseClass::appLogger("Normalboard image temporary stored: /board/normal/confirm.",$addinfo);
-        } else {
-            $addinfo = array(
-                "className" => get_class($this),
-                "methodName" => __METHOD__,
-                "line" => "Exceptions: An unexpected event occurred.",
-            );
-            BaseClass::appLogger("Normalboard image temporary stored: /board/normal/confirm.",$addinfo);
-        }
+        $publishedPath = $this->uploadFilesTemporaryProcessing($request->file('file1'),$prefix="TMPPIC");
         
         
-        /* Process path for publication*/
-        $pathinfo = array();
-        $pathinfo = pathinfo($changePath);
-//        echo $pathinfo['dirname']."<br>";
-//        echo $pathinfo['basename']."<br>";
-//        echo $pathinfo['extension']."<br>";
-//        echo $pathinfo['filename']."<br>";
         
-        $picBasePath = "storage/pics/";
-        $publishedPath = $picBasePath.$pathinfo['filename'].'.'.$pathinfo['extension'];
-        var_dump($publishedPath);
-//        $httpPath = BaseClass::FullpathtoAbsolutepath(storage_path($changePath));
-        $request->session()->put('file1', $publishedPath);
-        
-
         
         /* Serialize for checkbox values */
         $multipleSelects = array();
@@ -148,6 +103,7 @@ class normalController extends Controller
         $request->session()->put('prefectures', $request->input('prefectures'));
         $request->session()->put('sex', $request->input('sex'));
         $request->session()->put('submission', $request->input('submission'));
+        $request->session()->put('file1', $publishedPath);
         $request->session()->put('multipleSelects', $serializedMultipleSelects);
         
         $request->session()->put('sended', 'true');
@@ -160,6 +116,7 @@ class normalController extends Controller
             'prefectures' => $request->input('prefectures'),
             'sex' => $request->input('sex'),
             'submission' => $request->input('submission'),
+            'files1' => $publishedPath,
             'multipleSelects' => $multipleSelects,
         ]);
     }
@@ -231,8 +188,29 @@ class normalController extends Controller
      *
      *
      */
-    public function xxxxx() {
+    public function uploadFilesTemporaryProcessing($requestFile,$prefix="FILE") {
         
+        /* Storage Base path */
+        $picBasePath = "storage/pics/";
+        
+        if (!empty($requestFile)) {
+            $originalPath = "app/".$requestFile->store('public/pics');
+            $changePath = BaseClass::FilenameUniqueSerialNumber($originalPath, $prefix);
+            $rename = @rename (storage_path($originalPath), storage_path($changePath));
+            
+            /* Make publishing path */
+            $pathinfo = array();
+            $pathinfo = pathinfo($changePath);
+            $publishedPath = "/".$picBasePath.$pathinfo['filename'].'.'.$pathinfo['extension'];
+            
+            return $publishedPath;
+        } else {
+            return false;
+        }
+        
+        
+        
+        return false;
     }
     
 }

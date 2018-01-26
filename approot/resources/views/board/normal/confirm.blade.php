@@ -62,6 +62,14 @@
                             </div>
                         </div>
                         
+                        <div class="form-group">
+                            <label for="inquery" class="col-md-4 control-label">投稿内容</label>
+                            <div class="col-md-12">
+                                <img src="{{$files1}}" width="100">
+                            </div>
+                        </div>
+                        
+                        
                         {{-- 複数選択 --}}
                         <div class="form-group">
                             <div class="col-md-4 control-label">複数選択</div>
