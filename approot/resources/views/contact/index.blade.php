@@ -159,20 +159,15 @@
                                 <input id="telphoneCitycode" type="text" class="form-control telphoneCitycode" name="telphoneCitycode" value="{{old('telphoneCitycode')}}">
                                 <label for="telphoneSubscriber"> - </label>
                                 <input id="telphoneSubscriber" type="text" class="form-control telphoneSubscriber" name="telphoneSubscriber" value="{{old('telphoneSubscriber')}}">
+                                
                                 <div class="errorMessage">
-<!--
-                                    <p class="validationsError">{{$errors->first('telphoneAreacode')}}</p>
-                                    <p class="validationsError">{{$errors->first('telphoneCitycode')}}</p>
-                                    <p class="validationsError">{{$errors->first('telphoneSubscriber')}}</p>
--->
-                                    
-@if($errors->has('telphoneAreacode'))
-    <p class="validationsError">{{ $errors->first('telphoneAreacode') }}</p>
-@elseif($errors->has('telphoneCitycode'))
-    <p class="validationsError">{{ $errors->first('telphoneCitycode') }}</p>
-@elseif($errors->has('telphoneSubscriber'))
-    <p class="validationsError">{{ $errors->first('telphoneSubscriber') }}</p>
-@endif
+                                    @if($errors->has('telphoneAreacode'))
+                                        <p class="validationsError">{{ $errors->first('telphoneAreacode') }}</p>
+                                    @elseif($errors->has('telphoneCitycode'))
+                                        <p class="validationsError">{{ $errors->first('telphoneCitycode') }}</p>
+                                    @elseif($errors->has('telphoneSubscriber'))
+                                        <p class="validationsError">{{ $errors->first('telphoneSubscriber') }}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -187,9 +182,13 @@
                                 <label for="mobilephoneSubscriber"> - </label>
                                 <input id="mobilephoneSubscriber" type="text" class="form-control mobilephoneSubscriber" name="mobilephoneSubscriber" value="{{old('mobilephoneSubscriber')}}">
                                 <div class="errorMessage">
-                                    <p class="validationsError">{{$errors->first('mobilephoneAreacode')}}</p>
-                                    <p class="validationsError">{{$errors->first('mobilephoneCitycode')}}</p>
-                                    <p class="validationsError">{{$errors->first('mobilephoneSubscriber')}}</p>
+                                    @if($errors->has('telphoneAreacode'))
+                                        <p class="validationsError">{{ $errors->first('mobilephoneAreacode') }}</p>
+                                    @elseif($errors->has('telphoneCitycode'))
+                                        <p class="validationsError">{{ $errors->first('mobilephoneCitycode') }}</p>
+                                    @elseif($errors->has('telphoneSubscriber'))
+                                        <p class="validationsError">{{ $errors->first('mobilephoneSubscriber') }}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -198,12 +197,18 @@
                         <div class="form-group">
                             <div class="col-md-4 control-label">性別</div>
                             <div class="col-md-6">
-                                <label for="man">男</label>
-                                <input id="man" type="radio" class="" name="sex" value="男" @if (old('sex') == '男') checked @endif>
-                                <label for="woman">女</label>
-                                <input id="woman" type="radio" class="" name="sex" value="女" @if (old('sex') == '女') checked @endif>
-                                <label for="else">どちらでもない</label>
-                                <input id="else" type="radio" class="" name="sex" value="どちらでもない" @if (old('sex') == 'どちらでもない') checked @endif>
+                                <div>
+                                    <input id="man" type="radio" class="" name="sex" value="男" @if (old('sex') == '男') checked @endif>
+                                    <label for="man" class="labelradio">男</label>
+                                </div>
+                                <div>
+                                    <input id="woman" type="radio" class="" name="sex" value="女" @if (old('sex') == '女') checked @endif>
+                                    <label for="woman" class="labelradio">女</label>
+                                </div>
+                                <div>
+                                    <input id="else" type="radio" class="" name="sex" value="どちらでもない" @if (old('sex') == 'どちらでもない') checked @endif>
+                                    <label for="else" class="labelradio">どちらでもない</label>
+                                </div>
                                 <div class="errorMessage">
                                     <p class="validationsError">{{$errors->first('sex')}}</p>
                                 </div>
@@ -226,16 +231,16 @@
                             <div class="col-md-4 control-label">アンケート</div>
                             <div class="col-md-6">
                                 <p>興味のある項目にチェックを入れてください</p>
-                                <input type="checkbox" name="enquete01" class="" value="インターネット">
-                                <label for="enquete">インターネット</label>&nbsp;
-                                <input type="checkbox" name="enquete02" class="" value="不動産">
-                                <label for="enquete">不動産</label>&nbsp;
-                                <input type="checkbox" name="enquete03" class="" value="広告・メディア">
-                                <label for="enquete">広告・メディア</label>&nbsp;
-                                <input type="checkbox" name="enquete04" class="" value="政治・法律">
-                                <label for="enquete">政治・法律</label>&nbsp;
-                                <input type="checkbox" name="enquete05" class="" value="芸術・文学・音楽">
-                                <label for="enquete">芸術・文学・音楽</label>&nbsp;
+                                <input type="checkbox" name="enquete01" class="" value="インターネット" id="enquete1">
+                                <label for="enquete1">インターネット</label>&nbsp;
+                                <input type="checkbox" name="enquete02" class="" value="不動産" id="enquete2">
+                                <label for="enquete2">不動産</label>&nbsp;
+                                <input type="checkbox" name="enquete03" class="" value="広告・メディア" id="enquete3">
+                                <label for="enquete3">広告・メディア</label>&nbsp;
+                                <input type="checkbox" name="enquete04" class="" value="政治・法律" id="enquete4">
+                                <label for="enquete4">政治・法律</label>&nbsp;
+                                <input type="checkbox" name="enquete05" class="" value="芸術・文学・音楽" id="enquete5">
+                                <label for="enquete5">芸術・文学・音楽</label>&nbsp;
                             </div>
                         </div>
                         

@@ -2624,6 +2624,14 @@ body{
     text-align:center;
 }
 
+.fullwidth .main-text{
+    text-align:center;
+}
+
+.fullwidth p{
+    text-align:center;
+}
+
 .nblog{
 }
 
@@ -2709,8 +2717,8 @@ body{
     letter-spacing:2px;
 }
 
-.basicform{
-    line-height:30px;
+form input{
+    border-radius:0px !important;
 }
 
 .basicform input{

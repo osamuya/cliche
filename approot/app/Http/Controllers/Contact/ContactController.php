@@ -242,7 +242,7 @@ class ContactController extends Controller
         $contact->delflag = 0;
         $contact->save();
         
-        /* send mail */
+        /* Swift send mail */
         //ここでメール送信
         
         /* session destory */
@@ -274,6 +274,6 @@ class ContactController extends Controller
         
         
         
-        return "send";
+        return view("contact.sended");
     }
 }

@@ -25,6 +25,8 @@ Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
 Route::post('/contact/confirm', 'Contact\ContactController@confirm');
 Route::post('/contact/sended', 'Contact\ContactController@send');
 
+Route::get('/contact/test_sended', function(){return view("contact.sended");});
+
 /* Auth costomerized */
 /* /register */
 Route::match(['get', 'post'],'/regist_confirm', 'Login\SignupController@registConfirm');

@@ -11058,9 +11058,28 @@ var sample = new _sample2.default({
 	name: 'world'
 });
 
-(0, _jquery2.default)('h1').on('click', function () {
-	console.log('hello, ' + sample.name + '.');
-});
+// https://www.npmjs.com/package/jquery
+// https://github.com/cidermitaina/2017xmas/blob/master/src/js/main.js
+// https://github.com/c5meg1012/c5meg1012.github.io/blob/master/src/js/main.js
+
+//import Snow from './lib/snow';
+//import Scroll from './lib/scroll';
+//import $ from 'jquery';
+//
+//const snow = new Snow();
+//const scroll = new Scroll();
+//
+////snow,smoothScroll
+//$(function () {
+//    snow.initLetItSnow();
+//    scroll.smoothScroll();
+//});
+//
+//
+//$('h1').on('click', () => {
+//    console.log(`hello, ${sample.name}.`);
+//});
+
 
 /*--------------------------------------------------------------------------*
  *  
