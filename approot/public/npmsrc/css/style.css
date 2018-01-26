@@ -124,6 +124,14 @@ body {
     }
 }
 
+.fullwidth {
+    .main-text {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+}
 
 /*nblog*/
 .nblog {
@@ -199,15 +207,24 @@ body {
 .btn {
     letter-spacing: 2px;
 }
+
+
+
+/* Form */
+form {
+    input {
+        border-radius: 0px !important;
+    }
+}
+
 .basicform {
-    line-height: 30px;
+/*    line-height: 30px;*/
     input {
         border-radius: 0px;
     }
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px #fff inset;
     }
-
     input.zipcode3 {
         width: 46px !important;
         display: inline-block;

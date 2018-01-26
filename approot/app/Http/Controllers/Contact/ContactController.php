@@ -10,6 +10,9 @@ use BaseClass;
 use App\Contact;
 use Illuminate\Support\Facades\DB;
 
+use Mail;
+use App\Mail\BaseMail;
+
 /**
  * Contact
  * Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
@@ -242,9 +245,46 @@ class ContactController extends Controller
         $contact->delflag = 0;
         $contact->save();
         
-        /* send mail */
-        //ここでメール送信
+        /* Preparing parameters to send e-mail */
+        $adminEmailAddress = array();
+        $adminEmailAddress = explode(",",env("ADMIN_MAIL_ADDRESS"));
         
+        /* Swift send mail */
+        $mail_to = $request->session()->get('email');
+        $options = [
+            'from' => 'from@example.com',
+            'from_jp' => 'from cliche',
+            'to' => $mail_to,
+            'subject' => 'cliche お問い合わせを受付けました。',
+            'template' => 'mails.contact',
+            "bcc" => $adminEmailAddress,
+        ];
+
+        $emaildata = [
+            'mail_to' => $mail_to,
+            'category' => $request->session()->get('category'),
+            'surname' => $request->session()->get('surname'),
+            'firstname' => $request->session()->get('firstname'),
+            'surnamekana' => $request->session()->get('surnamekana'),
+            'firstnamekana' => $request->session()->get('firstnamekana'),
+            'email' => $request->session()->get('email'),
+            'postNumber' => $request->session()->get('postNumber3').'-'.$request->session()->get('postNumber4'),
+            'prefectures' => $request->session()->get('prefectures'),
+            'municipality' => $request->session()->get('municipality'),
+            'address' => $request->session()->get('address'),
+            'telphone' => 
+                $request->session()->get('telphoneAreacode')."-".
+                $request->session()->get('telphoneCitycode')."-".
+                $request->session()->get('telphoneSubscriber'),
+            'mobilephone' => 
+                $request->session()->get('mobilephoneAreacode')."-".
+                $request->session()->get('mobilephoneCitycode')."-".
+                $request->session()->get('mobilephoneSubscriber'),
+            'sex' => $request->session()->get('sex'),
+            'inquery' => $request->session()->get('inquery'),
+        ];
+        Mail::to($mail_to)->send(new BaseMail($options, $emaildata));
+
         /* session destory */
 //        $request->session()->forget('category');
 //        $request->session()->forget('surname');
@@ -271,9 +311,6 @@ class ContactController extends Controller
 //        $request->session()->forget('enquete04');
 //        $request->session()->forget('enquete05');
 //        $request->session()->forget('agreement');
-        
-        
-        
-        return "send";
+        return view("contact.sended");
     }
 }
