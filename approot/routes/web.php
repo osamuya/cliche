@@ -41,7 +41,6 @@ Route::get('/mail_authenticate_user/{accesshash}', 'Login\SignupController@mailA
 Route::match(['get', 'post'],'/admin/index', 'Admin\LoginController@index');
 Route::match(['get', 'post'],'/admin/login', 'Admin\LoginController@login');
 
-
 /* Ajax test get */
 Route::get('/ajax/get_string', function(){ return view('develop.ajax_get_string'); });
 //Route::get('/ajax/get_xml', function(){ return view('develop.ajax_get_xml'); });
@@ -81,8 +80,6 @@ if (env("APP_ENV")=="local" || env("APP_ENV")=="develop") {
     Route::get('/test/404', function(){ return abort('404');});
     Route::get('/test/500', function(){ return abort('500');});
     Route::get('/test/503', function(){ return abort('503');});
-    
-
 }
 
 /**
