@@ -10,6 +10,9 @@ use BaseClass;
 use App\Contact;
 use Illuminate\Support\Facades\DB;
 
+use Mail;
+use App\Mail\BaseMail;
+
 /**
  * Contact
  * Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
@@ -243,7 +246,21 @@ class ContactController extends Controller
         $contact->save();
         
         /* Swift send mail */
-        //ここでメール送信
+        $mail_to = $request->session()->get('email');
+        $options = [
+            'from' => 'from@example.com',
+            'from_jp' => 'from cliche',
+            'to' => $mail_to,
+            'subject' => 'お問い合わせを受付けました。',
+            'template' => 'mails.welcome',
+            "bcc" => "aonuma.mori@gmail.com",
+        ];
+
+        $emaildata = [
+            'mail_to' => $mail_to,
+                    'text' => 'foobar',
+        ];
+        Mail::to($mail_to)->send(new BaseMail($options, $emaildata));
         
         /* session destory */
 //        $request->session()->forget('category');
@@ -271,9 +288,6 @@ class ContactController extends Controller
 //        $request->session()->forget('enquete04');
 //        $request->session()->forget('enquete05');
 //        $request->session()->forget('agreement');
-        
-        
-        
         return view("contact.sended");
     }
 }
