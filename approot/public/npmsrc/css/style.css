@@ -320,6 +320,11 @@ form {
             width: 100% !important;
             height: 150px;
         }
+        .thumbnailBlock {
+            &__image {
+                height: 120px;
+            }
+        }
         
     }
 }
@@ -429,6 +434,16 @@ form {
         
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

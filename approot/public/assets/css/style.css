@@ -1602,6 +1602,11 @@ form input{
     width:100% !important;
     height:150px;
 }
+.contact form .thumbnailBlock{
+}
+.contact form .thumbnailBlock__image{
+    height:120px;
+}
 .confirm form{
 }
 .confirm form input:-webkit-autofill{
