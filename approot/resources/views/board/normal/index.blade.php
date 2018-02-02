@@ -109,9 +109,48 @@
                         </div>
                         
                         {{-- 画像アップ --}}
-                        <input type="file" name="file1" class="form-control-file" value="{{old('file1')}}">
-                        <input type="file" name="file2" class="form-control-file">
-                        <input type="file" name="file3" class="form-control-file">
+                        
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file1">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file2">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file3">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file4">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file5">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        
                         <div class="errorMessage">
                             <p class="validationsError">{{$errors->first('file1')}}</p>
                         </div>

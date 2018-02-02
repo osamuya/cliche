@@ -64,11 +64,24 @@
                         
                         <div class="form-group">
                             <label for="inquery" class="col-md-4 control-label">投稿内容</label>
-                            <div class="col-md-12">
-                                <img src="{{$files1}}" width="100">
+                            <div class="col-md-12 thumbnailBlock">
+                                @if (count($files) >= 1)
+                                    @foreach ($files as $file)
+                                    <img src="{{$file}}" class="thumbnailBlock__image">
+                                    @endforeach
+                                @else
+                                    <p>投稿画像はありません。</p>
+                                @endif
+
+{{--
+                                <img src="{{$files1}}" class="thumbnailBlock__image">
+                                <img src="{{$files2}}" class="thumbnailBlock__image">
+                                <img src="{{$files3}}" class="thumbnailBlock__image">
+                                <img src="{{$files4}}" class="thumbnailBlock__image">
+                                <img src="{{$files5}}" class="thumbnailBlock__image">
+--}}
                             </div>
                         </div>
-                        
                         
                         {{-- 複数選択 --}}
                         <div class="form-group">

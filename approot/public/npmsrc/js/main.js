@@ -1,42 +1,30 @@
+'use strict';
 import Sample from './lib/sample';
+import Util from './lib/util';
 import $ from 'jquery';
 
 const sample = new Sample({
     name: 'world'
 });
+const util = new Util({
+    
+    name: 'foo',
+    item: 'bar'
+    
+});
 
-// https://www.npmjs.com/package/jquery
-// https://github.com/cidermitaina/2017xmas/blob/master/src/js/main.js
-// https://github.com/c5meg1012/c5meg1012.github.io/blob/master/src/js/main.js
-
-//import Snow from './lib/snow';
-//import Scroll from './lib/scroll';
-//import $ from 'jquery';
-//
-//const snow = new Snow();
-//const scroll = new Scroll();
-//
-////snow,smoothScroll
-//$(function () {
-//    snow.initLetItSnow();
-//    scroll.smoothScroll();
-//});
-//
-//
-//$('h1').on('click', () => {
-//    console.log(`hello, ${sample.name}.`);
-//});
+util.test();
 
 
 /*--------------------------------------------------------------------------*
- *  
- *  footerFixed.js
- *  
- *  MIT-style license. 
- *  
- *  2007 Kazuma Nishihata [to-R]
- *  http://blog.webcreativepark.net
- *  
+ *
+ * footerFixed.js
+ *
+ * MIT-style license. 
+ *
+ * 2007 Kazuma Nishihata [to-R]
+ * http://blog.webcreativepark.net
+ *
  *--------------------------------------------------------------------------*/
 
 new function(){
@@ -66,7 +54,7 @@ new function(){
 	//文字サイズ
 	function checkFontSize(func){
 	
-		//判定要素の追加	
+		//判定要素の追加
 		var e = document.createElement("div");
 		var s = document.createTextNode("S");
 		e.appendChild(s);
@@ -101,24 +89,6 @@ new function(){
 	});
 	addEvent(window,"resize",footerFixed);
 	
-    // ファイルアップローダーの補助
-    $(function(){
-        $("#xxxx").on('click', function(){
-            alert("uploader");
-        });
-			$('#BSbtndanger').filestyle({
-				buttonName : 'btn-danger',
-                buttonText : ' File selection'
-			});
-			$('#BSbtnsuccess').filestyle({
-				buttonName : 'btn-success',
-                buttonText : ' Open'
-			});
-			$('#BSbtninfo').filestyle({
-				buttonName : 'btn-info',
-                buttonText : ' Select a File'
-			});
-    });
 }
 
 
