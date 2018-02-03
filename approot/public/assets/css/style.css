@@ -1360,6 +1360,7 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 .visible-print-inline-block{display:none !important}
 body{
     letter-spacing:1px;
+    font-family: 
 }
 .fa{
     line-height:2px;
@@ -1458,8 +1459,8 @@ body{
     margin-bottom:20px;
 }
 .nblog__thumbnail img{
-    margin-left:11px;
-    margin-bottom:13px;
+    margin-right:10px;
+    margin-bottom:10px;
     width:60px;
     height:60px;
 }
@@ -1692,6 +1693,27 @@ form input{
 .board form textarea{
     width:100% !important;
     height:150px;
+}
+.board .btable{
+}
+.board .btable__line{
+}
+.board .btable__icon{
+    margin-right:10px;
+    display:inline-block;
+    float:left;
+    background:#ff0;
+}
+.board .btable__icon img{
+    width:20%;
+}
+.board .btable__smalltext{
+    float:right;
+    display:inline-block;
+    margin-left:10px;
+}
+.board .btable__smalltext p{
+    text-align:left;
 }
 h1{
     font-size:30px;
@@ -3155,5 +3177,15 @@ h6{
     }
     .hidden-md{
         display:none !important;
+    }
+}
+@media print, screen and (max-width: 767px){
+    .board .btable__icon img{
+        width:100%;
+    }
+}
+@media print, screen and (min-width: 768px) and (max-width: $breakPoint_md-1){
+    .board .btable__icon img{
+        width:100%;
     }
 }
