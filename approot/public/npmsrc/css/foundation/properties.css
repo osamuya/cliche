@@ -2,6 +2,7 @@
  * define valiables
  * 各scssファイルでよく使う値を変数定義
  */
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 // Normal break point
 // $breakPoint: 640px;
@@ -69,6 +70,26 @@ $font-family-yugo:
     "MS PGothic",
     Sans-Serif                        // others
 ;
+
+
+$font-family-noto:
+    'Noto Sans JP',                 // Noto
+    "ヒラギノ角ゴ ProN W3",            // Japanese font for MAC OS X v10.5 or later
+    "Hiragino Kaku Gothic ProN",
+    "ヒラギノ角ゴ Pro W3",            // Japanese font for the previous MAC OS X v10.4
+    "Hiragino Kaku Gothic Pro",
+    "ヒラギノ丸ゴ ProN W4",            // Japanese font for MAC OS X v10.5 or later
+    "Hiragino Maru Gothic ProN",
+    "ヒラギノ丸ゴ Pro W4",            // Japanese font for the previous MAC OS X v10.4
+    "Hiragino Maru Gothic Pro",
+    "メイリオ",                        // Japanese font for Windows8/7/Vista
+    "Meiryo",
+    "ＭＳ Ｐゴシック",                // Japanese font for the previous WindowsXP
+    "MS PGothic",
+    Sans-Serif                        // others
+;
+
+
 
 
 

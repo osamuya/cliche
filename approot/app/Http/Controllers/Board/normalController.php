@@ -10,6 +10,9 @@ use BaseClass;
 use App\BoardNormal;
 use Illuminate\Support\Facades\DB;
 
+/* monolog */
+use Monolog\Logger;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Board
@@ -18,13 +21,38 @@ use Illuminate\Support\Facades\DB;
  * Route::post('/board/normal/stored', 'Board\normalController@store');
  *
  */
-
 class normalController extends Controller
 {
-    //
+    
+    public function __construct() {
+
+    }
     
     public function index(Request $request)
     {
+        
+        /* Display Thread bulletin board */
+        
+//        $boardNormal = new BoardNormal;
+//        $boardNormal = BoardNormal::where('delflag',0);
+        $boardNormal = BoardNormal::all()->where('delflag',0);
+        
+        var_dump($boardNormal);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         /* Logging */
         $user = Auth::user();
         if ($user !== NULL) {
@@ -55,7 +83,7 @@ class normalController extends Controller
             'prefectures' => 'required|max:16',
             'sex' => 'required',
             'submission' => 'required|max:3000',
-            'file1' => 'required|file|image|mimes:jpeg,bmp,png|dimensions:min_width=100,min_height=100,max_width=3600,max_height=3600',
+            'file1' => 'file|image|mimes:jpeg,bmp,png|dimensions:min_width=100,min_height=100,max_width=3600,max_height=3600',
             'multipleSelect0' => 'required_without_all:,multipleSelect1,multipleSelect2,multipleSelect3,multipleSelect4'
         ],[
             'multipleSelect0.required_without_all' => 'どれか一つ以上を選択してください。',
@@ -83,11 +111,32 @@ class normalController extends Controller
          * $changePath: app/public/pics/TMPPIC-20180121-5-a63f-81f2-e3ca.jpg
          * $publishedPath: /storage/pics/TMPPIC-20180121-5-a63f-81f2-e3ca.jpg
          */
-        
-        $publishedPath = $this->uploadFilesTemporaryProcessing($request->file('file1'),$prefix="TMPPIC");
-        
-        
-        
+        $imagesPaths = array();
+        if ($request->file('file1')) {
+            $publishedPath1 = $this->uploadFilesTemporaryProcessing($request->file('file1'),$prefix="TMPPIC");
+            array_push($imagesPaths, $publishedPath1);
+        }
+        if ($request->file('file2')) {
+            $publishedPath2 = $this->uploadFilesTemporaryProcessing($request->file('file2'),$prefix="TMPPIC");
+            array_push($imagesPaths, $publishedPath2);
+        }
+        if ($request->file('file3')) {
+            $publishedPath3 = $this->uploadFilesTemporaryProcessing($request->file('file3'),$prefix="TMPPIC");
+            array_push($imagesPaths, $publishedPath3);
+        }
+        if ($request->file('file4')) {
+            $publishedPath4 = $this->uploadFilesTemporaryProcessing($request->file('file4'),$prefix="TMPPIC");
+            array_push($imagesPaths, $publishedPath4);
+        }
+        if ($request->file('file5')) {
+            $publishedPath5 = $this->uploadFilesTemporaryProcessing($request->file('file5'),$prefix="TMPPIC");
+            array_push($imagesPaths, $publishedPath5);
+        }
+//        var_dump($imagesPaths);
+        /* Serialize for files */
+        $serializedFiles = serialize($imagesPaths);
+        var_dump($serializedFiles);
+//        die();
         
         /* Serialize for checkbox values */
         $multipleSelects = array();
@@ -103,7 +152,7 @@ class normalController extends Controller
         $request->session()->put('prefectures', $request->input('prefectures'));
         $request->session()->put('sex', $request->input('sex'));
         $request->session()->put('submission', $request->input('submission'));
-        $request->session()->put('file1', $publishedPath);
+        $request->session()->put('files', $serializedFiles);
         $request->session()->put('multipleSelects', $serializedMultipleSelects);
         
         $request->session()->put('sended', 'true');
@@ -116,7 +165,7 @@ class normalController extends Controller
             'prefectures' => $request->input('prefectures'),
             'sex' => $request->input('sex'),
             'submission' => $request->input('submission'),
-            'files1' => $publishedPath,
+            'files' => $imagesPaths,
             'multipleSelects' => $multipleSelects,
         ]);
     }
@@ -135,6 +184,7 @@ class normalController extends Controller
         $saveString .= $request->session()->get('prefectures')."\t";
         $saveString .= $request->session()->get('sex')."\t";
         $saveString .= $request->session()->get('submission')."\t";
+        $saveString .= $request->session()->get('files');
         $saveString .= $request->session()->get('multipleSelects')."\t";
 
         /* Logging */
@@ -156,14 +206,15 @@ class normalController extends Controller
         }
         BaseClass::appLogger("Normalboard stored: /board/normal/stored.",$addinfo);
         
+        Log::info('なんらかのメッセージとか。 ID:');
+        
+        
+        
+        
+        
         /* Data set */
         $uniqeid = BaseClass::makeUniqeid("BNA");
         
-        
-        
-        
-        
-//        App\BoardNormal
         /* save on database */
         $boardNormal = new BoardNormal();
         $boardNormal->category = $request->session()->get('category');
@@ -173,11 +224,20 @@ class normalController extends Controller
         $boardNormal->prefectures = $request->session()->get('prefectures');
         $boardNormal->sex = $request->session()->get('sex');
         $boardNormal->submission = $request->session()->get('submission');
+        $boardNormal->files = $request->session()->get('files');
         $boardNormal->multipleSelects = $request->session()->get('multipleSelects');
+        $boardNormal->remark = "";
+        $boardNormal->status = 1;
+        $boardNormal->delflag = 0;
         $boardNormal->save();
         
+        /* All complete */
         return view("board.normal.store");
     }
+    
+    
+    
+    
     
     
     /** Image uploader Utility
@@ -208,11 +268,20 @@ class normalController extends Controller
             return false;
         }
         
-        
-        
         return false;
     }
     
+    public function getStatus($statusNumber) {
+        
+        $status = array(
+            "投稿表示" => 1,
+            "非表示" => 2,
+            "管理者" => 999,
+        );
+        $key = array_search($status, $statusNumber);
+        
+        return $key;
+    }
 }
 
 

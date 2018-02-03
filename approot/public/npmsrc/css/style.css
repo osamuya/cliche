@@ -20,6 +20,7 @@
 
 body {
     letter-spacing: 1px;
+    font-family: 
 }
 
 /* awesome icon */
@@ -124,6 +125,14 @@ body {
     }
 }
 
+.fullwidth {
+    .main-text {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+}
 
 /*nblog*/
 .nblog {
@@ -149,8 +158,8 @@ body {
     &__thumbnail {
         margin-bottom: 20px;
         img {
-            margin-left: 11px;
-            margin-bottom: 13px;
+            margin-right: 10px;
+            margin-bottom: 10px;
             width: 60px;
             height: 60px;
         }
@@ -199,15 +208,24 @@ body {
 .btn {
     letter-spacing: 2px;
 }
+
+
+
+/* Form */
+form {
+    input {
+        border-radius: 0px !important;
+    }
+}
+
 .basicform {
-    line-height: 30px;
+/*    line-height: 30px;*/
     input {
         border-radius: 0px;
     }
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px #fff inset;
     }
-
     input.zipcode3 {
         width: 46px !important;
         display: inline-block;
@@ -302,6 +320,13 @@ body {
         textarea {
             width: 100% !important;
             height: 150px;
+        }
+        .thumbnailBlock {
+            &__image {
+                height: 80px;
+                
+                
+            }
         }
         
     }
@@ -409,9 +434,88 @@ body {
             width: 100% !important;
             height: 150px;
         }
-        
+    }
+    
+    .btable {
+        &__line {
+            clear: both;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #c1c1c1;
+            margin-bottom: 20px;
+            img {
+                float:left;
+            }
+            &__header {
+                margin-left: 60px;
+                &_title {
+                    font-size: 16px;
+                    
+                }
+                ul {
+                    display: block;
+/*                    float: left;*/
+                    li {
+                        float: left;
+                        margin-right: 12px;
+/*                        margin-top:5px;*/
+                        font-size: 12px;
+                    }
+                }
+            }
+            &__contents {
+                clear: both;
+                padding-top: 10px;
+            }
+            &__footer {
+                clear: both;
+                margin-top: 17px;
+                font-size: 11px;
+            }
+        }
+/*
+        background: #00f;
+        &__line {
+            border-bottom: 1px solid #c1c1c1;
+            background: #00f;
+        }
+        &__icon {
+            margin-right: 10px;
+            display: inline-block;
+            float:left;
+            background: #ff0;
+            img {
+                width: 20%;
+                @mixin xs {
+                    width: 100%;
+                }
+                @mixin sm {
+                     width: 100%;
+                }
+            }
+        }
+        &__smalltext {
+            float: right;
+            display: inline-block;
+            margin-left: 10px;
+            p {
+                
+                text-align: left;
+            }
+            
+        }
+*/
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

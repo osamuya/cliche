@@ -16,7 +16,7 @@
 
                         {{-- カテゴリー --}}
                         <div class="form-group">
-                            <label for="category" class="col-md-4 control-label">カテゴリー</label>
+                            <label for="category" class="col-md-4 control-label pb10">カテゴリー</label>
                             <div class="col-md-12">
                                 <select class="selectpicker" id="category" name="category">
                                     <optgroup>
@@ -36,7 +36,7 @@
                         
                         {{-- ニックネーム --}}
                         <div class="form-group">
-                            <label for="nickname" class="col-md-4 control-label">ニックネーム</label>
+                            <label for="nickname" class="col-md-4 control-label pb10">ニックネーム</label>
                             <div class="col-md-12">
                                 <input id="nickname" type="text" class="form-control nickname" name="nickname" value="{{old('nickname')}}">
                                 <div class="errorMessage">
@@ -47,7 +47,7 @@
                         
                         {{-- Email --}}
                         <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">Email</label>
+                            <label for="email" class="col-md-4 control-label pb10">Email</label>
                             <div class="col-md-12">
                                 <input id="email" type="email" class="form-control" name="email" value="{{old('email')}}">
                                 <div class="errorMessage">
@@ -58,7 +58,7 @@
                         
                         {{-- 都道府県 --}}
                         <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">都道府県</label>
+                            <label for="email" class="col-md-4 control-label pb10">都道府県</label>
                             <div class="col-md-12">
                                 <select class="selectpicker" id="prefectures" name="prefectures">
                                     <optgroup>
@@ -83,7 +83,7 @@
                         
                         {{-- 性別 --}}
                         <div class="form-group">
-                            <div class="col-md-4 control-label">性別</div>
+                            <div class="col-md-4 control-label pb10">性別</div>
                             <div class="col-md-12">
                                 <label for="man">男</label>
                                 <input id="man" type="radio" class="" name="sex" value="男" @if (old('sex') == '男') checked @endif>
@@ -99,7 +99,7 @@
                         
                         {{-- 投稿 --}}
                         <div class="form-group">
-                            <label for="submission" class="col-md-4 control-label">投稿内容</label>
+                            <label for="submission" class="col-md-4 control-label pb10">投稿内容</label>
                             <div class="col-md-12">
                                 <textarea name="submission">{{old('submission')}}</textarea>
                                 <div class="errorMessage">
@@ -109,9 +109,48 @@
                         </div>
                         
                         {{-- 画像アップ --}}
-                        <input type="file" name="file1" class="form-control-file" value="{{old('file1')}}">
-                        <input type="file" name="file2" class="form-control-file">
-                        <input type="file" name="file3" class="form-control-file">
+                        
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file1">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file2">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file3">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file4">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        <div class="input-group mb10">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Choose File<input type="file" style="display:none" name="file5">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="" value="">
+                        </div>
+                        
                         <div class="errorMessage">
                             <p class="validationsError">{{$errors->first('file1')}}</p>
                         </div>
@@ -148,7 +187,7 @@
                         </div>
 -->
 <!--
-                        <div class="col-md-4 control-label">ファイルアップロード</div>
+                        <div class="col-md-4 control-label pb10">ファイルアップロード</div>
                         <div class="form-group">
                             <input type="file" id="file-input" name="file1" style="display: none;">
                             <div class="input-prepend">
@@ -170,7 +209,7 @@
                         
                         {{-- 複数選択 --}}
                         <div class="form-group">
-                            <div class="col-md-4 control-label">アンケート</div>
+                            <div class="col-md-4 control-label pb10">アンケート</div>
                             <div class="col-md-12">
                                 <p>興味のある項目にチェックを入れてください</p>
                                 <input type="hidden" name="multipleSelectSum" value="5">
@@ -199,21 +238,94 @@
                         </div>
                     </form>
                 </div>
-                
-                
-                
-                
-                
             </div>{{--form--}}
         </div>{{--col-sm-6--}}
         
+        
         <div class="col-sm-6">
             <div class="nside nblock mt50">
-                <h2>Board</h2>
+                <h2 class="h2 nblog__ttl">Board</h2>
+                
+                <div class="board">
+                    <div class="btable">
+                        
+                        
+                        
+                        
+                        <div class="btable__line">
+                            <a href=""><img src="https://placehold.jp/50x50.png"></a>
+                            <div class="btable__line__header">
+                                <div class="btable__line__header_title">
+                                    <a href="">
+                                        あいうえおかきくけこさしすせそあいうえおかきくけこさしすせ
+                                    </a>
+                                </div>
+                                <div class="btable__line__header_meta">
+                                    <ul>
+                                        <li><i class="fa fa-user-circle"></i> <a href="#"><strong>四間飛車方美濃囲い</strong></a></li>
+                                        <li><i class="fa fa-location-arrow fa-sm"></i></i><a href="#"> 北海道</a></li>
+                                        <li><i class="fa fa-bars fa-sm"></i><a href="#"> ほげほげ</a></li>
+                                        <li><i class="fa fa-table fa-sm"></i> 2018-02-03</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btable__line__contents">
+                                ダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信する
+                            </div>
+                            <div class="btable__line__footer">
+<!--
+                                <i class="fa fa-tag fa-sm"></i>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+-->
+                            </div>
+                        </div>
 
-            </div>
-            
-        </div>{{--col-sm-4--}}
+                        <div class="btable__line">
+                            <a href=""><img src="https://placehold.jp/50x50.png"></a>
+                            <div class="btable__line__header">
+                                <div class="btable__line__header_title">
+                                    <a href="">
+                                        あいうえおかきくけこさしすせそあいうえおかきくけこさしすせ
+                                    </a>
+                                </div>
+                                <div class="btable__line__header_meta">
+                                    <ul>
+                                        <li><i class="fa fa-user-circle"></i> <a href="#"><strong>四間飛車方美濃囲い</strong></a></li>
+                                        <li><i class="fa fa-location-arrow fa-sm"></i></i><a href="#"> 北海道</a></li>
+                                        <li><i class="fa fa-bars fa-sm"></i><a href="#"> ほげほげ</a></li>
+                                        <li><i class="fa fa-table fa-sm"></i> 2018-02-03</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btable__line__contents">
+                                ダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信する
+                            </div>
+                            <div class="btable__line__footer">
+<!--
+                                <i class="fa fa-tag fa-sm"></i>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+-->
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>{{--board--}}
+                
+            </div>{{--nblock--}}
+        </div>{{--col-sm-6--}}
     </div>
 </div>
 <script>
