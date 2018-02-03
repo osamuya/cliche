@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\DB;
  * Route::post('/board/normal/stored', 'Board\normalController@store');
  *
  */
-
 class normalController extends Controller
 {
     //
@@ -104,6 +103,10 @@ class normalController extends Controller
             array_push($imagesPaths, $publishedPath5);
         }
 //        var_dump($imagesPaths);
+        /* Serialize for files */
+        $serializedFiles = serialize($imagesPaths);
+        var_dump($serializedFiles);
+//        die();
         
         /* Serialize for checkbox values */
         $multipleSelects = array();
@@ -119,7 +122,7 @@ class normalController extends Controller
         $request->session()->put('prefectures', $request->input('prefectures'));
         $request->session()->put('sex', $request->input('sex'));
         $request->session()->put('submission', $request->input('submission'));
-        $request->session()->put('files', $imagesPaths);
+        $request->session()->put('files', $serializedFiles);
         $request->session()->put('multipleSelects', $serializedMultipleSelects);
         
         $request->session()->put('sended', 'true');
@@ -175,7 +178,6 @@ class normalController extends Controller
         /* Data set */
         $uniqeid = BaseClass::makeUniqeid("BNA");
         
-//        App\BoardNormal
         /* save on database */
         $boardNormal = new BoardNormal();
         $boardNormal->category = $request->session()->get('category');
@@ -185,7 +187,7 @@ class normalController extends Controller
         $boardNormal->prefectures = $request->session()->get('prefectures');
         $boardNormal->sex = $request->session()->get('sex');
         $boardNormal->submission = $request->session()->get('submission');
-        $boardNormal->image = "";
+        $boardNormal->files = $request->session()->get('files');
         $boardNormal->multipleSelects = $request->session()->get('multipleSelects');
         $boardNormal->save();
         

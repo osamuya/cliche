@@ -22,7 +22,7 @@ class CreateBoardNormalsTable extends Migration
             $table->string('prefectures', 64)->nullable();
             $table->string('sex', 16)->nullable();
             $table->longText('submission')->nullable();
-            $table->longText('image')->nullable();
+            $table->longText('files')->nullable();
             $table->string('multipleSelects', 2048)->nullable();
             $table->longText('remark')->nullable();
             $table->integer('status')->nullable();
