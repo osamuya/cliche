@@ -16,7 +16,7 @@
 
                         {{-- カテゴリー --}}
                         <div class="form-group">
-                            <label for="category" class="col-md-4 control-label">カテゴリー</label>
+                            <label for="category" class="col-md-4 control-label pb10">カテゴリー</label>
                             <div class="col-md-12">
                                 <p>{{$category}}</p>
                             </div>
@@ -24,7 +24,7 @@
                         
                         {{-- 姓名 --}}
                         <div class="form-group">
-                            <div class="col-md-4 control-label">ニックネーム</div>
+                            <div class="col-md-4 control-label pb10">ニックネーム</div>
                             <div class="col-md-12">
                                <p>{{$nickname}}</p>
                             </div>
@@ -32,7 +32,7 @@
                         
                         {{-- Email --}}
                         <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">Email</label>
+                            <label for="email" class="col-md-4 control-label pb10">Email</label>
                             <div class="col-md-12">
                                 <p>{{$email}}</p>
                             </div>
@@ -40,7 +40,7 @@
                         
                         {{-- 都道府県 --}}
                         <div class="form-group">
-                            <label for="prefectures" class="col-md-4 control-label">都道府県</label>
+                            <label for="prefectures" class="col-md-4 control-label pb10">都道府県</label>
                             <div class="col-md-12">
                                 <p>{{$prefectures}}</p>
                             </div>
@@ -48,7 +48,7 @@
                         
                         {{-- 性別 --}}
                         <div class="form-group">
-                            <div class="col-md-4 control-label">性別</div>
+                            <div class="col-md-4 control-label pb10">性別</div>
                             <div class="col-md-12">
                                 <p>{{$sex}}</p>
                             </div>
@@ -56,14 +56,14 @@
                         
                         {{-- 投稿 --}}
                         <div class="form-group">
-                            <label for="inquery" class="col-md-4 control-label">投稿内容</label>
+                            <label for="inquery" class="col-md-4 control-label pb10">投稿内容</label>
                             <div class="col-md-12">
                                 <p>{{$submission}}</p>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="inquery" class="col-md-4 control-label">投稿内容</label>
+                            <label for="inquery" class="col-md-4 control-label pb10">投稿内容</label>
                             <div class="col-md-12 thumbnailBlock">
                                 @if (count($files) >= 1)
                                     @foreach ($files as $file)
@@ -72,20 +72,12 @@
                                 @else
                                     <p>投稿画像はありません。</p>
                                 @endif
-
-{{--
-                                <img src="{{$files1}}" class="thumbnailBlock__image">
-                                <img src="{{$files2}}" class="thumbnailBlock__image">
-                                <img src="{{$files3}}" class="thumbnailBlock__image">
-                                <img src="{{$files4}}" class="thumbnailBlock__image">
-                                <img src="{{$files5}}" class="thumbnailBlock__image">
---}}
                             </div>
                         </div>
                         
                         {{-- 複数選択 --}}
                         <div class="form-group">
-                            <div class="col-md-4 control-label">複数選択</div>
+                            <div class="col-md-4 control-label pb10">複数選択</div>
                             <div class="col-md-12">
                                 <p>
                                     @foreach ($multipleSelects as $selected)
