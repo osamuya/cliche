@@ -29,18 +29,11 @@ class TestController extends Controller
      * - json: return array (automatic chenged json format)
      */
     public function ajax_get_string() {
-<<<<<<< HEAD
-        
-        
-        
+
         $sum = mt_rand(1111,9999);
         
         
         return $sum;
-=======
-    /* get:text */
-        return "Ajax Get text Response";
->>>>>>> 26813ffae90e453c962510d579f30a2459136175
     }
     public function ajax_get_json() {
     /* get:json */

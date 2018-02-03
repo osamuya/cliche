@@ -10,6 +10,10 @@ use BaseClass;
 use App\BoardNormal;
 use Illuminate\Support\Facades\DB;
 
+/* monolog */
+use Monolog\Logger;
+use Illuminate\Support\Facades\Log;
+
 /**
  * Board
  * Route::match(['get', 'post'],'/board/normal', 'Board\normalController@index');
@@ -20,6 +24,13 @@ use Illuminate\Support\Facades\DB;
 class normalController extends Controller
 {
     //
+    protected $normalBoard_log_log;
+    
+    
+    public function __construct() {
+        $this->normalBoard_log = new Logger('normalBoard');
+        $this->normalBoard_log->pushHandler(new StreamHandler("/foo/bar/storage/logs/normalBoard.log", Logger::INFO));
+    }
     
     public function index(Request $request)
     {
@@ -175,6 +186,12 @@ class normalController extends Controller
         }
         BaseClass::appLogger("Normalboard stored: /board/normal/stored.",$addinfo);
         
+        Log::info('なんらかのメッセージとか。 ID:');
+        
+        
+        
+        
+        
         /* Data set */
         $uniqeid = BaseClass::makeUniqeid("BNA");
         
@@ -189,6 +206,9 @@ class normalController extends Controller
         $boardNormal->submission = $request->session()->get('submission');
         $boardNormal->files = $request->session()->get('files');
         $boardNormal->multipleSelects = $request->session()->get('multipleSelects');
+        $boardNormal->remark = "";
+        $boardNormal->status = 1;
+        $boardNormal->delflag = 0;
         $boardNormal->save();
         
         return view("board.normal.store");
@@ -225,6 +245,17 @@ class normalController extends Controller
         return false;
     }
     
+    public function getStatus($statusNumber) {
+        
+        $status = array(
+            "投稿表示" => 1,
+            "非表示" => 2,
+            "管理者" => 999,
+        );
+        $key = array_search($status, $statusNumber);
+        
+        return $key;
+    }
 }
 
 
