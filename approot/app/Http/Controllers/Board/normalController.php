@@ -223,7 +223,8 @@ class normalController extends Controller
         $boardNormal->email = $request->session()->get('email');
         $boardNormal->prefectures = $request->session()->get('prefectures');
         $boardNormal->sex = $request->session()->get('sex');
-        $boardNormal->submission = $request->session()->get('submission');
+        $boardNormal->submission = $this->lineFeedConvertToTag($request->session()->get('submission'));
+//        $boardNormal->submission = $request->session()->get('submission');
         $boardNormal->files = $request->session()->get('files');
         $boardNormal->multipleSelects = $request->session()->get('multipleSelects');
         $boardNormal->remark = "";
@@ -281,6 +282,15 @@ class normalController extends Controller
         $key = array_search($status, $statusNumber);
         
         return $key;
+    }
+    
+    public function lineFeedConvertToTag($string) {
+        $string = preg_replace("/\r\n|\r|\n/", "<br>", $string);
+        return preg_replace("/\r\n|\r|\n/", "", $string);
+    }
+    
+    public function lineFeedConvertToCode($string) {
+        return preg_replace("/<br>/", "\n", $string);
     }
 }
 
