@@ -248,8 +248,55 @@
         
         <div class="col-sm-6">
             <div class="nside nblock mt50">
-                <h2>Board</h2>
-
+                <h2 class="h2 nblog__ttl">Board</h2>
+                
+                <div class="board">
+                    <div class="btable">
+                        <div class="btable__line">
+                            <div class="btable__icon">
+                                <img src="https://placehold.jp/50x50.png">
+                            </div>
+                            <div class="btable__smalltext">
+                                <p>ポリポリ</p>
+                                <p>ダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信する</p>
+                            </div>
+                            
+                        </div>
+                    
+                    
+                    
+                    </div>
+<!--
+                    カテゴリー
+                    
+                    ダイレクトメッセージを送信する
+                    地域
+                    性別
+                    投稿
+                    画像
+                    タグ
+-->
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             </div>
             
         </div>{{--col-sm-4--}}
