@@ -1697,23 +1697,36 @@ form input{
 .board .btable{
 }
 .board .btable__line{
+    clear:both;
+    padding-bottom:10px;
+    border-bottom:1px solid #c1c1c1;
+    margin-bottom:20px;
 }
-.board .btable__icon{
-    margin-right:10px;
-    display:inline-block;
+.board .btable__line img{
     float:left;
-    background:#ff0;
 }
-.board .btable__icon img{
-    width:20%;
+.board .btable__line__header{
+    margin-left:60px;
 }
-.board .btable__smalltext{
-    float:right;
-    display:inline-block;
-    margin-left:10px;
+.board .btable__line__header ul{
+    display:block;
 }
-.board .btable__smalltext p{
-    text-align:left;
+.board .btable__line__header ul li{
+    float:left;
+    margin-right:12px;
+    font-size:12px;
+}
+.board .btable__line__header_title{
+    font-size:16px;
+}
+.board .btable__line__contents{
+    clear:both;
+    padding-top:10px;
+}
+.board .btable__line__footer{
+    clear:both;
+    margin-top:17px;
+    font-size:11px;
 }
 h1{
     font-size:30px;
@@ -3177,15 +3190,5 @@ h6{
     }
     .hidden-md{
         display:none !important;
-    }
-}
-@media print, screen and (max-width: 767px){
-    .board .btable__icon img{
-        width:100%;
-    }
-}
-@media print, screen and (min-width: 768px) and (max-width: $breakPoint_md-1){
-    .board .btable__icon img{
-        width:100%;
     }
 }

@@ -238,13 +238,9 @@
                         </div>
                     </form>
                 </div>
-                
-                
-                
-                
-                
             </div>{{--form--}}
         </div>{{--col-sm-6--}}
+        
         
         <div class="col-sm-6">
             <div class="nside nblock mt50">
@@ -252,54 +248,84 @@
                 
                 <div class="board">
                     <div class="btable">
+                        
+                        
+                        
+                        
                         <div class="btable__line">
-                            <div class="btable__icon">
-                                <img src="https://placehold.jp/50x50.png">
+                            <a href=""><img src="https://placehold.jp/50x50.png"></a>
+                            <div class="btable__line__header">
+                                <div class="btable__line__header_title">
+                                    <a href="">
+                                        あいうえおかきくけこさしすせそあいうえおかきくけこさしすせ
+                                    </a>
+                                </div>
+                                <div class="btable__line__header_meta">
+                                    <ul>
+                                        <li><i class="fa fa-user-circle"></i> <a href="#"><strong>四間飛車方美濃囲い</strong></a></li>
+                                        <li><i class="fa fa-location-arrow fa-sm"></i></i><a href="#"> 北海道</a></li>
+                                        <li><i class="fa fa-bars fa-sm"></i><a href="#"> ほげほげ</a></li>
+                                        <li><i class="fa fa-table fa-sm"></i> 2018-02-03</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="btable__smalltext">
-                                <p>ポリポリ</p>
-                                <p>ダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信する</p>
+                            <div class="btable__line__contents">
+                                ダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信する
                             </div>
-                            
-                        </div>
-                    
-                    
-                    
-                    </div>
+                            <div class="btable__line__footer">
 <!--
-                    カテゴリー
-                    
-                    ダイレクトメッセージを送信する
-                    地域
-                    性別
-                    投稿
-                    画像
-                    タグ
+                                <i class="fa fa-tag fa-sm"></i>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
 -->
+                            </div>
+                        </div>
+
+                        <div class="btable__line">
+                            <a href=""><img src="https://placehold.jp/50x50.png"></a>
+                            <div class="btable__line__header">
+                                <div class="btable__line__header_title">
+                                    <a href="">
+                                        あいうえおかきくけこさしすせそあいうえおかきくけこさしすせ
+                                    </a>
+                                </div>
+                                <div class="btable__line__header_meta">
+                                    <ul>
+                                        <li><i class="fa fa-user-circle"></i> <a href="#"><strong>四間飛車方美濃囲い</strong></a></li>
+                                        <li><i class="fa fa-location-arrow fa-sm"></i></i><a href="#"> 北海道</a></li>
+                                        <li><i class="fa fa-bars fa-sm"></i><a href="#"> ほげほげ</a></li>
+                                        <li><i class="fa fa-table fa-sm"></i> 2018-02-03</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btable__line__contents">
+                                ダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信する
+                            </div>
+                            <div class="btable__line__footer">
+<!--
+                                <i class="fa fa-tag fa-sm"></i>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+                                <a href="#">#ふがふが</a></a>
+-->
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>{{--board--}}
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </div>
-            
-        </div>{{--col-sm-4--}}
+            </div>{{--nblock--}}
+        </div>{{--col-sm-6--}}
     </div>
 </div>
 <script>
