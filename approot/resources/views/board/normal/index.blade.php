@@ -249,78 +249,91 @@
                 <div class="board">
                     <div class="btable">
                         
+                        <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sampleModal">
+	モーダル・ダイアログ 呼び出し
+</a>
+                        <!-- モーダル・ダイアログ -->
+<div class="modal fade" id="sampleModal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+				<h4 class="modal-title">タイトル</h4>
+			</div>
+			<div class="modal-body">
+				本文
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				<button type="button" class="btn btn-primary">ボタン</button>
+			</div>
+		</div>
+	</div>
+</div>
                         
                         
+                        @foreach ($boardNormal as $line)
+                        <?php
+                            /* Sen parameter */
+                            $title = mb_substr($line->submission, 0, 25);
+                            $files = unserialize($line->files);
+                            $multipleSelects = unserialize($line->multipleSelects);
+                            $updated = date("Y.n.j(D) H:i",strtotime($line->updated_at));
+                        ?>
                         
-                        <div class="btable__line">
-                            <a href=""><img src="https://placehold.jp/50x50.png"></a>
+                        {{-- btable__line start --}}
+                        <div class="btable__line" id="b_{{ $line->id }}">
+                            <a href="{{$files[0]}}" class="{{ $line->uniqeid }}">
+                                <p class="btable__line__trim">
+                                    <img src="{{$files[0]}}">
+                                </p>
+                            </a>
                             <div class="btable__line__header">
                                 <div class="btable__line__header_title">
-                                    <a href="">
-                                        あいうえおかきくけこさしすせそあいうえおかきくけこさしすせ
-                                    </a>
+                                    <!--{{ $line->uniqeid }}-->
+                                    <a name="{{ $line->uniqeid }}" class="opener">{{ $title }}...</a>
                                 </div>
                                 <div class="btable__line__header_meta">
                                     <ul>
-                                        <li><i class="fa fa-user-circle"></i> <a href="#"><strong>四間飛車方美濃囲い</strong></a></li>
-                                        <li><i class="fa fa-location-arrow fa-sm"></i></i><a href="#"> 北海道</a></li>
-                                        <li><i class="fa fa-bars fa-sm"></i><a href="#"> ほげほげ</a></li>
-                                        <li><i class="fa fa-table fa-sm"></i> 2018-02-03</li>
+                                        <li><i class="fa fa-user-circle"></i> <a href="{{ $line->email }}"><strong>{{ $line->nickname }}</strong></a></li>
+                                        <li><i class="fa fa-location-arrow fa-sm"></i></i><a href="#">{{ $line->prefectures }}</a></li>
+                                        <li><i class="fa fa-transgender"></i></i>{{ $line->sex }}</li>
+                                        <li><i class="fa fa-bars fa-sm"></i><a href="#">{{ $line->category }}</a></li>
+                                        <li class="{{ $line->created_at }}"><i class="fa fa-table fa-sm"></i> {{ $updated }}</li>
+                                        {{--
+                                            remark: {{ $line->remark }}<br>
+                                            status: {{ $line->status }}<br>
+                                            delflag: {{ $line->delflag }}<br>
+                                            created_at: {{ $line->created_at }}<br>
+                                        --}}
                                     </ul>
                                 </div>
                             </div>
-                            <div class="btable__line__contents">
-                                ダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信する
+                            <div class="btable__line__contents" style="display:none" id="{{ $line->uniqeid }}">
+                                {!! $line->submission !!}
+                                
+                                <div class="nblog__thumbnail_board mt10">
+                                @foreach ($files as $img)
+                                    @if ($img !== NULL)
+                                    
+                                    <p><a href="{{ $img }}"><img src="{{ $img }}"></a></p>
+                                    @endif
+                                @endforeach
+                                </div>
+                                
                             </div>
                             <div class="btable__line__footer">
-<!--
                                 <i class="fa fa-tag fa-sm"></i>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
--->
+                                @foreach ($multipleSelects as $select)
+                                    @if ($select !== NULL)
+                                    <a href="#">{{ $select }}</a></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
-
-                        <div class="btable__line">
-                            <a href=""><img src="https://placehold.jp/50x50.png"></a>
-                            <div class="btable__line__header">
-                                <div class="btable__line__header_title">
-                                    <a href="">
-                                        あいうえおかきくけこさしすせそあいうえおかきくけこさしすせ
-                                    </a>
-                                </div>
-                                <div class="btable__line__header_meta">
-                                    <ul>
-                                        <li><i class="fa fa-user-circle"></i> <a href="#"><strong>四間飛車方美濃囲い</strong></a></li>
-                                        <li><i class="fa fa-location-arrow fa-sm"></i></i><a href="#"> 北海道</a></li>
-                                        <li><i class="fa fa-bars fa-sm"></i><a href="#"> ほげほげ</a></li>
-                                        <li><i class="fa fa-table fa-sm"></i> 2018-02-03</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="btable__line__contents">
-                                ダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信するダイレクトメッセージを送信する
-                            </div>
-                            <div class="btable__line__footer">
-<!--
-                                <i class="fa fa-tag fa-sm"></i>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
-                                <a href="#">#ふがふが</a></a>
--->
-                            </div>
-                        </div>
-
-
+                        {{-- btable__line end --}}
+                        @endforeach
+                        
                     </div>
                 </div>{{--board--}}
                 

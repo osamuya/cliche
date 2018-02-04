@@ -1360,7 +1360,10 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 .visible-print-inline-block{display:none !important}
 body{
     letter-spacing:1px;
-    font-family: 
+}
+body a:hover{
+    cursor:pointer;
+    cursor:hand;
 }
 .fa{
     line-height:2px;
@@ -1463,6 +1466,29 @@ body{
     margin-bottom:10px;
     width:60px;
     height:60px;
+}
+.nblog__thumbnail_board{
+    margin-bottom:20px;
+}
+.nblog__thumbnail_board p{
+    float:left;
+    margin-right:7px;
+    margin-bottom:7px;
+    display:block;
+    height:50px;
+    width:50px;
+    overflow:hidden;
+    position:relative;
+    background:#d6d6d6;
+}
+.nblog__thumbnail_board img{
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    width:auto;
+    height:170%;
 }
 .panel-basic{
     margin-bottom:0px;
@@ -1703,7 +1729,22 @@ form input{
     margin-bottom:20px;
 }
 .board .btable__line img{
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    width:auto;
+    height:170%;
+}
+.board .btable__line__trim{
     float:left;
+    width:50px;
+    overflow:hidden;
+    display:block;
+    height:50px;
+    width:50px;
+    position:relative;
 }
 .board .btable__line__header{
     margin-left:60px;
@@ -1712,7 +1753,7 @@ form input{
     display:block;
 }
 .board .btable__line__header ul li{
-    float:left;
+    display:inline-block;
     margin-right:12px;
     font-size:12px;
 }

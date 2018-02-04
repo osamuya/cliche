@@ -11305,21 +11305,32 @@ var Util = function () {
         this.name = opts.name;
         this.item = opts.item;
 
-        console.log(this.name);
-        console.log(this.item);
+        //        console.log(this.name);
+        //        console.log(this.item);
     }
 
     (0, _createClass3.default)(Util, [{
         key: 'test',
-        value: function test() {
 
+
+        /* ejs6 test */
+        value: function test() {
             $(function () {
                 $('body').on('click', function () {
                     var rand = Math.floor(Math.random() * (999 + 1 - 100)) + 100;
-                    console.log("click! " + rand);
+                    //                console.log("click! " + rand);
                 });
             });
+        }
+    }, {
+        key: 'fileUploaderHelper',
 
+
+        /**
+         * fileUploaderHelper()
+         * get file path on file uploader
+         */
+        value: function fileUploaderHelper() {
             $(function () {
                 $(document).on('change', ':file', function () {
 
@@ -11327,15 +11338,39 @@ var Util = function () {
                     var file = input.get(0).files;
                     var path = input.val();
                     path = path.replace(/\\/g, '/').replace(/.*\//, '');
-                    console.log(file);
-                    console.log(path);
+                    //                    console.log(file);
+                    //                    console.log(path);
                     input.parent().parent().next(':text').val(path);
+                });
+            });
+            return true;
+        }
+    }, {
+        key: 'threadOpener',
 
-                    //                var input = $(this),
-                    ////                    alert(input);
-                    //                numFiles = input.get(0).files ? input.get(0).files.length : 1,
-                    //                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-                    //                input.parent().parent().next(':text').val(label);
+
+        /**
+         * threadOpener()
+         * get file path on file uploader
+         */
+        value: function threadOpener() {
+            $(function () {
+                $(".opener").on('click', function () {
+
+                    var targetName = $(this).attr("name");
+                    var targetStatus = $("#" + targetName).attr("class");
+                    console.log(targetName);
+                    console.log(targetStatus);
+
+                    if ($("#" + targetName).hasClass("nowOpen")) {
+                        $("#" + targetName).slideUp();
+                        $("#" + targetName).removeClass("nowOpen");
+                    } else {
+                        $("#" + targetName).slideDown();
+                        $("#" + targetName).addClass("nowOpen");
+                    }
+
+                    console.log(targetName);
                 });
             });
         }
@@ -11370,22 +11405,17 @@ var util = new _util2.default({
 
 	name: 'foo',
 	item: 'bar'
-
 });
 
+/* Utirity test. Check console.log */
 util.test();
 
-/*--------------------------------------------------------------------------*
- *
- * footerFixed.js
- *
- * MIT-style license. 
- *
- * 2007 Kazuma Nishihata [to-R]
- * http://blog.webcreativepark.net
- *
- *--------------------------------------------------------------------------*/
+/* Webpage GUI Utirity */
+util.fileUploaderHelper();
+util.threadOpener();
 
+/* footerFixed.js */
+/* http://blog.webcreativepark.net*/
 new function () {
 
 	var footerId = "footer";

@@ -10,23 +10,19 @@ const util = new Util({
     
     name: 'foo',
     item: 'bar'
-    
 });
 
+
+
+/* Utirity test. Check console.log */
 util.test();
 
+/* Webpage GUI Utirity */
+util.fileUploaderHelper();
+util.threadOpener();
 
-/*--------------------------------------------------------------------------*
- *
- * footerFixed.js
- *
- * MIT-style license. 
- *
- * 2007 Kazuma Nishihata [to-R]
- * http://blog.webcreativepark.net
- *
- *--------------------------------------------------------------------------*/
-
+/* footerFixed.js */
+/* http://blog.webcreativepark.net*/
 new function(){
 	
 	var footerId = "footer";
