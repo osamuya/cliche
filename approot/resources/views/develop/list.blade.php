@@ -34,6 +34,13 @@
         <li><a href="/ajax/post_json">/ajax/post_json</a></li>
     </ul>
 
+<h2>Image</h2>
+    <ul>
+        <li><a href="/intervention/image">/intervention/image</a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </ul>
 <h2>認証関連</h2>
     <ul>
         <li><a href="/register">Sign up</a></li>
