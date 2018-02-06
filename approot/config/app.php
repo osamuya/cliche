@@ -183,6 +183,13 @@ return [
          */
         App\Providers\ValidatorServiceProvider::class,
         
+        /*
+         * intervention/image
+         * - https://github.com/Intervention/image
+         * - https://packagist.org/packages/intervention/image
+         */
+        Intervention\Image\ImageServiceProvider::class,
+        
 
     ],
 
@@ -233,10 +240,15 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        /* originals */
+        /*
+         * originals
+         */
+        /* BaseClass */
         'BaseClass' => app\Library\BaseClass::class,
-        
+        /* CustomValidator */
         'CustomValidator' => app\Library\CustomValidator::class,
+        /* Intervention/Image */
+        'Image' => Intervention\Image\Facades\Image::class,
         
     ],
 
