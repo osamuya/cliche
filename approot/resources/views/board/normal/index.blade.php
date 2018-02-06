@@ -249,28 +249,6 @@
                 <div class="board">
                     <div class="btable">
                         
-                        <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sampleModal">
-	モーダル・ダイアログ 呼び出し
-</a>
-                        <!-- モーダル・ダイアログ -->
-<div class="modal fade" id="sampleModal" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-				<h4 class="modal-title">タイトル</h4>
-			</div>
-			<div class="modal-body">
-				本文
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-				<button type="button" class="btn btn-primary">ボタン</button>
-			</div>
-		</div>
-	</div>
-</div>
-                        
                         
                         @foreach ($boardNormal as $line)
                         <?php
@@ -283,11 +261,11 @@
                         
                         {{-- btable__line start --}}
                         <div class="btable__line" id="b_{{ $line->id }}">
-                            <a href="{{$files[0]}}" class="{{ $line->uniqeid }}">
+<!--                            <a href="{{$files[0]}}" class="{{ $line->uniqeid }}">-->
                                 <p class="btable__line__trim">
-                                    <img src="{{$files[0]}}">
+                                    <img src="{{$files[0]}}" class="bthumbnail50">
                                 </p>
-                            </a>
+<!--                            </a>-->
                             <div class="btable__line__header">
                                 <div class="btable__line__header_title">
                                     <!--{{ $line->uniqeid }}-->
@@ -312,13 +290,46 @@
                             <div class="btable__line__contents" style="display:none" id="{{ $line->uniqeid }}">
                                 {!! $line->submission !!}
                                 
+                                {{--
+                                * サムネイル画像の表示から、その画像のモダールによる拡大表示まで。
+                                
+                                
+                                --}}
                                 <div class="nblog__thumbnail_board mt10">
-                                @foreach ($files as $img)
-                                    @if ($img !== NULL)
+                                <?php
+                                    $i=0;
+                                    foreach ($files as $num=>$imgPath) {
+                                        if ($imgPath !== NULL) {
+                                            echo "<p><a href='' data-toggle='modal' data-target='#IMG".$line->uniqeid."_".$i."'>";
+                                            echo "<img src='".$imgPath."' class='bthumbnail50'>";
+                                            echo "</a></p>";
+                                ?>
                                     
-                                    <p><a href="{{ $img }}"><img src="{{ $img }}"></a></p>
-                                    @endif
-                                @endforeach
+                                    <!-- Modal dialog -->
+                                    <div class='modal fade' id='IMG<?php echo $line->uniqeid."_".$i; ?>' tabindex='-1'>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+<!--                                                    <h4 class="modal-title">タイトル</h4>-->
+                                                </div>
+                                                <div class="modal-body modal__img">
+                                                    <img src="{{$imgPath}}" class="nblog__thumbnail_board--modalImage">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+<!--                                                    <button type="button" class="btn btn-primary">ボタン</button>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal dialog -->
+                                    
+                                <?php
+                                            $i++;
+                                        }
+                                    }
+                                ?>
                                 </div>
                                 
                             </div>

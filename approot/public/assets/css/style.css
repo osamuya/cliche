@@ -1481,7 +1481,7 @@ body a:hover{
     position:relative;
     background:#d6d6d6;
 }
-.nblog__thumbnail_board img{
+.nblog__thumbnail_board img.bthumbnail50{
     position:absolute;
     top:50%;
     left:50%;
@@ -1489,6 +1489,9 @@ body a:hover{
     transform:translate(-50%, -50%);
     width:auto;
     height:170%;
+}
+.nblog__thumbnail_board--modalImage{
+    width:100%;
 }
 .panel-basic{
     margin-bottom:0px;
@@ -1728,7 +1731,7 @@ form input{
     border-bottom:1px solid #c1c1c1;
     margin-bottom:20px;
 }
-.board .btable__line img{
+.board .btable__line img.bthumbnail50{
     position:absolute;
     top:50%;
     left:50%;
@@ -1736,6 +1739,10 @@ form input{
     transform:translate(-50%, -50%);
     width:auto;
     height:170%;
+}
+.board .btable__line img.originalImage{
+    position:static;
+    width:100%;
 }
 .board .btable__line__trim{
     float:left;
