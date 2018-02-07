@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\DB;
 use Monolog\Logger;
 use Illuminate\Support\Facades\Log;
 
+/* Intervention/image */
+use Image;
+
 /**
  * Board
  * Route::match(['get', 'post'],'/board/normal', 'Board\normalController@index');
  * Route::post('/board/normal/confirm', 'Board\normalController@confirm');
  * Route::post('/board/normal/stored', 'Board\normalController@store');
- *
  */
 class normalController extends Controller
 {
@@ -40,10 +42,6 @@ class normalController extends Controller
             ->orderBy('id','desc')
             ->get();
         
-//        var_dump($boardNormal);
-        
-//        die();
-//        
         
         
         
@@ -111,6 +109,12 @@ class normalController extends Controller
         if ($request->file('file1')) {
             $publishedPath1 = $this->uploadFilesTemporaryProcessing($request->file('file1'),$prefix="TMPPIC");
             array_push($imagesPaths, $publishedPath1);
+            
+            $pathParts = pathinfo($publishedPath1);
+            $file1_fullpath = storage_path()."/app/public/pics/".$pathParts["filename"].'.'.$pathParts["extension"];
+            $re1 = $this->makeImageThumbnail($file1_fullpath, 80);
+            $re1 = $this->makeImageThumbnail($file1_fullpath, 300);
+            $re1 = $this->makeImageThumbnail($file1_fullpath, 600);
         }
         if ($request->file('file2')) {
             $publishedPath2 = $this->uploadFilesTemporaryProcessing($request->file('file2'),$prefix="TMPPIC");
@@ -128,11 +132,10 @@ class normalController extends Controller
             $publishedPath5 = $this->uploadFilesTemporaryProcessing($request->file('file5'),$prefix="TMPPIC");
             array_push($imagesPaths, $publishedPath5);
         }
-//        var_dump($imagesPaths);
+        
         /* Serialize for files */
         $serializedFiles = serialize($imagesPaths);
-        var_dump($serializedFiles);
-//        die();
+//        var_dump($serializedFiles);
         
         /* Serialize for checkbox values */
         $multipleSelects = array();
@@ -237,9 +240,9 @@ class normalController extends Controller
     
     
     
-    /** Image uploader Utility
-     *
-     *
+    /**
+     * Image uploader Utility
+     * uploadFilesTemporaryProcessing()
      *
      *
      *
@@ -266,6 +269,24 @@ class normalController extends Controller
         }
         
         return false;
+    }
+    /**
+     *
+     * makeImageThumbnail()
+     *
+     */
+    public function makeImageThumbnail($path, $thumbnailWidth=100) {
+        
+        $img = Image::make($path);
+        $img->resize($thumbnailWidth, null, function($constraint){ $constraint->aspectRatio(); });
+        $pathParts = pathinfo($path);
+        
+        $restructurePath = $pathParts["dirname"].'/'.$pathParts["filename"]."__thumb".$thumbnailWidth.'.'.$pathParts["extension"];
+        if ($img->save($restructurePath)) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
 //    public function serializEntity($obj) {
