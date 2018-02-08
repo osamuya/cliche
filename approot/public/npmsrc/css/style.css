@@ -480,34 +480,6 @@ form {
             border-bottom: 1px solid #c1c1c1;
             margin-bottom: 20px;
 
-            
-/*
-    &__thumbnail_board {
-        margin-bottom: 20px;
-        p {
-            float: left;
-            margin-right: 7px;
-            margin-bottom: 7px;
-            display: block;
-    height: 50px;
-    width: 50px;
-            overflow: hidden;
-            position: relative;
-            background: #d6d6d6;
-        }
-        img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            width: auto;
-            height: 170%;
-        }
-
-    }
-*/
             &__trim {
                 float:left;
                 width: 50px;
@@ -550,53 +522,46 @@ form {
                     }
                 }
             }
+            &__header_meta {
+                ul {
+                    li {
+                        float: left;
+                        margin-right: 10px;
+                    }
+                }
+            }
             &__contents {
                 clear: both;
                 padding-top: 10px;
+            }
+            &__tagarea {
+                clear: both;
+                margin-top: 17px;
+                font-size: 11px;
             }
             &__footer {
                 clear: both;
                 margin-top: 17px;
                 font-size: 11px;
             }
-        }
-/*
-        background: #00f;
-        &__line {
-            border-bottom: 1px solid #c1c1c1;
-            background: #00f;
-        }
-        &__icon {
-            margin-right: 10px;
-            display: inline-block;
-            float:left;
-            background: #ff0;
-            img {
-                width: 20%;
-                @mixin xs {
-                    width: 100%;
-                }
-                @mixin sm {
-                     width: 100%;
-                }
-            }
-        }
-        &__smalltext {
-            float: right;
-            display: inline-block;
-            margin-left: 10px;
-            p {
-                
-                text-align: left;
-            }
             
+            /* replay */
+            &__replay {
+                background: #e1e1e1;
+                padding: 17px;
+                border-radius: 5px;
+                
+            }
         }
-*/
     }
 }
 
 
-
+.replay {
+    &__form {
+        margin-top: 30px;
+    }
+}
 
 
 

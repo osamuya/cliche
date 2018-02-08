@@ -1767,14 +1767,33 @@ form input{
 .board .btable__line__header_title{
     font-size:16px;
 }
+.board .btable__line__header_meta ul li{
+    float:left;
+    margin-right:10px;
+}
 .board .btable__line__contents{
     clear:both;
     padding-top:10px;
+}
+.board .btable__line__tagarea{
+    clear:both;
+    margin-top:17px;
+    font-size:11px;
 }
 .board .btable__line__footer{
     clear:both;
     margin-top:17px;
     font-size:11px;
+}
+.board .btable__line__replay{
+    background:#e1e1e1;
+    padding:17px;
+    border-radius:5px;
+}
+.replay{
+}
+.replay__form{
+    margin-top:30px;
 }
 h1{
     font-size:30px;

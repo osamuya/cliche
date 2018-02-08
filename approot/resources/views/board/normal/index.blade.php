@@ -1,4 +1,5 @@
 @inject('parameter', 'App\Http\Controllers\SetParameter')
+@inject('normalboard', 'App\Http\Controllers\Board\normalController')
 @extends('layouts.applayout')
 
 @section('content')
@@ -259,13 +260,15 @@
                             $updated = date("Y.n.j(D) H:i",strtotime($line->updated_at));
                         ?>
                         
-                        {{-- btable__line start --}}
+                        {{--
+                            btable__line start
+                        --}}
                         <div class="btable__line" id="b_{{ $line->id }}">
-<!--                            <a href="{{$files[0]}}" class="{{ $line->uniqeid }}">-->
-                                <p class="btable__line__trim">
-                                    <img src="{{$files[0]}}" class="bthumbnail50">
-                                </p>
-<!--                            </a>-->
+                            
+                            <p class="btable__line__trim">
+                                <?php $imagePath80 = $normalboard->makeThumbnailPath($files[0], 80); ?>
+                                <img src="{{$imagePath80}}" class="bthumbnail50">
+                            </p>
                             <div class="btable__line__header">
                                 <div class="btable__line__header_title">
                                     <!--{{ $line->uniqeid }}-->
@@ -290,18 +293,15 @@
                             <div class="btable__line__contents" style="display:none" id="{{ $line->uniqeid }}">
                                 {!! $line->submission !!}
                                 
-                                {{--
-                                * サムネイル画像の表示から、その画像のモダールによる拡大表示まで。
-                                
-                                
-                                --}}
+                                <!-- Thumbnail & Modal dialog  nblog__thumbnail_board-->
                                 <div class="nblog__thumbnail_board mt10">
                                 <?php
                                     $i=0;
                                     foreach ($files as $num=>$imgPath) {
                                         if ($imgPath !== NULL) {
+                                            $imagePath80 = $normalboard->makeThumbnailPath($files[0], 80);
                                             echo "<p><a href='' data-toggle='modal' data-target='#IMG".$line->uniqeid."_".$i."'>";
-                                            echo "<img src='".$imgPath."' class='bthumbnail50'>";
+                                            echo "<img src='".$imagePath80."' class='bthumbnail50'>";
                                             echo "</a></p>";
                                 ?>
                                     
@@ -311,14 +311,12 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-<!--                                                    <h4 class="modal-title">タイトル</h4>-->
                                                 </div>
                                                 <div class="modal-body modal__img">
                                                     <img src="{{$imgPath}}" class="nblog__thumbnail_board--modalImage">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-<!--                                                    <button type="button" class="btn btn-primary">ボタン</button>-->
                                                 </div>
                                             </div>
                                         </div>
@@ -330,19 +328,103 @@
                                         }
                                     }
                                 ?>
+                                </div><!-- end nblog__thumbnail_board -->
+                                
+                                <div class="btable__line__tagarea">
+                                    
+                                    @foreach ($multipleSelects as $select)
+                                    <i class="fa fa-tag fa-sm"></i>
+                                        @if ($select !== NULL)
+                                        <a href="#">{{ $select }}</a></a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                                
+                            <!-- Replay Edit Delete pannel -->
+                            <div class="btable__line__replay mt30">
+                                
+                                <div class="replay__board">
+                                    <div class="btable__line__header_meta">
+                                        <ul>
+                                            <li><i class="fa fa-user-circle"></i><strong>{{ $line->nickname }}</strong></li>
+                                            <li><i class="fa fa-transgender"></i></i>{{ $line->sex }}</li>
+                                            <li class="{{ $line->created_at }}"><i class="fa fa-table fa-sm"></i> {{ $updated }}</li>
+                                        </ul>
+                                
+                                        <div>
+                                            replayreplayreplayreplayreplayreplayreplayreplayreplay
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="replay__form mt30 cf">
+                                    <h4>この投稿にReply</h4>
+                                    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/board/normal/replay" novalidate="novalidate">
+                                        {{ csrf_field() }}
+
+                                        {{-- ニックネーム --}}
+                                        <div class="form-group">
+                                            <label for="nickname" class="col-md-4 control-label pb10">ニックネーム</label>
+                                            <div class="col-md-12">
+                                                <input id="nickname" type="text" class="form-control nickname" name="nickname" value="{{old('nickname')}}">
+                                                <div class="errorMessage">
+                                                    <p class="validationsError">{{$errors->first('nickname')}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{-- Email --}}
+                                        <div class="form-group">
+                                            <label for="email" class="col-md-4 control-label pb10">Email</label>
+                                            <div class="col-md-12">
+                                                <input id="email" type="email" class="form-control" name="email" value="{{old('email')}}">
+                                                <div class="errorMessage">
+                                                    <p class="validationsError">{{$errors->first('email')}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        {{-- 投稿 --}}
+                                        <div class="form-group">
+                                            <label for="submission" class="col-md-4 control-label pb10">投稿内容</label>
+                                            <div class="col-md-12">
+                                                <textarea name="submission">{{old('submission')}}</textarea>
+                                                <div class="errorMessage">
+                                                    <p class="validationsError">{{$errors->first('submission')}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-primary">
+                                                    投稿内容を確認する
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 
                             </div>
-                            <div class="btable__line__footer">
-                                <i class="fa fa-tag fa-sm"></i>
-                                @foreach ($multipleSelects as $select)
-                                    @if ($select !== NULL)
-                                    <a href="#">{{ $select }}</a></a>
-                                    @endif
-                                @endforeach
+                            <!-- end Replay Edit Delete pannel -->
+                                
                             </div>
-                        </div>
-                        {{-- btable__line end --}}
+                            <div class="btable__line__footer">
+                                <div class="">
+                                    <i class="fa fa-tag fa-sm"></i>
+                                    @foreach ($multipleSelects as $select)
+                                        @if ($select !== NULL)
+                                        <a href="#">{{ $select }}</a></a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+        
+                        </div><!-- end btable__line -->
+    
+                        {{--
+                            btable__line end
+                        --}}
                         @endforeach
                         
                     </div>

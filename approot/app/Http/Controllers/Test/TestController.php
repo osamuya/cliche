@@ -92,7 +92,7 @@ class TestController extends Controller
         $img->resize($thumbnailWidth, null, function($constraint){ $constraint->aspectRatio(); });
         $pathParts = pathinfo($path);
         
-        $restructurePath = $pathParts["dirname"].'/'.$pathParts["filename"]."__".$thumbnailWidth.'.'.$pathParts["extension"];
+        $restructurePath = $pathParts["dirname"].'/'.$pathParts["filename"]."__thumb".$thumbnailWidth.'.'.$pathParts["extension"];
         var_dump($restructurePath);
         $img->save($restructurePath);
         return true;

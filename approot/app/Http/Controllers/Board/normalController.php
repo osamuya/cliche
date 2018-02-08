@@ -110,15 +110,17 @@ class normalController extends Controller
             $publishedPath1 = $this->uploadFilesTemporaryProcessing($request->file('file1'),$prefix="TMPPIC");
             array_push($imagesPaths, $publishedPath1);
             
-            $pathParts = pathinfo($publishedPath1);
-            $file1_fullpath = storage_path()."/app/public/pics/".$pathParts["filename"].'.'.$pathParts["extension"];
-            $re1 = $this->makeImageThumbnail($file1_fullpath, 80);
-            $re1 = $this->makeImageThumbnail($file1_fullpath, 300);
-            $re1 = $this->makeImageThumbnail($file1_fullpath, 600);
+            $pathParts1 = pathinfo($publishedPath1);
+            $file1_fullpath = storage_path()."/app/public/pics/".$pathParts1["filename"].'.'.$pathParts1["extension"];
+            $re80_1 = $this->makeImageThumbnail($file1_fullpath, 80);
+            $re300_1 = $this->makeImageThumbnail($file1_fullpath, 300);
+            $re600_1 = $this->makeImageThumbnail($file1_fullpath, 600);
         }
         if ($request->file('file2')) {
             $publishedPath2 = $this->uploadFilesTemporaryProcessing($request->file('file2'),$prefix="TMPPIC");
             array_push($imagesPaths, $publishedPath2);
+            
+            $pathParts2 = pathinfo($publishedPath2);
         }
         if ($request->file('file3')) {
             $publishedPath3 = $this->uploadFilesTemporaryProcessing($request->file('file3'),$prefix="TMPPIC");
@@ -271,8 +273,9 @@ class normalController extends Controller
         return false;
     }
     /**
-     *
      * makeImageThumbnail()
+     * use Image;
+     * $img = Image::make($path);
      *
      */
     public function makeImageThumbnail($path, $thumbnailWidth=100) {
@@ -287,6 +290,21 @@ class normalController extends Controller
         } else {
             return false;
         }
+    }
+    /**
+     * makeThumbnailPath
+     *
+     * @para /foo/bar/baz.jpg [original]
+     * @return /foo/bar/baz__thumb600.jpg [width: 600px]
+     * @return /foo/bar/baz__thumb300.jpg [width: 300px]
+     * @return /foo/bar/baz__thumb80jpg [width: 80px]
+     */
+    public function makeThumbnailPath($path, $thumbnailWidth=300) {
+
+        $pathParts = pathinfo($path);
+        $restructurePath = $pathParts["dirname"].'/'.$pathParts["filename"]."__thumb".$thumbnailWidth.'.'.$pathParts["extension"];
+        
+        return $restructurePath;
     }
     
 //    public function serializEntity($obj) {
