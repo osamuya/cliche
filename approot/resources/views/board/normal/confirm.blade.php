@@ -87,6 +87,13 @@
                             </div>
                         </div>
 
+                        {{-- 編集・削除キー --}}
+                        <div class="form-group">
+                            <div class="col-md-4 control-label pb10">編集・削除キー</div>
+                            <div class="col-md-12">
+                                <p>{{ $editkey }}</p>
+                            </div>
+                        </div>
                         
                         <div class="form-group">
                             <div class="col-md-12">

@@ -25,6 +25,7 @@ class CreateBoardNormalsTable extends Migration
             $table->longText('files')->nullable();
             $table->string('multipleSelects', 2048)->nullable();
             $table->longText('remark')->nullable();
+            $table->string('editkey', 256)->nullable();
             $table->integer('status')->nullable();
             $table->unsignedTinyInteger('delflag')->nullable();
             $table->timestamps();
