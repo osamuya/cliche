@@ -1790,6 +1790,14 @@ form input{
     padding:17px;
     border-radius:5px;
 }
+.board .btable__line__replytext{
+    clear:both;
+}
+.board .btable__line__repfooter{
+    border-bottom:1px solid #c1c1c1;
+    padding:10px 0;
+    text-align:right;
+}
 .replay{
 }
 .replay__form{

@@ -156,56 +156,6 @@
                             <p class="validationsError">{{$errors->first('file1')}}</p>
                         </div>
 
-
-                        
-<!--                        <p id="xxxx">xxxx</p>-->
-                        
-<!--
-<div class="form-group">
-    <div class="input-group">
-        <label class="input-group-btn">
-            <span class="btn btn-primary" id="file1">
-                Uploadファイルを選択
-                <input type="file" name="file1" value="{{old('file1')}}" style="display:none">
-            </span>
-        </label>
-        <input type="text" class="form-control" readonly="">
-    </div>
-</div>
-                        
-                        
-                        <div class="form-group">
-<label>
-    <span class="btn btn-primary">
-        Choose File
-        
-    </span>
-</label>
--->
-<!--
-                            
-                            <input type="file" name="file2" id="file2" value="{{old('file2')}}">
-                        </div>
--->
-<!--
-                        <div class="col-md-4 control-label pb10">ファイルアップロード</div>
-                        <div class="form-group">
-                            <input type="file" id="file-input" name="file1" style="display: none;">
-                            <div class="input-prepend">
-                                <a class="btn" onclick="$('#file-input').click()">
-                                    <i class="fa fa-file-image-o fa-lg"></i>
-                                </a>
-                            <span id="cover" class="input-xlarge uneditable-input">ファイルを選択</span>
-                            </div>
-                        </div>
-
-                        <script>
-                            $('#file-input').change(function() {
-                              $('#cover').html($(this).val());
-                            });
-                        </script>
--->
-
                         
                         
                         {{-- 複数選択 --}}
@@ -344,6 +294,7 @@
                             <div class="btable__line__replay mt30">
                                 
                                 <div class="replay__board">
+                                    
                                     <div class="btable__line__header_meta">
                                         <ul>
                                             <li><i class="fa fa-user-circle"></i><strong>{{ $line->nickname }}</strong></li>
@@ -351,7 +302,41 @@
                                             <li class="{{ $line->created_at }}"><i class="fa fa-table fa-sm"></i> {{ $updated }}</li>
                                         </ul>
                                 
-                                        <div>
+                                        <div class="btable__line__replytext pt10 pb10">
+                                            replayreplayreplayreplayreplayreplayreplayreplayreplay
+                                        </div>
+                                        <div class="btable__line__repfooter">
+                                            <a class="btn btn-primary" data-toggle="modal" data-target="#xxxxx">
+                                              編集・削除
+                                            </a>
+                                            <div class="modal fade" id="xxxxx" tabindex="-1">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                                                            <h4 class="modal-title">タイトル</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            本文
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                                                            <button type="button" class="btn btn-primary">ボタン</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                    <div class="btable__line__header_meta">
+                                        <ul>
+                                            <li><i class="fa fa-user-circle"></i><strong>{{ $line->nickname }}</strong></li>
+                                            <li><i class="fa fa-transgender"></i></i>{{ $line->sex }}</li>
+                                            <li class="{{ $line->created_at }}"><i class="fa fa-table fa-sm"></i> {{ $updated }}</li>
+                                        </ul>
+                                
+                                        <div class="btable__line__replytext pt10 pb10">
                                             replayreplayreplayreplayreplayreplayreplayreplayreplay
                                         </div>
                                     </div>
