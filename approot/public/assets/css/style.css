@@ -1785,15 +1785,20 @@ form input{
     margin-top:17px;
     font-size:11px;
 }
-.board .btable__line__replay{
-    background:#e1e1e1;
+.board .btable__line__reply{
+    background:#f5f5f5;
     padding:17px;
     border-radius:5px;
 }
-.replay{
+.reply{
 }
-.replay__form{
+.reply__form{
     margin-top:30px;
+}
+.cf{
+    content:"";
+    display:block;
+    clear:both;
 }
 h1{
     font-size:30px;

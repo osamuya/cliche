@@ -19,6 +19,8 @@ Route::match(['get', 'post'],'/board/normal', 'Board\normalController@index');
 //Route::post('/board/normal/confirm', 'Board\normalController@confirm');
 Route::post('/board/normal/confirm', 'Board\normalController@confirm');
 Route::post('/board/normal/stored', 'Board\normalController@store');
+Route::match(['get', 'post'],'/board/normal/reply/{accessid}', 'Board\normalController@replay');
+///
 
 /* contact */
 Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');

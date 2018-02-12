@@ -17,6 +17,7 @@
 	<meta property="og:title" content="{{ $parameter->app_name }}">
 	<meta property="og:description" content="">
 	<meta property="og:site_name" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="shortcut icon" href=""/>
 	<!--Bootstrap-->
 	<script src="/assets/js/jquery-1.11.3.min.js"></script>

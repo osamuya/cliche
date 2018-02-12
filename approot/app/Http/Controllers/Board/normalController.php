@@ -307,47 +307,10 @@ class normalController extends Controller
         return $restructurePath;
     }
     
-//    public function serializEntity($obj) {
-//        
-//        // 未完
-//        
-//        return $obj;
-//    }
-    
-    /**
-     * unserializEntity
-     *
-     * Unserialize the specified column value of the acquired object model
-     * @para object
-     * @para array()
-     * @return objext
-     *
-     */
-//    public function unserializEntity($obj, $columns) {
-//        multipleSelects files
-//        var_dump($obj);
-//        $clone = $obj;
-//        $clone = $obj;
-//        foreach ($clone as $num=>$line) {
-//            $line->multipleSelects = "";
-//            var_dump($line->multipleSelects);
-//            
-//            
-//            var_dump($line->multipleSelects);
-//            $tmpArray = unserialize($line->multipleSelects);
-//            $clone[$num]->multipleSelects = array($tmpArray);
-//            var_dump($tmpArray);
-//            $clone[$num]->multipleSelects = "";
-//            $clone[$num]->multipleSelects = $tmpArray;
-//            var_dump($line->multipleSelects);
-//            $clone[$num]->multipleSelects = "";
-//            $tmpArray = unserialize($line->multipleSelects);
-//            var_dump($obj[$num]->multipleSelects);
-//            $clone[$num]->multipleSelects = $tmpArray;
-//            var_dump($clone[$num]->multipleSelects);
-//        }
-//        return $obj;
-//    }
+    public function replay($accessid) {
+        var_dump($accessid);
+        return "foobar";
+    }
     
     public function getStatus($statusNumber) {
         

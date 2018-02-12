@@ -72,9 +72,23 @@ class SignupController extends Controller
             'password' => $request->input('password'),
         );
 
+        /* Session flash keep */
+        $request->session()->flash("name", $request->input('name'));
+        $request->session()->flash("email", $request->input('email'));
+        $request->session()->flash("password", $request->input('password'));
+        
         /* Reload prevention request and session */
         $request->session()->flash('newRegistStoreFlag',true);
 
+        /* logging */
+        $addinfo = array(
+            "name" => $request->input('name'),
+            "email" => $request->input('email'),
+            "className" => get_class($this),
+            "methodName" => __METHOD__,
+        );
+        BaseClass::loginLogger("access: /regist_confirm ",$addinfo);
+        
         return view("auth.register_confirm")->with($data);
     }
     
@@ -96,7 +110,7 @@ class SignupController extends Controller
          */
 
         /* Create a password of a bullet on a bullet */
-        $boundLetteredPassword = BaseClass::boundLettered("8ta8taDance",1);
+        $boundLetteredPassword = BaseClass::boundLettered($request->input('password'),1);
 
         /* Hash create for mail authentication */
         $uniqeid = strtoupper(uniqid(env('SYSTEM_PREFIX')));
@@ -115,13 +129,9 @@ class SignupController extends Controller
         /* Get global IP address */
         $gip = BaseClass::getGlobalip();
 
-        /* Regist data
-         *
-         *
-         *
-         *
-         *
-         */
+        /*******************
+         * Regist user data
+         *******************/
         $data = array(
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -146,7 +156,7 @@ class SignupController extends Controller
             'to' => $mailTo,
             'subject' => '仮登録完了のお知らせ',    //mailの外側のタイトル
             'template' => 'mails.tmpregist',
-            "bcc" => "oosamuuy@gmail.com",
+            "bcc" => env("BACKUP_MAILADDRESS"),
         ];
 
         // mail template value
@@ -162,8 +172,14 @@ class SignupController extends Controller
 //        $this->custom_log->addInfo($logLine);
 
         /* save log */
-        $logLine = "[Complete new tmp regist work flows] ".$request->input('name')." ".$request->input('email')." ".$registedDate." ".$gip;
-//        $this->custom_log->addInfo($logLine);
+        /* logging */
+        $addinfo = array(
+            "name" => $request->input('name'),
+            "email" => $request->input('email'),
+            "className" => get_class($this),
+            "methodName" => __METHOD__,
+        );
+        BaseClass::loginLogger("access[registed new user]: /store ",$addinfo);
 
         /* session reset */
         $request->session()->flush('newRegistStoreFlag');

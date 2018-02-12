@@ -340,10 +340,10 @@
                                     @endforeach
                                 </div>
                                 
-                            <!-- Replay Edit Delete pannel -->
-                            <div class="btable__line__replay mt30">
+                            <!-- reply Edit Delete pannel -->
+                            <div class="btable__line__reply mt30">
                                 
-                                <div class="replay__board">
+                                <div class="reply__board">
                                     <div class="btable__line__header_meta">
                                         <ul>
                                             <li><i class="fa fa-user-circle"></i><strong>{{ $line->nickname }}</strong></li>
@@ -351,15 +351,15 @@
                                             <li class="{{ $line->created_at }}"><i class="fa fa-table fa-sm"></i> {{ $updated }}</li>
                                         </ul>
                                 
-                                        <div>
-                                            replayreplayreplayreplayreplayreplayreplayreplayreplay
+                                        <div class="replyarea pt20 cf">
+                                            1960 - 70年代のロックやブルースを基調にしながらも、それらのルーツを自身の世代感というフィルターを通し、独自の感性と現代的な感覚で昇華させたナンバーによって新しさを感じさせるサウンドを鳴らし、幅広い世代を唸らせる新世代の男女2人組ロックユニット[1][2][3][4]。デビューしてすぐにテレビ局プロデューサーのYOU-DIE、いとうせいこう、リリー・フランキー、みうらじゅんといった音楽好きの業界人に絶賛される[3]。また、野宮真貴、佐野元春、桑田佳祐[4]、加山雄三[5]といったミュージシャンからも絶賛された。
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="replay__form mt30 cf">
+                                <div class="reply__form mt30 cf">
                                     <h4>この投稿にReply</h4>
-                                    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/board/normal/replay" novalidate="novalidate">
+                                    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/board/normal/reply/{{ $line->uniqeid }}" novalidate="novalidate">
                                         {{ csrf_field() }}
 
                                         {{-- ニックネーム --}}
@@ -406,7 +406,7 @@
                                 </div>
                                 
                             </div>
-                            <!-- end Replay Edit Delete pannel -->
+                            <!-- end reply Edit Delete pannel -->
                                 
                             </div>
                             <div class="btable__line__footer">
