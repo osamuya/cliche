@@ -31,19 +31,15 @@ class normalController extends Controller
     }
 
     
-    
-    
-    
     ////////////////////////////////////////////////
     ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    //＿人人人人人人人人人＿
-    //＞ CRUD ＜
-    //￣Y^Y^Y^Y^Y^Y^Y^Y￣
-    ////////////////////////////////////////////////
+    // CRUD ////////////////////////////////////////
     ////////////////////////////////////////////////
     ////////////////////////////////////////////////
     
+    /**=================
+     * Select & Create
+     =================*/
     public function index(Request $request)
     {
         
@@ -76,12 +72,9 @@ class normalController extends Controller
     }
     
     
-    /**
-     * confirm()
-     *
-     *
-     *
-     */
+    /**========
+     * Confirm
+     =========*/
     public function confirm(Request $request) {
         
         $this->validate($request, [
@@ -212,12 +205,12 @@ class normalController extends Controller
         ]);
     }
     
-    /**
-     * store()
+    /**==================
+     * Store
      *
      * @para $request
      * @return view()
-     */
+     =================*/
     public function store(Request $request) {
         
         if ($request->session()->get('sended') == 'true') {
@@ -282,6 +275,45 @@ class normalController extends Controller
         return view("board.normal.store");
     }
     
+    /**==================
+     * Replay
+     * Show individual posting page and each replry
+     * Edit / delete individual posts
+     * Edit / delete each replry
+     *
+     * @para $request
+     * @return view()
+     =================*/
+    public function replay($accessid) {
+        
+        /* Display Thread bulletin board */
+        /* Query Bilder */
+        
+        $boardNormal = DB::table('board_normals')
+            ->where('status',1)
+            ->where('delflag',0)
+            ->where('uniqeid', $accessid)
+            ->get();
+        
+        /* Logging */
+        $user = Auth::user();
+        if ($user !== NULL) {
+            $addinfo = array(
+                "userID" => $user["id"],
+                "userName" => $user["email"],
+                "className" => get_class($this),
+                "methodName" => __METHOD__,
+            );
+        } else {
+            $addinfo = array(
+                "className" => get_class($this),
+                "methodName" => __METHOD__,
+            );
+        }
+        BaseClass::appLogger("access: /board/normal/reply/".$accessid ,$addinfo);
+        
+        return view("board.normal.reply")->with('boardNormal', $boardNormal);
+    }
     
     public function edit(Request $request)
     {
@@ -291,15 +323,10 @@ class normalController extends Controller
     
     ////////////////////////////////////////////////
     ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    //＿人人人人人人人人人＿
-    //＞ Utirity ＜
-    //￣Y^Y^Y^Y^Y^Y^Y^Y￣
-    ////////////////////////////////////////////////
+    // Utirity /////////////////////////////////////
     ////////////////////////////////////////////////
     ////////////////////////////////////////////////
 
-    
     /**
      * Image uploader Utility
      * uploadFilesTemporaryProcessing()
@@ -365,10 +392,7 @@ class normalController extends Controller
         return $restructurePath;
     }
     
-    public function replay($accessid) {
-        var_dump($accessid);
-        return "foobar";
-    }
+
     
     public function getStatus($statusNumber) {
         

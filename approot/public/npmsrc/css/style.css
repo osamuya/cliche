@@ -394,196 +394,6 @@ form {
     }
 }
 
-/* Board */
-.board {
-    form {
-        .selectpicker {
-            height: 30px;
-            border-radius: 0px;
-        }
-        input:-webkit-autofill {
-            -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-        }
-        label {
-            font-weight: normal;
-            text-align: left;
-        }
-        .control-label {
-            text-align: left !important;
-        }
-        input[type="radio"] {
-            width: 10%;
-            display: inline-block;
-            height: auto;
-        }
-        .errorMessage {
-            display: block;
-            margin-top: 10px;
-            .validationsError {
-                margin: 0;
-                color: #cc0000;
-            }
-        }
-        .surname{
-            display: inline-block;
-            width: 25%;
-        }
-        .firstname {
-            display: inline-block;
-            width: 25%;
-        }
-        .postNumber3 {
-            display: inline-block;
-            width: 15%;
-        }
-        .postNumber4 {
-            display: inline-block;
-            width: 20%;
-        }
-        .selectpicker {
-            height: 37px;
-        }
-        .telphoneAreacode {
-            display: inline-block;
-            width: 22%;
-        }
-        .telphoneCitycode {
-            display: inline-block;
-            width: 22%;
-        }
-        .telphoneSubscriber {
-            display: inline-block;
-            width: 22%;
-        }
-        .mobilephoneAreacode {
-            display: inline-block;
-            width: 22%;
-        }
-        .mobilephoneCitycode {
-            display: inline-block;
-            width: 22%;
-        }
-        .mobilephoneSubscriber {
-            display: inline-block;
-            width: 22%;
-        }
-        textarea {
-            width: 100% !important;
-            height: 150px;
-        }
-    }
-    
-    .btable {
-        &__line {
-            clear: both;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #c1c1c1;
-            margin-bottom: 20px;
-
-            &__trim {
-                float:left;
-                width: 50px;
-                overflow: hidden;
-                display: block;
-                height: 50px;
-                width: 50px;
-                position: relative;
-            }
-            img.bthumbnail50 {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                width: auto;
-                height: 170%;
-            }
-            img.originalImage {
-                position: static;
-                width: 100%;
-                
-            }
-            &__header {
-                margin-left: 60px;
-                &_title {
-                    font-size: 16px;
-                    
-                }
-                ul {
-                    display: block;
-/*                    float: left;*/
-                    li {
-/*                        float: left;*/
-                        display: inline-block;
-                        margin-right: 12px;
-/*                        margin-top:5px;*/
-                        font-size: 12px;
-                    }
-                }
-            }
-            &__header_meta {
-                ul {
-                    li {
-                        float: left;
-                        margin-right: 10px;
-                    }
-                }
-            }
-            &__contents {
-                clear: both;
-                padding-top: 10px;
-            }
-            &__tagarea {
-                clear: both;
-                margin-top: 17px;
-                font-size: 11px;
-            }
-            &__footer {
-                clear: both;
-                margin-top: 17px;
-                font-size: 11px;
-            }
-            
-            /* reply */
-            &__reply {
-                background: #f5f5f5;
-                padding: 17px;
-                border-radius: 5px;
-                
-            }
-            &__replytext {
-                clear: both;
-                
-            }
-            &__repfooter {
-                border-bottom: 1px solid #c1c1c1;
-                padding: 10px 0;
-                text-align: right;
-            }
-        }
-    }
-}
-
-
-.reply {
-    &__form {
-        margin-top: 30px;
-    }
-}
-
-
-
-
-
-
-.cf {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-
 
 
 
@@ -598,6 +408,7 @@ h1 {
 
 h2 {
     font-size: 27px;
+    line-height: 37px;
 }
 
 h3 {
@@ -622,6 +433,7 @@ h6 {
 
 .h2 {
     font-size: 27px;
+    line-height: 37px;
 }
 
 .h3 {

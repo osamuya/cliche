@@ -211,14 +211,15 @@
                 <div class="board">
                     <div class="btable">
                         
-                        
+                        @if (count($boardNormal) > 0)
                         @foreach ($boardNormal as $line)
                         <?php
-                            /* Sen parameter */
+                            /* Set parameter */
                             $title = mb_substr($line->submission, 0, 25);
                             $files = unserialize($line->files);
                             $multipleSelects = unserialize($line->multipleSelects);
                             $updated = date("Y.n.j(D) H:i",strtotime($line->updated_at));
+                            $replyURI = "/board/normal/reply/".strtolower($line->uniqeid);
                         ?>
                         
                         {{--
@@ -296,15 +297,20 @@
                                 ?>
                                 </div><!-- end nblog__thumbnail_board -->
                                 
+
+            
                                 <div class="btable__line__tagarea">
-                                    
-                                    @foreach ($multipleSelects as $select)
-                                        @if ($select !== NULL)
-                                        <i class="fa fa-tag fa-sm"></i>
-                                        <a href="#">{{ $select }}</a></a>
-                                        @endif
-                                    @endforeach
+                                    <a class="btn btn-default" data-toggle="modal" href="<?php echo $replyURI; ?>">
+                                        この投稿を詳しくみる
+                                    </a>
                                 </div>
+            
+            
+            
+            
+            
+            
+            
                                 <div class="btable__line__tagarea">
                                     <a class="btn btn-default" data-toggle="modal" data-target="#<?php echo $line->uniqeid."__edit"; ?>">
                                     削除・編集
@@ -486,13 +492,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
 
                                                 </div>
                                                 <div class="modal-footer">
@@ -509,107 +508,7 @@
                                     </div>
                                 </div>
                                 
-                            <!-- reply Edit Delete pannel -->
-                            <div class="btable__line__reply mt30">
-                                
-                                <div class="reply__board">
-                                    <div class="btable__line__header_meta">
-                                        <ul>
-                                            <li><i class="fa fa-user-circle"></i><strong>{{ $line->nickname }}</strong></li>
-                                            <li><i class="fa fa-transgender"></i></i>{{ $line->sex }}</li>
-                                            <li class="{{ $line->created_at }}"><i class="fa fa-table fa-sm"></i> {{ $updated }}</li>
-                                        </ul>
-                                
-                                        <div class="btable__line__replytext pt10 pb10">
-                                            replayreplayreplayreplayreplayreplayreplayreplayreplay
-                                        </div>
-                                        <div class="btable__line__repfooter">
-                                            <a class="btn btn-default" data-toggle="modal" data-target="#xxxxx">
-                                              編集・削除
-                                            </a>
-                                            <div class="modal fade" id="xxxxx" tabindex="-1">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-                                                            <h4 class="modal-title">タイトル</h4>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            本文
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                                                            <button type="button" class="btn btn-primary">ボタン</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                    </div>
-                                    <div class="btable__line__header_meta">
-                                        <ul>
-                                            <li><i class="fa fa-user-circle"></i><strong>{{ $line->nickname }}</strong></li>
-                                            <li><i class="fa fa-transgender"></i></i>{{ $line->sex }}</li>
-                                            <li class="{{ $line->created_at }}"><i class="fa fa-table fa-sm"></i> {{ $updated }}</li>
-                                        </ul>
-                                
-                                        <div class="btable__line__replytext pt10 pb10">
-                                            replayreplayreplayreplayreplayreplayreplayreplayreplay
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="reply__form mt30 cf">
-                                    <h4>この投稿にReply</h4>
-                                    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="/board/normal/reply/{{ $line->uniqeid }}" novalidate="novalidate">
-                                        {{ csrf_field() }}
 
-                                        {{-- ニックネーム --}}
-                                        <div class="form-group">
-                                            <label for="nickname" class="col-md-4 control-label pb10">ニックネーム</label>
-                                            <div class="col-md-12">
-                                                <input id="nickname" type="text" class="form-control nickname" name="nickname" value="{{old('nickname')}}">
-                                                <div class="errorMessage">
-                                                    <p class="validationsError">{{$errors->first('nickname')}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {{-- Email --}}
-                                        <div class="form-group">
-                                            <label for="email" class="col-md-4 control-label pb10">Email</label>
-                                            <div class="col-md-12">
-                                                <input id="email" type="email" class="form-control" name="email" value="{{old('email')}}">
-                                                <div class="errorMessage">
-                                                    <p class="validationsError">{{$errors->first('email')}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        {{-- 投稿 --}}
-                                        <div class="form-group">
-                                            <label for="submission" class="col-md-4 control-label pb10">投稿内容</label>
-                                            <div class="col-md-12">
-                                                <textarea name="submission">{{old('submission')}}</textarea>
-                                                <div class="errorMessage">
-                                                    <p class="validationsError">{{$errors->first('submission')}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <button type="submit" class="btn btn-primary">
-                                                    投稿内容を確認する
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                
-                            </div>
-                            <!-- end reply Edit Delete pannel -->
                                 
                             </div>
                             <div class="btable__line__footer">
@@ -629,6 +528,11 @@
                             btable__line end
                         --}}
                         @endforeach
+                        @else
+                        <!--nothing-->
+                        @endif
+                        
+
                         
                     </div>
                 </div>{{--board--}}
