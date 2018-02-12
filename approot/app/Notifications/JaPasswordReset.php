@@ -6,9 +6,13 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Auth\Notifications\ResetPassword;
 
 class JaPasswordReset extends Notification
 {
+    /** @var string */
+    public $token;
+
     use Queueable;
 
     /**
@@ -16,9 +20,9 @@ class JaPasswordReset extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**
@@ -40,10 +44,16 @@ class JaPasswordReset extends Notification
      */
     public function toMail($notifiable)
     {
+        
+        
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+//                    ->line('The introduction to the notification.')
+//                    ->action('Notification Action', url('/'))
+//                    ->line('Thank you for using our application!');
+            ->subject(__(env('APP_NAME').' パスワード再設定'))
+//            ->view('emails.reset')
+            ->view('vendor.notifications.email')
+            ->action(__('Reset Password'), url('password/reset', $this->token));
     }
 
     /**
