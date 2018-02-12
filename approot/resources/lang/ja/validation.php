@@ -136,6 +136,7 @@ return [
 		'sex' => '性別',
 		'deltekey' => '削除キー',
 		'dimensions' => '適切な画像の大きさにしてください。',
+        'editkey' => '編集・削除キー',
         
 
 	],

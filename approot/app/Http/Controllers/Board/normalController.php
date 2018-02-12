@@ -29,6 +29,20 @@ class normalController extends Controller
     public function __construct() {
 
     }
+
+    
+    
+    
+    
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    //＿人人人人人人人人人＿
+    //＞ CRUD ＜
+    //￣Y^Y^Y^Y^Y^Y^Y^Y￣
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     
     public function index(Request $request)
     {
@@ -41,11 +55,6 @@ class normalController extends Controller
             ->where('delflag',0)
             ->orderBy('id','desc')
             ->get();
-        
-        
-        
-        
-        
         
         /* Logging */
         $user = Auth::user();
@@ -67,7 +76,12 @@ class normalController extends Controller
     }
     
     
-    
+    /**
+     * confirm()
+     *
+     *
+     *
+     */
     public function confirm(Request $request) {
         
         $this->validate($request, [
@@ -78,7 +92,8 @@ class normalController extends Controller
             'sex' => 'required',
             'submission' => 'required|max:3000',
             'file1' => 'file|image|mimes:jpeg,bmp,png|dimensions:min_width=100,min_height=100,max_width=3600,max_height=3600',
-            'multipleSelect0' => 'required_without_all:,multipleSelect1,multipleSelect2,multipleSelect3,multipleSelect4'
+            'multipleSelect0' => 'required_without_all:,multipleSelect1,multipleSelect2,multipleSelect3,multipleSelect4',
+            'editkey' => 'required|min:4|max:32',
         ],[
             'multipleSelect0.required_without_all' => 'どれか一つ以上を選択してください。',
         ]);
@@ -96,6 +111,7 @@ class normalController extends Controller
 //        var_dump($request->input('multipleSelect2'));
 //        var_dump($request->input('multipleSelect3'));
 //        var_dump($request->input('multipleSelect4'));
+        var_dump($request->input('editkey'));
         
         /**====================================================
          * Image file upload
@@ -121,18 +137,40 @@ class normalController extends Controller
             array_push($imagesPaths, $publishedPath2);
             
             $pathParts2 = pathinfo($publishedPath2);
+            $file2_fullpath = storage_path()."/app/public/pics/".$pathParts2["filename"].'.'.$pathParts2["extension"];
+            $re80_2 = $this->makeImageThumbnail($file2_fullpath, 80);
+            $re300_2 = $this->makeImageThumbnail($file2_fullpath, 300);
+            $re600_2 = $this->makeImageThumbnail($file2_fullpath, 600);
         }
         if ($request->file('file3')) {
             $publishedPath3 = $this->uploadFilesTemporaryProcessing($request->file('file3'),$prefix="TMPPIC");
             array_push($imagesPaths, $publishedPath3);
+            
+            $pathParts3 = pathinfo($publishedPath3);
+            $file3_fullpath = storage_path()."/app/public/pics/".$pathParts3["filename"].'.'.$pathParts3["extension"];
+            $re80_3 = $this->makeImageThumbnail($file3_fullpath, 80);
+            $re300_3 = $this->makeImageThumbnail($file3_fullpath, 300);
+            $re600_3 = $this->makeImageThumbnail($file3_fullpath, 600);
         }
         if ($request->file('file4')) {
             $publishedPath4 = $this->uploadFilesTemporaryProcessing($request->file('file4'),$prefix="TMPPIC");
             array_push($imagesPaths, $publishedPath4);
+            
+            $pathParts4 = pathinfo($publishedPath4);
+            $file4_fullpath = storage_path()."/app/public/pics/".$pathParts4["filename"].'.'.$pathParts4["extension"];
+            $re80_4 = $this->makeImageThumbnail($file4_fullpath, 80);
+            $re400_4 = $this->makeImageThumbnail($file4_fullpath, 400);
+            $re600_4 = $this->makeImageThumbnail($file4_fullpath, 600);
         }
         if ($request->file('file5')) {
             $publishedPath5 = $this->uploadFilesTemporaryProcessing($request->file('file5'),$prefix="TMPPIC");
             array_push($imagesPaths, $publishedPath5);
+            
+            $pathParts5 = pathinfo($publishedPath5);
+            $file5_fullpath = storage_path()."/app/public/pics/".$pathParts5["filename"].'.'.$pathParts5["extension"];
+            $re80_5 = $this->makeImageThumbnail($file5_fullpath, 80);
+            $re500_5 = $this->makeImageThumbnail($file5_fullpath, 500);
+            $re600_5 = $this->makeImageThumbnail($file5_fullpath, 600);
         }
         
         /* Serialize for files */
@@ -155,7 +193,9 @@ class normalController extends Controller
         $request->session()->put('submission', $request->input('submission'));
         $request->session()->put('files', $serializedFiles);
         $request->session()->put('multipleSelects', $serializedMultipleSelects);
+        $request->session()->put('editkey', $request->input('editkey'));
         
+        /* send flag */
         $request->session()->put('sended', 'true');
         
         /* view */
@@ -168,9 +208,16 @@ class normalController extends Controller
             'submission' => $request->input('submission'),
             'files' => $imagesPaths,
             'multipleSelects' => $multipleSelects,
+            'editkey' => $request->input('editkey'),
         ]);
     }
     
+    /**
+     * store()
+     *
+     * @para $request
+     * @return view()
+     */
     public function store(Request $request) {
         
         if ($request->session()->get('sended') == 'true') {
@@ -187,6 +234,7 @@ class normalController extends Controller
         $saveString .= $request->session()->get('submission')."\t";
         $saveString .= $request->session()->get('files');
         $saveString .= $request->session()->get('multipleSelects')."\t";
+        $saveString .= $request->session()->get('editkey')."\t";
 
         /* Logging */
         $user = Auth::user();
@@ -209,10 +257,6 @@ class normalController extends Controller
         
         Log::info('なんらかのメッセージとか。 ID:');
         
-        
-        
-        
-        
         /* Data set */
         $uniqeid = BaseClass::makeUniqeid("BNA");
         
@@ -229,6 +273,7 @@ class normalController extends Controller
         $boardNormal->files = $request->session()->get('files');
         $boardNormal->multipleSelects = $request->session()->get('multipleSelects');
         $boardNormal->remark = "";
+        $boardNormal->editkey = encrypt($request->session()->get('editkey'));
         $boardNormal->status = 1;
         $boardNormal->delflag = 0;
         $boardNormal->save();
@@ -238,9 +283,22 @@ class normalController extends Controller
     }
     
     
+    public function edit(Request $request)
+    {
     
+            return "edit";
+    }
     
-    
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    //＿人人人人人人人人人＿
+    //＞ Utirity ＜
+    //￣Y^Y^Y^Y^Y^Y^Y^Y￣
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+
     
     /**
      * Image uploader Utility
