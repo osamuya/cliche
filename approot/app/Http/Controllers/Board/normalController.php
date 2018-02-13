@@ -285,8 +285,41 @@ class normalController extends Controller
     
     public function edit(Request $request)
     {
-    
-            return "edit";
+        $id = $request->input('id');
+        $uniqeid = $request->input('uniqeid');
+        $category = $request->input('category');
+        $nickname = $request->input('nickname');
+        $email = $request->input('email');
+        $prefectures = $request->input('prefectures');
+        $sex = $request->input('sex');
+        $submission = $request->input('submission');
+        $files = $request->input('files');
+        $multipleSelects = $request->input('multipleSelects');
+        $remark = $request->input('remark');
+        $editkey = $request->input('editkey');
+        $status = $request->input('status');
+        $delflag = $request->input('delflag');
+        $created_at = $request->input('created_at');
+        $updated_at = $request->input('updated_at');
+
+        \Debugbar::info($id);
+        \Debugbar::info($uniqeid);
+        \Debugbar::info($category);
+        \Debugbar::info($nickname);
+        \Debugbar::info($email);
+        \Debugbar::info($prefectures);
+        \Debugbar::info($sex);
+        \Debugbar::info($submission);
+        \Debugbar::info($files);
+        \Debugbar::info($multipleSelects);
+        \Debugbar::info($remark);
+        \Debugbar::info($editkey);
+        \Debugbar::info($status);
+        \Debugbar::info($delflag);
+        \Debugbar::info($created_at);
+        \Debugbar::info($updated_at);
+
+        return "hoge";
     }
     
     ////////////////////////////////////////////////

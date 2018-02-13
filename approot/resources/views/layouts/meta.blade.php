@@ -10,7 +10,7 @@
 	<title>{{ $parameter->app_name }}</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="{{ env('APP_NAME') }}">
-	<meta name="csrf-token" content="">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ env('APP_URL') }}">
 	<meta property="og:image" content="">

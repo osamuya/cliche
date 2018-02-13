@@ -20,6 +20,11 @@ Route::match(['get', 'post'],'/board/normal', 'Board\normalController@index');
 Route::post('/board/normal/confirm', 'Board\normalController@confirm');
 Route::post('/board/normal/stored', 'Board\normalController@store');
 
+/* main edit */
+Route::post('/board/normal/edit', 'Board\normalController@edit');
+
+
+
 /* contact */
 Route::match(['get', 'post'],'/contact', 'Contact\ContactController@index');
 Route::post('/contact/confirm', 'Contact\ContactController@confirm');
