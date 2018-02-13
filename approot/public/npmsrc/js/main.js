@@ -2,6 +2,7 @@
 import Sample from './lib/sample';
 import Util from './lib/util';
 import $ from 'jquery';
+//import request from 'superagent';
 
 const sample = new Sample({
     name: 'world'

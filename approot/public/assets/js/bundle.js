@@ -11379,7 +11379,7 @@ var Util = function () {
 }();
 
 exports.default = Util;
-;
+; // Util
 
 },{"babel-runtime/helpers/classCallCheck":2,"babel-runtime/helpers/createClass":3}],24:[function(require,module,exports){
 'use strict';
@@ -11397,6 +11397,8 @@ var _jquery = require('jquery');
 var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//import request from 'superagent';
 
 var sample = new _sample2.default({
 	name: 'world'
