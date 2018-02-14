@@ -21,6 +21,7 @@
 	<link rel="shortcut icon" href=""/>
 	<!--Bootstrap-->
 	<script src="/assets/js/jquery-1.11.3.min.js"></script>
+    <script src="/assets/js/superagent.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 	<!--css-->

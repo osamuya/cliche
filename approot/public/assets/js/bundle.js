@@ -11416,6 +11416,15 @@ util.test();
 util.fileUploaderHelper();
 util.threadOpener();
 
+var request = window.superagent;
+
+// SuperAgent ES6のclassではどうやって書くの？
+request.get('/').end(function (err, res) {
+	console.log(res.text); //レスポンス
+	//レスポンスがJSONの場合 
+	console.log(res.body); //ここにparse済みのオブジェクトが入る
+});
+
 /* footerFixed.js */
 /* http://blog.webcreativepark.net*/
 new function () {
