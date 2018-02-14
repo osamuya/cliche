@@ -2,7 +2,7 @@
 import Sample from './lib/sample';
 import Util from './lib/util';
 import $ from 'jquery';
-//import request from 'superagent';
+import request from 'superagent';
 
 const sample = new Sample({
     name: 'world'
@@ -24,7 +24,7 @@ util.threadOpener();
 
 
 
-var request = window.superagent;
+//var request = require('superagent');
 
 // SuperAgent ES6のclassではどうやって書くの？
 request
