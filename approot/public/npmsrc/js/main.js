@@ -2,6 +2,7 @@
 import Sample from './lib/sample';
 import Util from './lib/util';
 import $ from 'jquery';
+import request from 'superagent';
 
 const sample = new Sample({
     name: 'world'
@@ -20,6 +21,21 @@ util.test();
 /* Webpage GUI Utirity */
 util.fileUploaderHelper();
 util.threadOpener();
+
+
+
+//var request = require('superagent');
+
+// SuperAgent ES6のclassではどうやって書くの？
+request
+    .get('/')
+    .end(function(err, res){
+    console.log(res.text);//レスポンス
+    //レスポンスがJSONの場合 
+    console.log(res.body);//ここにparse済みのオブジェクトが入る
+});
+
+
 
 /* footerFixed.js */
 /* http://blog.webcreativepark.net*/

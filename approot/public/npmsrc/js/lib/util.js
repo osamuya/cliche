@@ -61,10 +61,8 @@ export default class Util {
                 }
                 
                 console.log(targetName);
-                
-                
             });
         });
     }
     
-};
+}; // Util
