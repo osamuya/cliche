@@ -31,9 +31,18 @@
         <li><a href="/ajax/get_json">/ajax/get_json</a></li>
         <li><a href="/ajax/post_string">/ajax/post_string</a></li>
 <!--        <li><a href="/ajax/post_xml">/ajax/post_xml</a></li>-->
-        <li><a href="/ajax/post_json">/ajax/post_json</a></li>
+        <li><a href="/ajax/post_json">/ajax/post_json</a>(壊れてるわ、これ。)</li>
     </ul>
 
+    <h3>Super Agent</h3>
+    <ul>
+        <li><a href="/ajax/superagent/get/string">/ajax/superagent/string</a></li>
+        <li><a href="/ajax/superagent/post/string">/ajax/superagent/string</a></li>
+        <li><a href="/ajax/superagent/get/json">/ajax/superagent/string</a></li>
+        <li><a href="/ajax/superagent/post/json">/ajax/superagent/string</a></li>
+    </ul>
+            
+            
 <h2>Image</h2>
     <ul>
         <li><a href="/intervention/image">/intervention/image</a></li>

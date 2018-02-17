@@ -37,6 +37,7 @@
     "postcss-utilities": "^0.6.1",
     "precss": "^1.4.0",
     "pug-cli": "^1.0.0-alpha6",
-    "watchify": "^3.10.0"
+    "superagent": "^3.8.2",
+    "watchify": "^3.8.0"
   }
 }

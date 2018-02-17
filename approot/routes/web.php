@@ -63,6 +63,17 @@ Route::post('/api/ajax/post_string', 'Test\TestController@ajax_post_string');
 //Route::get('/api/ajax/post_xml', 'Test\TestController@ajax_post_xml');
 Route::post('/api/ajax/post_json', 'Test\TestController@ajax_post_json');
 
+/* Super Agent Ajax */
+//        <li><a href="/ajax/superagent/get/string">/ajax/superagent/string</a></li>
+//        <li><a href="/ajax/superagent/post/string">/ajax/superagent/string</a></li>
+//        <li><a href="/ajax/superagent/get/json">/ajax/superagent/string</a></li>
+//        <li><a href="/ajax/superagent/post/json">/ajax/superagent/string</a></li>
+
+Route::get('/ajax/superagent/get/string', function(){ return view('develop.superagent_get_string'); });
+Route::get('/ajax/superagent/post/string', function(){ return view('develop.superagent_post_string'); });
+Route::get('/ajax/superagent/get/json', function(){ return view('develop.superagent_get_json'); });
+Route::get('/ajax/superagent/post/json', function(){ return view('develop.superagent_post_json'); });
+
 /**
  * Develop page
  *
