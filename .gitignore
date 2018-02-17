@@ -1,5 +1,4 @@
 .DS_Store
 DOCMENT.md
 approot/public/node_modules
-approot/.ENV
-
+approot/.env
