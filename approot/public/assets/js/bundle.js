@@ -13311,6 +13311,55 @@ exports.default = Sample;
 ;
 
 },{"babel-runtime/helpers/classCallCheck":2}],30:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require("babel-runtime/helpers/createClass");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Superagent = function () {
+    function Superagent() {
+        var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        (0, _classCallCheck3.default)(this, Superagent);
+
+
+        this.name = opts.name;
+        this.item = opts.item;
+        //        console.log(this.name);
+        //        console.log(this.item);
+    }
+
+    (0, _createClass3.default)(Superagent, [{
+        key: "superagentTest",
+
+
+        /**
+         * threadOpener()
+         * get file path on file uploader
+         */
+        value: function superagentTest() {
+            $(function () {
+                console.log("Superagent test");
+            });
+        }
+    }]);
+    return Superagent;
+}();
+
+exports.default = Superagent;
+; // Superagent
+
+},{"babel-runtime/helpers/classCallCheck":2,"babel-runtime/helpers/createClass":3}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -13412,7 +13461,7 @@ var Util = function () {
 exports.default = Util;
 ; // Util
 
-},{"babel-runtime/helpers/classCallCheck":2,"babel-runtime/helpers/createClass":3}],31:[function(require,module,exports){
+},{"babel-runtime/helpers/classCallCheck":2,"babel-runtime/helpers/createClass":3}],32:[function(require,module,exports){
 'use strict';
 
 var _sample = require('./lib/sample');
@@ -13431,6 +13480,10 @@ var _superagent = require('superagent');
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
+var _superagent3 = require('./lib/superagent');
+
+var _superagent4 = _interopRequireDefault(_superagent3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var sample = new _sample2.default({
@@ -13442,6 +13495,12 @@ var util = new _util2.default({
 	item: 'bar'
 });
 
+//const ajaxSuperagent = new ajaxSuperagent({
+//    
+//    name: 'yama',
+//    item: 'kami'
+//});
+
 /* Utirity test. Check console.log */
 util.test();
 
@@ -13449,14 +13508,24 @@ util.test();
 util.fileUploaderHelper();
 util.threadOpener();
 
-//var request = require('superagent');
+/* Superagent */
 
+//ajaxSuperagent.superagentTest();
+/* ES6的にSuperagentを使うにはどうすればよいか？const? let? var? */
+
+//    alert("foo!");
+
+
+//var request = require('superagent');
 // SuperAgent ES6のclassではどうやって書くの？
-_superagent2.default.get('/').end(function (err, res) {
-	console.log(res.text); //レスポンス
-	//レスポンスがJSONの場合 
-	console.log(res.body); //ここにparse済みのオブジェクトが入る
-});
+//request
+//    .get('/')
+//    .end(function(err, res){
+//    console.log(res.text);//レスポンス
+//    //レスポンスがJSONの場合 
+//    console.log(res.body);//ここにparse済みのオブジェクトが入る
+//});
+
 
 /* footerFixed.js */
 /* http://blog.webcreativepark.net*/
@@ -13523,4 +13592,4 @@ new function () {
 	addEvent(window, "resize", footerFixed);
 }();
 
-},{"./lib/sample":29,"./lib/util":30,"jquery":21,"superagent":23}]},{},[31]);
+},{"./lib/sample":29,"./lib/superagent":30,"./lib/util":31,"jquery":21,"superagent":23}]},{},[32]);

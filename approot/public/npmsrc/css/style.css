@@ -35,6 +35,7 @@ body {
 
 /* jumbotron slide for top page */
 .jumbotron {
+
     margin-top: -68px;
     margin-bottom: 0;
     padding-bottom: 0 !important;
@@ -66,6 +67,10 @@ body {
 
 /* Global Navigation */
 .navbar {
+    @mixin xs {
+        display: none !important;
+        
+    }
     background: #fff;
 }
 

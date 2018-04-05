@@ -3,6 +3,7 @@ import Sample from './lib/sample';
 import Util from './lib/util';
 import $ from 'jquery';
 import request from 'superagent';
+import ajaxSuperagent from './lib/superagent';
 
 const sample = new Sample({
     name: 'world'
@@ -13,7 +14,11 @@ const util = new Util({
     item: 'bar'
 });
 
-
+//const ajaxSuperagent = new ajaxSuperagent({
+//    
+//    name: 'yama',
+//    item: 'kami'
+//});
 
 /* Utirity test. Check console.log */
 util.test();
@@ -22,18 +27,24 @@ util.test();
 util.fileUploaderHelper();
 util.threadOpener();
 
+/* Superagent */
+
+//ajaxSuperagent.superagentTest();
+/* ES6的にSuperagentを使うにはどうすればよいか？const? let? var? */
+
+//    alert("foo!");
+
 
 
 //var request = require('superagent');
-
 // SuperAgent ES6のclassではどうやって書くの？
-request
-    .get('/')
-    .end(function(err, res){
-    console.log(res.text);//レスポンス
-    //レスポンスがJSONの場合 
-    console.log(res.body);//ここにparse済みのオブジェクトが入る
-});
+//request
+//    .get('/')
+//    .end(function(err, res){
+//    console.log(res.text);//レスポンス
+//    //レスポンスがJSONの場合 
+//    console.log(res.body);//ここにparse済みのオブジェクトが入る
+//});
 
 
 

@@ -17,10 +17,6 @@ class TestController extends Controller
     public function index()
     {
         var_dump(BaseClass::hello());
-        
-        
-        
-        
         return view("develop.text_index");
     }
     
@@ -52,6 +48,33 @@ class TestController extends Controller
         
         return "Ajax Post Response ID:".$id." USER:".$user;
     }
+
+    /**
+     * SuperAgent Ajax
+     * @ https://github.com/visionmedia/superagent
+     * @ https://saba.omnioo.com/note/3749/es6%E3%81%A7superagent%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B/
+     */
+    public function superagentGetString() {
+        
+        
+        return true;
+    }
+    public function superagentPostString() {
+        
+        
+        return true;
+    }
+    public function superagentGetJson() {
+        
+        
+        return true;
+    }
+    public function superagentPostJson() {
+        
+        
+        return true;
+    }
+    
     
     public function interventionImage(Request $request) {
         
