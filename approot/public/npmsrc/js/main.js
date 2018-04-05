@@ -32,7 +32,7 @@ util.threadOpener();
 //ajaxSuperagent.superagentTest();
 /* ES6的にSuperagentを使うにはどうすればよいか？const? let? var? */
 
-    alert("foo!");
+//    alert("foo!");
 
 
 

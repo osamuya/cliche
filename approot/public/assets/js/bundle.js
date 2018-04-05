@@ -13513,7 +13513,8 @@ util.threadOpener();
 //ajaxSuperagent.superagentTest();
 /* ES6的にSuperagentを使うにはどうすればよいか？const? let? var? */
 
-alert("foo!");
+//    alert("foo!");
+
 
 //var request = require('superagent');
 // SuperAgent ES6のclassではどうやって書くの？
